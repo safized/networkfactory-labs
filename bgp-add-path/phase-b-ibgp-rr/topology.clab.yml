@@ -1,0 +1,53 @@
+# BGP ADD-PATH lab, phase-b-ibgp-rr. Deploy with: sudo containerlab deploy -t topology.clab.yml
+name: addpath-b
+topology:
+  defaults:
+    kind: linux
+    image: quay.io/frrouting/frr:10.2.1
+    sysctls:
+      net.ipv4.ip_forward: 1
+      net.ipv4.fib_multipath_hash_policy: 1   # hash on L4 ports, like a fabric switch
+  nodes:
+    leaf1:
+      binds:
+        - ../common/daemons:/etc/frr/daemons
+        - ../common/vtysh.conf:/etc/frr/vtysh.conf
+        - leaf1.conf:/etc/frr/frr.conf
+    rr1:
+      binds:
+        - ../common/daemons:/etc/frr/daemons
+        - ../common/vtysh.conf:/etc/frr/vtysh.conf
+        - rr1.conf:/etc/frr/frr.conf
+    border1:
+      binds:
+        - ../common/daemons:/etc/frr/daemons
+        - ../common/vtysh.conf:/etc/frr/vtysh.conf
+        - border1.conf:/etc/frr/frr.conf
+    border2:
+      binds:
+        - ../common/daemons:/etc/frr/daemons
+        - ../common/vtysh.conf:/etc/frr/vtysh.conf
+        - border2.conf:/etc/frr/frr.conf
+    dcgw:
+      binds:
+        - ../common/daemons:/etc/frr/daemons
+        - ../common/vtysh.conf:/etc/frr/vtysh.conf
+        - dcgw.conf:/etc/frr/frr.conf
+    h1:
+      image: nicolaka/netshoot:latest
+      exec:
+        - ip addr add 10.20.1.10/24 dev eth1
+        - ip route add 10.99.0.0/24 via 10.20.1.1
+    h2:
+      image: nicolaka/netshoot:latest
+      exec:
+        - ip addr add 10.99.0.10/24 dev eth1
+        - ip route add 10.20.1.0/24 via 10.99.0.1
+  links:
+    - endpoints: ["leaf1:eth1", "border1:eth1"]
+    - endpoints: ["leaf1:eth2", "border2:eth1"]
+    - endpoints: ["leaf1:eth3", "rr1:eth1"]
+    - endpoints: ["border1:eth2", "dcgw:eth1"]
+    - endpoints: ["border2:eth2", "dcgw:eth2"]
+    - endpoints: ["leaf1:eth9", "h1:eth1"]
+    - endpoints: ["dcgw:eth9", "h2:eth1"]
