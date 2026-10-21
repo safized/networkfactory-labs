@@ -5,7 +5,7 @@
 #   Phase B: ./watch-links.sh clab-addpath-b-leaf1  eth1 eth2   (leaf toward border1, border2)
 set -euo pipefail
 node=$1; a=$2; b=$3
-tx() { sudo docker exec "$node" cat "/sys/class/net/$1/statistics/tx_bytes"; }
+tx() { docker exec "$node" cat "/sys/class/net/$1/statistics/tx_bytes"; }
 pa=$(tx "$a"); pb=$(tx "$b")
 printf '%-8s %14s %14s\n' time "$a Mb/s" "$b Mb/s"
 while sleep 1; do

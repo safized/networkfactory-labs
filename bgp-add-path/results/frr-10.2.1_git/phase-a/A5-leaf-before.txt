@@ -1,0 +1,10 @@
+### leaf1# show bgp ipv4 unicast 10.99.0.0/24
+BGP routing table entry for 10.99.0.0/24, version 6
+Paths: (1 available, best #1, table default)
+  Advertised to non peer-group peers:
+  10.0.1.1
+  65000 65021 65099
+    10.0.1.1 from 10.0.1.1 (10.255.0.1)
+      Origin IGP, valid, external, best (First path received)
+      Last update: Wed Oct 21 23:10:15 2026
+

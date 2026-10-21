@@ -10,7 +10,9 @@ A two-phase lab on FRR (the routing suite inside Cumulus Linux and SONiC), run w
 ![Phase A](images/phase-a-ebgp.svg)
 ![Phase B](images/phase-b-ibgp-rr.svg)
 
-**Time:** about 90 minutes. **Resources:** 4 vCPU, 4 GB RAM is plenty (seven small containers).
+**Time:** about 90 minutes by hand, or 10 minutes with `verify.py`. **Resources:** 4 vCPU, 4 GB RAM is plenty (seven small containers).
+
+**Validated:** FRR 10.2.1 with containerlab 0.81.1 on Ubuntu 24.04, both phases 6/6 with `verify.py`. Raw outputs are in [`results/`](results/).
 **Standards:** ADD-PATH is RFC 7911; route reflection is RFC 4456.
 
 > Commands and expected behavior below are written for FRR 10.x. Outputs differ slightly between releases. **Capture your real outputs**; they become the screenshots for the article and the talk.
@@ -20,29 +22,44 @@ A two-phase lab on FRR (the routing suite inside Cumulus Linux and SONiC), run w
 ## 0. Prepare (once)
 
 ```bash
-# Docker
-curl -fsSL https://get.docker.com | sudo sh
-# containerlab
-bash -c "$(curl -sL https://get.containerlab.dev)"
-# images
-sudo docker pull quay.io/frrouting/frr:10.2.1
-sudo docker pull nicolaka/netshoot:latest
+sudo apt-get update && sudo apt-get install -y docker.io      # Docker (Ubuntu)
+sudo usermod -aG docker $USER                                   # Docker without sudo
+bash -c "$(curl -sL https://get.containerlab.dev)"              # containerlab
+sudo usermod -aG clab_admins $USER                              # containerlab without sudo
+# log out and back in, then:
+docker pull quay.io/frrouting/frr:10.2.1
+docker pull nicolaka/netshoot:latest
 ```
 
 Regenerate configurations at any time with `python3 generate.py` (all addressing lives there).
 
 Shortcuts used below (bash):
 ```bash
-v() { sudo docker exec "clab-addpath-$1-$2" vtysh -c "$3"; }      # v a spine1 "show bgp summary"
-x() { lab=$1 node=$2; shift 2; sudo docker exec "clab-addpath-$lab-$node" "$@"; }
+v() { docker exec "clab-addpath-$1-$2" vtysh -c "$3"; }      # v a spine1 "show bgp summary"
+x() { lab=$1 node=$2; shift 2; docker exec "clab-addpath-$lab-$node" "$@"; }
 ```
+
+### Automated run (recommended before every presentation)
+
+`verify.py` runs every step below, asserts the expected state, measures traffic and failover, and saves all outputs to `results/<frr-version>/`. Standard library only, no virtual environment needed.
+
+```bash
+cd phase-a-ebgp && containerlab deploy -t topology.clab.yml && cd ..
+python3 verify.py a
+cd phase-a-ebgp && containerlab destroy -t topology.clab.yml --cleanup && cd ..
+cd phase-b-ibgp-rr && containerlab deploy -t topology.clab.yml && cd ..
+python3 verify.py b --failover
+cd phase-b-ibgp-rr && containerlab destroy -t topology.clab.yml --cleanup && cd ..
+```
+
+Each phase must start from a fresh deploy, because the steps change the configuration. The manual walkthrough below is the same sequence, for presenting live.
 
 ---
 
 ## Phase A: eBGP fabric
 
 ```bash
-cd phase-a-ebgp && sudo containerlab deploy -t topology.clab.yml && cd ..
+cd phase-a-ebgp && containerlab deploy -t topology.clab.yml && cd ..
 ```
 
 ### A1. Baseline: every session up
@@ -74,7 +91,7 @@ Look for: all traffic on one spine link (toward the best path's border), the oth
 
 ### A4. Turn on multipath-relax (the knob that actually creates ECMP here)
 ```bash
-sudo docker exec -it clab-addpath-a-spine1 vtysh
+docker exec -it clab-addpath-a-spine1 vtysh
 configure terminal
 router bgp 65000
  bgp bestpath as-path multipath-relax
@@ -87,7 +104,7 @@ Talking point: unequal shares with 8 flows are the hash collisions from the [ECM
 
 ### A5. Turn on ADD-PATH from the spine to the leaf
 ```bash
-sudo docker exec -it clab-addpath-a-spine1 vtysh
+docker exec -it clab-addpath-a-spine1 vtysh
 configure terminal
 router bgp 65000
  address-family ipv4 unicast
@@ -114,7 +131,7 @@ sleep 5; x a border1 ip link set eth2 up
 Record the packet loss. Repeat with and without multipath-relax.
 
 ```bash
-cd phase-a-ebgp && sudo containerlab destroy -t topology.clab.yml --cleanup && cd ..
+cd phase-a-ebgp && containerlab destroy -t topology.clab.yml --cleanup && cd ..
 ```
 
 ---
@@ -122,7 +139,7 @@ cd phase-a-ebgp && sudo containerlab destroy -t topology.clab.yml --cleanup && c
 ## Phase B: iBGP with an off-path route reflector
 
 ```bash
-cd phase-b-ibgp-rr && sudo containerlab deploy -t topology.clab.yml && cd ..
+cd phase-b-ibgp-rr && containerlab deploy -t topology.clab.yml && cd ..
 ```
 
 ### B1. Baseline: underlay and sessions
@@ -155,7 +172,7 @@ Look for: everything on eth1, nothing on eth2, although border2 and its link are
 
 ### B4. Turn on ADD-PATH on the route reflector
 ```bash
-sudo docker exec -it clab-addpath-b-rr1 vtysh
+docker exec -it clab-addpath-b-rr1 vtysh
 configure terminal
 router bgp 65000
  address-family ipv4 unicast
@@ -172,7 +189,7 @@ Look for: leaf1 now has **two paths**, both `multipath`, next hops 10.255.0.21 a
 
 ### B5. Selection policy: all paths, or best per AS?
 ```bash
-sudo docker exec -it clab-addpath-b-rr1 vtysh
+docker exec -it clab-addpath-b-rr1 vtysh
 configure terminal
 router bgp 65000
  address-family ipv4 unicast
@@ -183,13 +200,24 @@ clear bgp ipv4 unicast 10.255.0.11
 ```
 Look for: leaf1 is back to **one path**. Ask the audience why before revealing it: both paths come from the same neighboring AS (65099), so "best per AS" sends one. The selection policy is a design decision, not a default. Switch back to `addpath-tx-all-paths` afterwards.
 
-### B6 (optional). Backup paths at the borders
-Without ADD-PATH toward the borders, border1 never learns border2's exit (the reflector does not send its best path back to the router it came from). Enable `addpath-tx-all-paths` from rr1 toward 10.255.0.21 and 10.255.0.22 too, then repeat the failure test (`./failover-test.sh b`, and `x b border1 ip link set eth2 down` during the run) with and without it. Record the loss.
+### B6. Does ADD-PATH speed up failover? (measured: no, and it can loop)
+`python3 verify.py b --failover` fails border1's gateway link three times in each of three cases, with a ping flow (100 per second) that hashes through border1:
 
-Expect small differences in a seven-container lab: updates are few and fast. In production, with many prefixes, many peers and busy control planes, the time to compute and propagate a replacement is what ADD-PATH saves.
+| Case | Pings lost (10 ms each) | TTL exceeded |
+|---|---|---|
+| No ADD-PATH | 15, 15, 15 | 0 |
+| ADD-PATH to leaf1 | 14, 15, 14 | 0 |
+| ADD-PATH to leaf1 and both borders | 15, 14, 15 | **6, 6, 6** |
+
+What it shows:
+- **Convergence did not improve.** Each case loses about 150 ms, the time for border1's withdrawal to travel through rr1 to leaf1. Holding more paths does not shorten that journey.
+- **Backup paths at the borders created a transient loop.** Only border1 lacks a backup by default (the reflector never sends border1 its own path back, and its best path comes from border1). With ADD-PATH toward the borders, border1 gets border2's exit, but the only way to reach border2 is back through leaf1, which still sends the flow to border1 until the withdrawal arrives. The packets bounce until their TTL expires: `Time to live exceeded` from 10.0.1.3.
+- **Compare phase A:** about 50 ms there, because the spine peers directly with both borders and already holds both paths; a reflector adds a hop of propagation.
+
+Design lesson: a backup path speeds up failover only if it is reachable without going back through the router that is still sending you the traffic, for example over a direct link between the borders. Otherwise, protect the ingress: fast detection (BFD), and next-hop tracking so the leaf drops a path the moment its exit fails.
 
 ```bash
-cd phase-b-ibgp-rr && sudo containerlab destroy -t topology.clab.yml --cleanup && cd ..
+cd phase-b-ibgp-rr && containerlab destroy -t topology.clab.yml --cleanup && cd ..
 ```
 
 ---
@@ -212,7 +240,8 @@ Costs to mention: more paths means more memory and more update processing on eve
 3. **The fix (3 min):** ADD-PATH, live. Show B4, traffic on both links.
 4. **The twist (4 min):** run the same feature in an eBGP fabric and nothing changes in forwarding. Show A5. Why: next-hop rewrite. What actually works there: multipath-relax (A4).
 5. **The policy (2 min):** best-per-AS sends one path here. Show B5.
-6. **The decision table (3 min):** the table above, and the costs.
+6. **The myth (2 min):** "ADD-PATH gives you fast failover." Show B6: same 150 ms, and a loop when backups sit behind the ingress.
+7. **The decision table (2 min):** the table above, and the costs.
 
 Equivalent configuration for Cumulus Linux NVUE and Cisco NX-OS is in [EQUIVALENTS.md](EQUIVALENTS.md).
 

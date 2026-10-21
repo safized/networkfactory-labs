@@ -1,0 +1,104 @@
+### spine1# show bgp neighbors 10.0.1.0
+BGP neighbor is 10.0.1.0, remote AS 65011, local AS 65000, external link
+  Local Role: undefined
+  Remote Role: undefined
+Hostname: leaf1
+  BGP version 4, remote router ID 10.255.0.11, local router ID 10.255.0.1
+  BGP state = Established, up for 00:00:02
+  Last read 00:00:01, Last write 00:00:01
+  Hold time is 9 seconds, keepalive interval is 3 seconds
+  Configured hold time is 9 seconds, keepalive interval is 3 seconds
+  Configured tcp-mss is 0, synced tcp-mss is 9448
+  Configured conditional advertisements interval is 60 seconds
+  Neighbor capabilities:
+    4 Byte AS: advertised and received
+    Extended Message: advertised and received
+    AddPath:
+      IPv4 Unicast: TX advertised
+      IPv4 Unicast: RX advertised and received
+    Paths-Limit:
+      IPv4 Unicast: advertised (0) and received (0)
+    Long-lived Graceful Restart: advertised and received
+      Address families by peer:
+    Route refresh: advertised and received
+    Enhanced Route Refresh: advertised and received
+    Address Family IPv4 Unicast: advertised and received
+    Hostname Capability: advertised (name: spine1,domain name: n/a) received (name: leaf1,domain name: n/a)
+    Version Capability: not advertised not received
+    Graceful Restart Capability: advertised and received
+      Remote Restart timer is 120 seconds
+      Address families by peer:
+        none
+  Graceful restart information:
+    End-of-RIB send: IPv4 Unicast
+    End-of-RIB received: IPv4 Unicast
+    Local GR Mode: Helper*
+    Remote GR Mode: Helper
+    R bit: True
+    N bit: True
+    Timers:
+      Configured Restart Time(sec): 120
+      Received Restart Time(sec): 120
+      Configured LLGR Stale Path Time(sec): 0
+    IPv4 Unicast:
+      F bit: False
+      End-of-RIB sent: Yes
+      End-of-RIB sent after update: Yes
+      End-of-RIB received: Yes
+      Timers:
+        Configured Stale Path Time(sec): 360
+        LLGR Stale Path Time(sec): 0
+  Message statistics:
+    Inq depth is 0
+    Outq depth is 0
+                         Sent       Rcvd
+    Opens:                  2          2
+    Notifications:          1          0
+    Updates:               13         12
+    Keepalives:            17         17
+    Route Refresh:          0          0
+    Capability:             0          0
+    Total:                 33         31
+  Minimum time between advertisement runs is 0 seconds
+
+ For address family: IPv4 Unicast
+  Update group 2, subgroup 2
+  Packet Queue length 0
+  Advertise all paths via addpath
+  Community attribute sent to this neighbor(all)
+  2 accepted prefixes
+
+  Connections established 2; dropped 1
+  Last reset 00:00:03,  Notification sent (Cease/Other Configuration Change)
+  External BGP neighbor may be up to 1 hops away.
+Local host: 10.0.1.1, Local port: 58808
+Foreign host: 10.0.1.0, Foreign port: 179
+Nexthop: 10.0.1.1
+Nexthop global: fe80::a8c1:abff:fe49:9bc4
+Nexthop local: fe80::a8c1:abff:fe49:9bc4
+BGP connection: shared network
+BGP Connect Retry Timer in Seconds: 120
+Estimated round trip time: 0 ms
+Read thread: on  Write thread: on  FD used: 26
+
+
+
+### leaf1# show bgp ipv4 unicast 10.99.0.0/24
+BGP routing table entry for 10.99.0.0/24, version 13
+Paths: (2 available, best #1, table default)
+  Advertised to non peer-group peers:
+  10.0.1.1
+  65000 65021 65099
+    10.0.1.1 from 10.0.1.1 (10.255.0.1)
+      Origin IGP, valid, external, multipath, best (Nothing left to compare)
+      AddPath ID: RX 3, TX-All 0 TX-Best-Per-AS 0 TX-Best-Selected 0
+      Last update: Wed Oct 21 23:11:02 2026
+  65000 65022 65099
+    10.0.1.1 from 10.0.1.1 (10.255.0.1)
+      Origin IGP, valid, external, multipath
+      AddPath ID: RX 4, TX-All 0 TX-Best-Per-AS 0 TX-Best-Selected 0
+      Last update: Wed Oct 21 23:11:02 2026
+
+### leaf1# ip route show 10.99.0.0/24
+10.99.0.0/24 nhid 26 via 10.0.1.1 dev eth1 proto bgp metric 20 
+

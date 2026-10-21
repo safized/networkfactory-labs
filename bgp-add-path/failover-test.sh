@@ -4,5 +4,5 @@
 # Usage: ./failover-test.sh <a|b>
 set -euo pipefail
 lab=$1
-sudo docker exec "clab-addpath-$lab-h1" ping -c 2000 -i 0.01 -q 10.99.0.10 | tail -2
+docker exec "clab-addpath-$lab-h1" ping -c 2000 -i 0.01 -q 10.99.0.10 | tail -2
 echo "Each lost packet is about 10 ms of outage."
