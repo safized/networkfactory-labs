@@ -1,1 +1,1 @@
-border1 loses its gateway link: 5 of 800 pings lost (10 ms each), 0 TTL errors
+border1 loses its gateway link: 6 of 800 pings lost (10 ms each), 0 TTL errors

@@ -1,4 +1,4 @@
 border1 loses its gateway link; flow hashed through border1
-no ADD-PATH: lost [15, 14, 15] pings (10 ms each), TTL-exceeded errors [0, 0, 0]
-ADD-PATH to leaf1: lost [15, 15, 15] pings (10 ms each), TTL-exceeded errors [0, 0, 0]
-ADD-PATH to leaf1 and borders: lost [15, 15, 14] pings (10 ms each), TTL-exceeded errors [6, 6, 6]
+no ADD-PATH: lost [14, 15, 15] pings (10 ms each), TTL-exceeded errors [0, 0, 0]
+ADD-PATH to leaf1: lost [14, 15, 15] pings (10 ms each), TTL-exceeded errors [0, 0, 0]
+ADD-PATH to leaf1 and borders: lost [15, 15, 15] pings (10 ms each), TTL-exceeded errors [6, 6, 6]

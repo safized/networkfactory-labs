@@ -1,45 +1,45 @@
 ### leaf1# show ip ospf neighbor
 
 Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
-10.255.0.21       1 Full/-          12.025s           37.972s 10.0.1.1        eth1:10.0.1.0                        0     0     0
-10.255.0.22       1 Full/-          11.965s           38.116s 10.0.1.3        eth2:10.0.1.2                        0     0     0
-10.255.0.1        1 Full/-          11.965s           38.145s 10.0.1.5        eth3:10.0.1.4                        0     0     0
+10.255.0.21       1 Full/-          5.863s            34.441s 10.0.1.1        eth1:10.0.1.0                        3     0     0
+10.255.0.22       1 Full/-          5.889s            34.108s 10.0.1.3        eth2:10.0.1.2                        3     0     0
+10.255.0.1        1 Full/-          5.889s            34.109s 10.0.1.5        eth3:10.0.1.4                        3     0     0
 
 
 ### rr1# show bgp ipv4 unicast summary
 BGP router identifier 10.255.0.1, local AS number 65000 VRF default vrf-id 0
-BGP table version 2
-RIB entries 3, using 384 bytes of memory
+BGP table version 0
+RIB entries 0, using 0 bytes of memory
 Peers 3, using 50 KiB of memory
 
 Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
-10.255.0.11     4      65000         5         7        2    0    0 00:00:01            1        2 FRRouting/10.2.1_git
-10.255.0.21     4      65000         7         6        2    0    0 00:00:01            1        2 FRRouting/10.2.1_git
-10.255.0.22     4      65000         7         6        2    0    0 00:00:01            1        2 FRRouting/10.2.1_git
+10.255.0.11     4      65000         2         2        0    0    0 00:00:01            0        0 FRRouting/10.2.1_git
+10.255.0.21     4      65000         2         2        0    0    0 00:00:01            0        0 FRRouting/10.2.1_git
+10.255.0.22     4      65000         2         2        0    0    0 00:00:01            0        0 FRRouting/10.2.1_git
 
 Total number of neighbors 3
 
 ### border1# show bgp ipv4 unicast summary
 BGP router identifier 10.255.0.21, local AS number 65000 VRF default vrf-id 0
-BGP table version 2
-RIB entries 3, using 384 bytes of memory
+BGP table version 1
+RIB entries 1, using 128 bytes of memory
 Peers 2, using 33 KiB of memory
 
 Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
-10.0.2.1        4      65098        11        11        2    0    0 00:00:21            1        2 N/A
-10.255.0.1      4      65000         5         4        2    0    0 00:00:01            1        1 FRRouting/10.2.1_git
+10.0.2.1        4      65098         8         9        1    0    0 00:00:15            1        1 N/A
+10.255.0.1      4      65000         2         2        0    0    0 00:00:01            0        0 FRRouting/10.2.1_git
 
 Total number of neighbors 2
 
 ### wan# show bgp ipv4 unicast summary
 BGP router identifier 10.255.0.100, local AS number 65100 VRF default vrf-id 0
-BGP table version 2
-RIB entries 3, using 384 bytes of memory
+BGP table version 1
+RIB entries 1, using 128 bytes of memory
 Peers 2, using 33 KiB of memory
 
 Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
-10.0.3.0        4      65098        12        12        2    0    0 00:00:21            1        2 N/A
-10.0.3.2        4      65099        11        11        2    0    0 00:00:21            1        2 N/A
+10.0.3.0        4      65098         8         8        1    0    0 00:00:15            0        1 N/A
+10.0.3.2        4      65099         9         9        1    0    0 00:00:15            0        1 N/A
 
 Total number of neighbors 2
 

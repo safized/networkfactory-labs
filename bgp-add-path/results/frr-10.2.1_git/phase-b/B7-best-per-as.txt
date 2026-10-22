@@ -7,16 +7,16 @@ Paths: (2 available, best #1, table default)
       Origin IGP, metric 0, localpref 100, valid, internal, multipath, best (Router ID)
       Originator: 10.255.0.21, Cluster list: 10.255.0.1 
       AddPath ID: RX 2, TX-All 0 TX-Best-Per-AS 0 TX-Best-Selected 0
-      Last update: Thu Oct 22 09:10:09 2026
+      Last update: Thu Oct 22 10:18:19 2026
   65099 65100
     10.255.0.22 (metric 10) from 10.255.0.1 (10.255.0.22)
       Origin IGP, metric 0, localpref 100, valid, internal, multipath
       Originator: 10.255.0.22, Cluster list: 10.255.0.1 
       AddPath ID: RX 3, TX-All 0 TX-Best-Per-AS 0 TX-Best-Selected 0
-      Last update: Thu Oct 22 09:10:09 2026
+      Last update: Thu Oct 22 10:18:19 2026
 
 ### leaf1# ip route show 10.99.0.0/24
-10.99.0.0/24 nhid 43 proto bgp metric 20 
+10.99.0.0/24 nhid 44 proto bgp metric 20 
 	nexthop via 10.0.1.1 dev eth1 weight 1 
 	nexthop via 10.0.1.3 dev eth2 weight 1 
 

@@ -6,11 +6,11 @@ Paths: (2 available, best #1, table default)
   65098 65100, (Received from a RR-client)
     10.255.0.21 (metric 20) from 10.255.0.21 (10.255.0.21)
       Origin IGP, localpref 100, valid, internal, best (Router ID)
-      Last update: Thu Oct 22 09:09:11 2026
+      Last update: Thu Oct 22 10:17:21 2026
   65099 65100, (Received from a RR-client)
     10.255.0.22 (metric 20) from 10.255.0.22 (10.255.0.22)
       Origin IGP, localpref 100, valid, internal
-      Last update: Thu Oct 22 09:09:11 2026
+      Last update: Thu Oct 22 10:17:21 2026
 
 ### leaf1# show bgp ipv4 unicast 10.99.0.0/24
 BGP routing table entry for 10.99.0.0/24, version 2
@@ -20,8 +20,8 @@ Paths: (1 available, best #1, table default)
     10.255.0.21 (metric 10) from 10.255.0.1 (10.255.0.21)
       Origin IGP, metric 0, localpref 100, valid, internal, best (First path received)
       Originator: 10.255.0.21, Cluster list: 10.255.0.1 
-      Last update: Thu Oct 22 09:09:11 2026
+      Last update: Thu Oct 22 10:17:21 2026
 
 ### leaf1# ip route show 10.99.0.0/24
-10.99.0.0/24 nhid 31 via 10.0.1.1 dev eth1 proto bgp metric 20 
+10.99.0.0/24 nhid 36 via 10.0.1.1 dev eth1 proto bgp metric 20 
 

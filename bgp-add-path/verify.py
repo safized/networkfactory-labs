@@ -100,6 +100,15 @@ class Lab:
         m = re.search(r'(\d+) packets transmitted, (\d+) received', out)
         return int(m.group(1)) - int(m.group(2)), out.count('Time to live exceeded')
 
+    def forward_loss(self, src, fail_node, fail_ifc):
+        """Like ping_loss, but also counts the requests that reached h2: (round-trip lost, forward lost)."""
+        t = subprocess.Popen(['docker', 'exec', self.c('h2'), 'timeout', '11', 'tcpdump', '-n', '-l', '-i', 'eth1',
+                              f'icmp[icmptype]==8 and src {src}'], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True)
+        time.sleep(1.5)
+        lost, _ = self.ping_loss(src, fail_node, fail_ifc)
+        got = sum('echo request' in l for l in t.communicate()[0].splitlines())
+        return lost, 800 - got
+
 
 def check(step, ok, detail):
     results.append((step, 'PASS' if ok else 'FAIL', detail))
@@ -238,6 +247,34 @@ def phase_b(failover):
         print('   ', report[-1])
     (L.out / 'B8-failover.txt').write_text('border1 loses its gateway link; flow hashed through border1\n' + '\n'.join(report) + '\n')
     check('B8 failover comparison', True, 'see B8-failover.txt')
+
+    # B9: leaf1 loses its own link to border1. With two paths installed, does it wait for BGP?
+    report = []
+    for label, peers in (('two paths (ADD-PATH and multipath-relax)', ['10.255.0.11']), ('one path (no ADD-PATH)', [])):
+        for p in ('10.255.0.11', '10.255.0.21', '10.255.0.22'):
+            L.configure('rr1', 'router bgp 65000', 'address-family ipv4 unicast', f'no neighbor {p} addpath-tx-all-paths', check=False)
+        if peers:
+            L.configure('rr1', 'router bgp 65000', 'address-family ipv4 unicast', *[f'neighbor {p} addpath-tx-all-paths' for p in peers])
+        for p in ('10.255.0.11', '10.255.0.21', '10.255.0.22'):
+            L.vtysh('rr1', f'clear bgp ipv4 unicast {p}')
+        time.sleep(3)
+        L.wait_established('rr1', ['10.255.0.11', '10.255.0.21', '10.255.0.22'])
+        L.wait_for(lambda: len(L.kernel_nexthops('leaf1')) == (2 if peers else 1))
+        time.sleep(8)
+        runs = []
+        for _ in range(3):
+            # a leaf1 link failure isolates that border, so its iBGP session drops: wait until it is back
+            L.wait_established('rr1', ['10.255.0.11', '10.255.0.21', '10.255.0.22'], timeout=150)
+            L.wait_for(lambda: len(L.bgp_paths('rr1')) == 2, 60)
+            # steady state: the flow leaves on eth1 (right after a flap the single best path can sit on border2 for a while)
+            route = lambda: sh(L.c('leaf1'), 'ip', 'route', 'get', H2_ADDR, 'from', '10.20.1.10', 'iif', 'eth9', 'ipproto', 'icmp')
+            L.wait_for(lambda: len(L.kernel_nexthops('leaf1')) == (2 if peers else 1) and 'dev eth1' in route(), 120)
+            time.sleep(3)
+            runs.append(L.forward_loss('10.20.1.10', 'leaf1', 'eth1'))
+        report.append(f'{label}: forward lost {[r[1] for r in runs]}, round trip lost {[r[0] for r in runs]}')
+        print('   ', report[-1])
+    (L.out / 'B9-local-failure.txt').write_text('leaf1 loses eth1 (toward border1), which the flow uses; pings at 100 per second\n' + '\n'.join(report) + '\n')
+    check('B9 local failure', True, 'see B9-local-failure.txt')
 
 
 if __name__ == '__main__':

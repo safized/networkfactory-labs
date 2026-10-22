@@ -1,1 +1,1 @@
-eth2 share 100%, 64.5 Gb/s total
+eth2 share 100%, 63.5 Gb/s total

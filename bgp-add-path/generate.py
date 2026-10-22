@@ -66,7 +66,10 @@ def nbr(addr, asn, extra=()):
 
 def config(phase, node):
     P = PHASES[phase]; lo = P['lo']; asn = P['asn']; ospf = phase == 'phase-b-ibgp-rr' and node not in EXTERNAL
-    out = [f'hostname {node}', 'log stdout informational', '!', 'interface lo', f' ip address {lo[node]}/32']
+    out = [f'hostname {node}', 'log stdout informational', '!']
+    if node not in EXTERNAL:   # never treat a BGP next hop as reachable through the lab's management default route
+        out += ['no ip nht resolve-via-default', '!']
+    out += ['interface lo', f' ip address {lo[node]}/32']
     if ospf:
         out.append(' ip ospf area 0')
     out.append('exit')

@@ -69,7 +69,7 @@ b += f'<text x="34" y="245" font-size="11.5" fill="{MUTED}" text-anchor="middle"
 b += cell(105, 40, 'Neither knob', 1, 1, 100, 'The reflector hides border2.')
 b += cell(415, 40, 'multipath-relax only', 1, 1, 100, 'Nothing to balance: one path known.')
 b += cell(105, 180, 'ADD-PATH only', 2, 1, 100, 'Both paths seen, AS paths differ.')
-b += cell(415, 180, 'Both', 2, 2, 38, 'Both links carry traffic.', True)
+b += cell(415, 180, 'Both', 2, 2, 63, 'Both links carry traffic.', True)
 b += text(410, 336, 'Measured with eight iperf3 streams, about 60 Gb/s, share of bytes leaving leaf1 per link.', 10.5, INK)
 out['grid-2x2'] = svg(730, 348, b, 'gr') + cap('C', 'Each knob alone changes nothing; together they use both exits.')
 

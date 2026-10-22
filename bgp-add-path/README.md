@@ -12,7 +12,7 @@ A two-phase lab on FRR (the routing suite inside Cumulus Linux and SONiC), run w
 
 **Time:** about 90 minutes by hand, or 10 minutes with `verify.py`. **Resources:** 4 vCPU, 4 GB RAM is plenty (seven to nine small containers).
 
-**Validated:** FRR 10.2.1 with containerlab 0.81.1 on Ubuntu 24.04: phase A 6/6, phase B 8/8 with `verify.py`. Raw outputs are in [`results/`](results/), packet captures in [`captures/`](captures/).
+**Validated:** FRR 10.2.1 with containerlab 0.81.1 on Ubuntu 24.04: phase A 6/6, phase B 9/9 with `verify.py`. Raw outputs are in [`results/`](results/), packet captures in [`captures/`](captures/).
 **Standards:** ADD-PATH is RFC 7911; route reflection is RFC 4456.
 
 > Commands and expected behavior below are written for FRR 10.x. Outputs differ slightly between releases. **Capture your real outputs**; they become the screenshots for the article and the talk.
@@ -202,12 +202,12 @@ Turn multipath-relax back on at leaf1 (as in B4), keep ADD-PATH on rr1:
 v b leaf1 "show bgp ipv4 unicast 10.99.0.0/24"
 x b leaf1 ip route show 10.99.0.0/24
 ```
-Look for: both paths `multipath`, **two kernel next hops via eth1 and eth2**. Re-run iperf3: traffic on both links (38/62 in the recorded run, per-flow hashing). **This is the money shot.**
+Look for: both paths `multipath`, **two kernel next hops via eth1 and eth2**. Re-run iperf3: traffic on both links (63/37 in the recorded run, per-flow hashing). **This is the money shot.**
 
 | | multipath-relax off | multipath-relax on |
 |---|---|---|
 | **ADD-PATH off** | 1 path, 100% on eth1 | 1 path, 100% on eth1 |
-| **ADD-PATH on** | 2 paths, 100% on eth1 | 2 paths, **38% / 62%** |
+| **ADD-PATH on** | 2 paths, 100% on eth1 | 2 paths, **63% / 37%** |
 
 ![Measured 2x2 result](images/grid-2x2.svg)
 
@@ -229,16 +229,30 @@ Look for: leaf1 still has **two paths**, because the exits lead to different nei
 
 | Case | Pings lost (10 ms each) | TTL exceeded |
 |---|---|---|
-| No ADD-PATH | 15, 14, 15 | 0 |
-| ADD-PATH to leaf1 | 15, 15, 15 | 0 |
-| ADD-PATH to leaf1 and both borders | 15, 15, 14 | **6, 6, 6** |
+| No ADD-PATH | 14, 15, 15 | 0 |
+| ADD-PATH to leaf1 | 14, 15, 15 | 0 |
+| ADD-PATH to leaf1 and both borders | 15, 15, 15 | **6, 6, 6** |
 
 What it shows:
 - **Convergence did not improve.** About 150 ms in every case: the time for border1's withdrawal to travel through rr1 to leaf1.
 - **Backup paths at the borders created a transient loop.** border1's backup exit is border2, reachable only back through leaf1, which keeps sending the flow to border1 until the withdrawal arrives. The capture `captures/b3-failover-microloop.pcap` shows one ping crossing the leaf1–border1 link 63 times in 0.3 ms before border1 returns `Time to live exceeded`. Timeline from the capture: 0–66 ms dropped at border1, 66–154 ms looping, then via border2.
-- **Compare phase A:** about 50 ms, because the spine peers directly with both borders.
+- **Compare phase A:** about 60 ms, because the spine peers directly with both borders.
 
 Design lesson: a backup path speeds up failover only if it is reachable without going back through the router that is still sending you the traffic. Otherwise, protect the ingress: fast detection (BFD) and next-hop tracking.
+
+### B9. Two paths as a safety net: local versus remote failure
+Also run by `verify.py b --failover`: leaf1 loses its own link eth1 while the flow uses it. A tcpdump on h2 counts the requests that arrive, so the forward direction is measured separately from the round trip.
+
+| leaf1 holds | Forward lost (h1 to h2) | Round trip lost |
+|---|---|---|
+| Two paths (ADD-PATH and multipath-relax) | **0, 0, 0** | 15, 15, 15 |
+| One path | 11, 11, 12 | 15, 15, 15 |
+
+- **With two paths installed, a local failure costs nothing.** The kernel drops the failed next hop from the ECMP group the moment the interface goes down; BGP is not involved.
+- **With one path, the leaf waits** for OSPF and BGP next-hop tracking to invalidate the path and for rr1 to send the other one: about 115 ms.
+- **The round trip still loses about 150 ms either way,** because for the return traffic the failure is remote: wan keeps hashing some flows toward dcgw1 and border1 until the withdrawal reaches it.
+
+**The trap this lab hit first:** with FRR's `ip nht resolve-via-default` on (as it was in this container image), BGP considered the border loopbacks reachable through the management network's default route after eth1 went down. The leaf kept a dead path and sent traffic into the management network: about 5 seconds of blackhole, until the iBGP session timed out. The generated configurations now set `no ip nht resolve-via-default` on every fabric router. Any default or summary route that covers your BGP next hops has the same effect.
 
 ```bash
 cd phase-b-ibgp-rr && containerlab destroy -t topology.clab.yml --cleanup && cd ..
@@ -288,7 +302,7 @@ Costs to mention: more paths means more memory and more update processing on eve
 4. **The famous fix, no change (3 min):** ADD-PATH. The leaf sees two paths, uses one. Show B5 and the b2 capture with Path IDs 3 and 4. Ask why before revealing: the AS paths differ.
 5. **Both knobs (2 min):** traffic on both links. Show B6 and the 2x2 table.
 6. **The counter-example (2 min):** the eBGP fabric, where ADD-PATH changes nothing (A5, a2 capture: two Path IDs, one next hop).
-7. **The myth (3 min):** "ADD-PATH gives you fast failover." Show B8, then the b3 capture with the looping ping.
+7. **The myth (3 min):** "ADD-PATH gives you fast failover." Show B8, then the b3 capture with the looping ping. Then B9: two installed paths do protect against a local failure, and the next-hop-tracking trap.
 8. **The decision table (1 min).**
 
 Equivalent configuration for Cumulus Linux NVUE and Cisco NX-OS is in [EQUIVALENTS.md](EQUIVALENTS.md).

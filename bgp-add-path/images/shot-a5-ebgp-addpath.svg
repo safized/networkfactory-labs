@@ -20,5 +20,5 @@
 <text x="24" y="255" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"></text>
 <text x="24" y="273" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">leaf1# ip route show 10.99.0.0/24</text>
 <rect x="12" y="278" width="575" height="18" rx="3" fill="#5a2323"/>
-<text x="24" y="291" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">10.99.0.0/24 nhid 26 via 10.0.1.1 dev eth1 proto bgp metric 20</text>
+<text x="24" y="291" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">10.99.0.0/24 nhid 25 via 10.0.1.1 dev eth1 proto bgp metric 20</text>
 </svg>
