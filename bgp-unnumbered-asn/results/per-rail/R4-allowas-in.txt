@@ -1,0 +1,16 @@
+### leaf1# show bgp ipv4 unicast 10.255.2.1/32
+BGP routing table entry for 10.255.2.1/32, version 9
+Paths: (2 available, best #1, table default)
+  Advertised to non peer-group peers:
+  eth1 eth2
+  65000 65201
+    fe80::a8c1:abff:fe0a:acae from eth1 (10.255.0.1)
+    (fe80::a8c1:abff:fe0a:acae) (used)
+      Origin IGP, valid, external, multipath, best (Router ID)
+      Last update: Thu Oct 22 21:44:59 2026
+  65000 65201
+    fe80::a8c1:abff:fe97:f780 from eth2 (10.255.0.2)
+    (fe80::a8c1:abff:fe97:f780) (used)
+      Origin IGP, valid, external, multipath
+      Last update: Thu Oct 22 21:44:59 2026
+

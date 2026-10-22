@@ -1,0 +1,18 @@
+### leaf1# show bgp ipv4 unicast 10.255.2.1/32
+BGP routing table entry for 10.255.2.1/32, version 11
+Paths: (1 available, best #1, table default)
+  Advertised to non peer-group peers:
+  eth1
+  65001 65102 65002 65111
+    fe80::a8c1:abff:fef2:7bee from eth1 (10.255.0.1)
+    (fe80::a8c1:abff:fef2:7bee) (used)
+      Origin IGP, valid, external, best (First path received)
+      Last update: Thu Oct 22 21:45:34 2026
+
+### leaf1# traceroute -n -w 1 -q 1 -s 10.255.1.1 10.255.2.1
+traceroute to 10.255.2.1 (10.255.2.1) from 10.255.1.1, 30 hops max, 46 byte packets
+ 1  10.255.0.1  0.017 ms
+ 2  10.255.1.2  0.011 ms
+ 3  10.255.0.2  0.010 ms
+ 4  10.255.2.1  0.010 ms
+

@@ -1,0 +1,25 @@
+Frame 2: Packet, 78 bytes on wire (624 bits), 78 bytes captured (624 bits)
+Ethernet II, Src: aa:c1:ab:4b:74:44 (aa:c1:ab:4b:74:44), Dst: IPv6mcast_01 (33:33:00:00:00:01)
+Internet Protocol Version 6, Src: fe80::a8c1:abff:fe4b:7444, Dst: ff02::1
+Internet Control Message Protocol v6
+    Type: Router Advertisement (134)
+    Code: 0
+    Checksum: 0xa97a [correct]
+    [Checksum Status: Good]
+    Cur hop limit: 64
+    Flags: 0x00, Prf (Default Router Preference): Medium
+        0... .... = Managed address configuration: Not set
+        .0.. .... = Other configuration: Not set
+        ..0. .... = Home Agent: Not set
+        ...0 0... = Prf (Default Router Preference): Medium (0)
+        .... .0.. = ND Proxy: Not set
+        .... ..0. = SNAC Router: Not set
+        .... ...0 = Reserved: 0
+    Router lifetime (s): 9
+    Reachable time (ms): 0
+    Retrans timer (ms): 0
+    ICMPv6 Option (Source link-layer address : aa:c1:ab:4b:74:44)
+        Type: Source link-layer address (1)
+        Length: 1 (8 bytes)
+        Link-layer address: aa:c1:ab:4b:74:44 (aa:c1:ab:4b:74:44)
+

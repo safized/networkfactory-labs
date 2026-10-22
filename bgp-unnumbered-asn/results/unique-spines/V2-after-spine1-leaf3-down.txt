@@ -1,0 +1,32 @@
+### spine1# show bgp ipv4 unicast 10.255.2.1/32
+BGP routing table entry for 10.255.2.1/32, version 12
+Paths: (3 available, best #1, table default)
+  Advertised to non peer-group peers:
+  eth1 eth2 eth4
+  65101 65002 65111
+    fe80::a8c1:abff:fec3:fb8d from eth1 (10.255.1.1)
+    (fe80::a8c1:abff:fec3:fb8d) (used)
+      Origin IGP, valid, external, multipath, best (Router ID)
+      Last update: Thu Oct 22 21:45:08 2026
+  65102 65002 65111
+    fe80::a8c1:abff:fe3a:4369 from eth2 (10.255.1.2)
+    (fe80::a8c1:abff:fe3a:4369) (used)
+      Origin IGP, valid, external, multipath
+      Last update: Thu Oct 22 21:45:08 2026
+  65112 65002 65111
+    fe80::a8c1:abff:fe70:9dba from eth4 (10.255.2.2)
+    (fe80::a8c1:abff:fe70:9dba) (used)
+      Origin IGP, valid, external, multipath
+      Last update: Thu Oct 22 21:45:08 2026
+
+### leaf1# show bgp ipv4 unicast 10.255.2.1/32
+BGP routing table entry for 10.255.2.1/32, version 8
+Paths: (1 available, best #1, table default)
+  Advertised to non peer-group peers:
+  eth1 eth2
+  65002 65111
+    fe80::a8c1:abff:fe3c:f06f from eth2 (10.255.0.2)
+    (fe80::a8c1:abff:fe3c:f06f) (used)
+      Origin IGP, valid, external, best (First path received)
+      Last update: Thu Oct 22 21:45:03 2026
+

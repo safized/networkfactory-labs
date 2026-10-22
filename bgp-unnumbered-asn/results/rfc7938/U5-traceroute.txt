@@ -1,0 +1,5 @@
+### leaf1# traceroute -n -w 1 -q 1 -s 10.255.1.1 10.255.2.1
+traceroute to 10.255.2.1 (10.255.2.1) from 10.255.1.1, 30 hops max, 46 byte packets
+ 1  10.255.0.1  0.016 ms
+ 2  10.255.2.1  0.005 ms
+

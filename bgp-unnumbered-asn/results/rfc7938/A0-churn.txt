@@ -1,0 +1,1 @@
+BGP messages received by leaf1 in 10 s after spine1-leaf3 fails (keepalives removed): 3

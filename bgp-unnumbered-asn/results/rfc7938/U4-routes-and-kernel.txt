@@ -1,0 +1,33 @@
+### leaf1# show bgp ipv4 unicast 10.255.2.1/32
+BGP routing table entry for 10.255.2.1/32, version 22
+Paths: (2 available, best #1, table default)
+  Advertised to non peer-group peers:
+  eth1 eth2
+  65000 65111
+    fe80::a8c1:abff:fe52:7b23 from eth2 (10.255.0.2)
+    (fe80::a8c1:abff:fe52:7b23) (used)
+      Origin IGP, valid, external, multipath, best (Older Path)
+      Last update: Thu Oct 22 21:42:36 2026
+  65000 65111
+    fe80::a8c1:abff:fe4b:7444 from eth1 (10.255.0.1)
+    (fe80::a8c1:abff:fe4b:7444) (used)
+      Origin IGP, valid, external, multipath
+      Last update: Thu Oct 22 21:42:54 2026
+
+### leaf1# ip route show 10.255.2.1
+10.255.2.1 nhid 20 proto bgp metric 20 
+	nexthop via inet6 fe80::a8c1:abff:fe52:7b23 dev eth2 weight 1 
+	nexthop via inet6 fe80::a8c1:abff:fe4b:7444 dev eth1 weight 1 
+
+### leaf1# ip neigh show
+169.254.0.1 dev eth2 lladdr aa:c1:ab:52:7b:23 PERMANENT proto zebra 
+169.254.0.1 dev eth1 lladdr aa:c1:ab:4b:74:44 PERMANENT proto zebra 
+fe80::a8c1:abff:fe4b:7444 dev eth1 lladdr aa:c1:ab:4b:74:44 router REACHABLE 
+fe80::a8c1:abff:fe52:7b23 dev eth2 lladdr aa:c1:ab:52:7b:23 router REACHABLE 
+
+### leaf1# ip -6 addr show dev eth1 scope link
+51: eth1@if50: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500 qdisc noqueue state UP group default  link-netnsid 2
+    altname clab-o-b53bd494e6225766
+    inet6 fe80::a8c1:abff:fe9e:185c/64 scope link proto kernel_ll 
+       valid_lft forever preferred_lft forever
+

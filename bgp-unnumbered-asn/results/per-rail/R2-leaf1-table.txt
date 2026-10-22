@@ -1,0 +1,54 @@
+### leaf1# show bgp ipv4 unicast
+BGP table version is 7, local router ID is 10.255.1.1, vrf id 0
+Default local pref 100, local AS 65201
+Status codes:  s suppressed, d damped, h history, u unsorted, * valid, > best, = multipath,
+               i internal, r RIB-failure, S Stale, R Removed
+Nexthop codes: @NNN nexthop's vrf id, < announce-nh-self
+Origin codes:  i - IGP, e - EGP, ? - incomplete
+RPKI validation codes: V valid, I invalid, N Not found
+
+     Network          Next Hop            Metric LocPrf Weight Path
+ *>  10.255.0.1/32    eth1                     0             0 65000 i
+ *>  10.255.0.2/32    eth2                     0             0 65000 i
+ *>  10.255.1.1/32    0.0.0.0                  0         32768 i
+ *>  10.255.1.2/32    eth1                                   0 65000 65202 i
+ *=                   eth2                                   0 65000 65202 i
+ *>  10.255.2.2/32    eth1                                   0 65000 65202 i
+ *=                   eth2                                   0 65000 65202 i
+
+Displayed 5 routes and 7 total paths
+
+### leaf1# show bgp ipv4 unicast neighbors eth1 received-routes
+BGP table version is 7, local router ID is 10.255.1.1, vrf id 0
+Default local pref 100, local AS 65201
+Status codes:  s suppressed, d damped, h history, u unsorted, * valid, > best, = multipath,
+               i internal, r RIB-failure, S Stale, R Removed
+Nexthop codes: @NNN nexthop's vrf id, < announce-nh-self
+Origin codes:  i - IGP, e - EGP, ? - incomplete
+RPKI validation codes: V valid, I invalid, N Not found
+
+     Network          Next Hop            Metric LocPrf Weight Path
+ *> 10.255.0.1/32    fe80::a8c1:abff:fe0a:acae
+                                             0             0 65000 i
+ *> 10.255.1.1/32    fe80::a8c1:abff:fe0a:acae
+                                                           0 65000 65201 i
+ *> 10.255.1.2/32    fe80::a8c1:abff:fe0a:acae
+                                                           0 65000 65202 i
+ *> 10.255.2.1/32    fe80::a8c1:abff:fe0a:acae
+                                                           0 65000 65201 i
+ *> 10.255.2.2/32    fe80::a8c1:abff:fe0a:acae
+                                                           0 65000 65202 i
+
+Total number of prefixes 5
+
+### spine1# show bgp ipv4 unicast 10.255.2.1/32
+BGP routing table entry for 10.255.2.1/32, version 2
+Paths: (1 available, best #1, table default)
+  Advertised to non peer-group peers:
+  eth1 eth2 eth3 eth4
+  65201
+    fe80::a8c1:abff:fe79:74bf from eth3 (10.255.2.1)
+    (fe80::a8c1:abff:fe79:74bf) (used)
+      Origin IGP, metric 0, valid, external, best (First path received)
+      Last update: Thu Oct 22 21:44:49 2026
+

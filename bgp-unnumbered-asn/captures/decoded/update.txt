@@ -1,0 +1,270 @@
+Frame 32: Packet, 547 bytes on wire (4376 bits), 547 bytes captured (4376 bits)
+Ethernet II, Src: aa:c1:ab:4b:74:44 (aa:c1:ab:4b:74:44), Dst: aa:c1:ab:9e:18:5c (aa:c1:ab:9e:18:5c)
+Internet Protocol Version 6, Src: fe80::a8c1:abff:fe4b:7444, Dst: fe80::a8c1:abff:fe9e:185c
+Transmission Control Protocol, Src Port: 179, Dst Port: 58206, Seq: 133, Ack: 605, Len: 461
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 90
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 67
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 42
+            Address family identifier (AFI): IPv4 (1)
+            Subsequent address family identifier (SAFI): Unicast (1)
+            Next hop: IPv6=fe80::a8c1:abff:fe4b:7444 Link-local=fe80::a8c1:abff:fe4b:7444
+                IPv6 Address: fe80::a8c1:abff:fe4b:7444
+                Link-local Address: fe80::a8c1:abff:fe4b:7444
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                10.255.0.1/32
+                    MP Reach NLRI prefix length: 32
+                    MP Reach NLRI IPv4 prefix: 10.255.0.1
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 6
+            AS Path segment: 65000
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 1
+                AS4: 65000
+        Path Attribute - MULTI_EXIT_DISC: 0
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: MULTI_EXIT_DISC (4)
+            Length: 4
+            Multiple exit discriminator: 0
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 87
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 64
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 42
+            Address family identifier (AFI): IPv4 (1)
+            Subsequent address family identifier (SAFI): Unicast (1)
+            Next hop: IPv6=fe80::a8c1:abff:fe4b:7444 Link-local=fe80::a8c1:abff:fe4b:7444
+                IPv6 Address: fe80::a8c1:abff:fe4b:7444
+                Link-local Address: fe80::a8c1:abff:fe4b:7444
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                10.255.1.1/32
+                    MP Reach NLRI prefix length: 32
+                    MP Reach NLRI IPv4 prefix: 10.255.1.1
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65101 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 10
+            AS Path segment: 65000 65101
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 2
+                AS4: 65000
+                AS4: 65101
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 87
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 64
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 42
+            Address family identifier (AFI): IPv4 (1)
+            Subsequent address family identifier (SAFI): Unicast (1)
+            Next hop: IPv6=fe80::a8c1:abff:fe4b:7444 Link-local=fe80::a8c1:abff:fe4b:7444
+                IPv6 Address: fe80::a8c1:abff:fe4b:7444
+                Link-local Address: fe80::a8c1:abff:fe4b:7444
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                10.255.1.2/32
+                    MP Reach NLRI prefix length: 32
+                    MP Reach NLRI IPv4 prefix: 10.255.1.2
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65102 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 10
+            AS Path segment: 65000 65102
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 2
+                AS4: 65000
+                AS4: 65102
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 87
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 64
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 42
+            Address family identifier (AFI): IPv4 (1)
+            Subsequent address family identifier (SAFI): Unicast (1)
+            Next hop: IPv6=fe80::a8c1:abff:fe4b:7444 Link-local=fe80::a8c1:abff:fe4b:7444
+                IPv6 Address: fe80::a8c1:abff:fe4b:7444
+                Link-local Address: fe80::a8c1:abff:fe4b:7444
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                10.255.2.1/32
+                    MP Reach NLRI prefix length: 32
+                    MP Reach NLRI IPv4 prefix: 10.255.2.1
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65111 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 10
+            AS Path segment: 65000 65111
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 2
+                AS4: 65000
+                AS4: 65111
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 87
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 64
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 42
+            Address family identifier (AFI): IPv4 (1)
+            Subsequent address family identifier (SAFI): Unicast (1)
+            Next hop: IPv6=fe80::a8c1:abff:fe4b:7444 Link-local=fe80::a8c1:abff:fe4b:7444
+                IPv6 Address: fe80::a8c1:abff:fe4b:7444
+                Link-local Address: fe80::a8c1:abff:fe4b:7444
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                10.255.2.2/32
+                    MP Reach NLRI prefix length: 32
+                    MP Reach NLRI IPv4 prefix: 10.255.2.2
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65112 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 10
+            AS Path segment: 65000 65112
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 2
+                AS4: 65000
+                AS4: 65112
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 23
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 0
+

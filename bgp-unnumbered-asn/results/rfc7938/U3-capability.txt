@@ -1,0 +1,89 @@
+### leaf1# show bgp neighbors eth1
+BGP neighbor on eth1: fe80::a8c1:abff:fe4b:7444, remote AS 65000, local AS 65101, external link
+  Local Role: undefined
+  Remote Role: undefined
+Hostname: spine1
+ Member of peer-group FABRIC for session parameters
+  BGP version 4, remote router ID 10.255.0.1, local router ID 10.255.1.1
+  BGP state = Established, up for 00:00:07
+  Last read 00:00:01, Last write 00:00:01
+  Hold time is 9 seconds, keepalive interval is 3 seconds
+  Configured hold time is 9 seconds, keepalive interval is 3 seconds
+  Configured tcp-mss is 0, synced tcp-mss is 9428
+  Configured conditional advertisements interval is 60 seconds
+  Neighbor capabilities:
+    4 Byte AS: advertised and received
+    Extended Message: advertised and received
+    AddPath:
+      IPv4 Unicast: RX advertised and received
+    Paths-Limit:
+      IPv4 Unicast: advertised (0) and received (0)
+    Extended nexthop: advertised and received
+      Address families by peer:
+                   IPv4 Unicast
+    Long-lived Graceful Restart: advertised and received
+      Address families by peer:
+    Route refresh: advertised and received
+    Enhanced Route Refresh: advertised and received
+    Address Family IPv4 Unicast: advertised and received
+    Hostname Capability: advertised (name: leaf1,domain name: n/a) received (name: spine1,domain name: n/a)
+    Version Capability: not advertised not received
+    Graceful Restart Capability: advertised and received
+      Remote Restart timer is 120 seconds
+      Address families by peer:
+        none
+  Graceful restart information:
+    End-of-RIB send: IPv4 Unicast
+    End-of-RIB received: IPv4 Unicast
+    Local GR Mode: Helper*
+    Remote GR Mode: Helper
+    R bit: True
+    N bit: True
+    Timers:
+      Configured Restart Time(sec): 120
+      Received Restart Time(sec): 120
+      Configured LLGR Stale Path Time(sec): 0
+    IPv4 Unicast:
+      F bit: False
+      End-of-RIB sent: Yes
+      End-of-RIB sent after update: Yes
+      End-of-RIB received: Yes
+      Timers:
+        Configured Stale Path Time(sec): 360
+        LLGR Stale Path Time(sec): 0
+  Message statistics:
+    Inq depth is 0
+    Outq depth is 0
+                         Sent       Rcvd
+    Opens:                  2          2
+    Notifications:          1          0
+    Updates:               14         12
+    Keepalives:             9          9
+    Route Refresh:          0          0
+    Capability:             0          0
+    Total:                 26         23
+  Minimum time between advertisement runs is 0 seconds
+
+ For address family: IPv4 Unicast
+  FABRIC peer-group member
+  Update group 1, subgroup 1
+  Packet Queue length 0
+  Inbound soft reconfiguration allowed
+  Community attribute sent to this neighbor(all)
+  4 accepted prefixes
+
+  Connections established 2; dropped 1
+  Last reset 00:00:09,  Waiting for peer OPEN (n/a)
+  External BGP neighbor may be up to 1 hops away.
+Local host: fe80::a8c1:abff:fe9e:185c, Local port: 58206
+Foreign host: fe80::a8c1:abff:fe4b:7444, Foreign port: 179
+Nexthop: 10.255.1.1
+Nexthop global: fe80::a8c1:abff:fe9e:185c
+Nexthop local: fe80::a8c1:abff:fe9e:185c
+BGP connection: shared network
+BGP Connect Retry Timer in Seconds: 120
+Estimated round trip time: 3 ms
+Read thread: on  Write thread: on  FD used: 27
+
+
+

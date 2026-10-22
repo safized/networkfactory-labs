@@ -6,5 +6,6 @@ Each lab runs on a laptop with containerlab and open-source routing software, an
 | Lab | What it shows |
 |---|---|
 | [bgp-add-path](bgp-add-path/) | When BGP ADD-PATH changes forwarding (off-path route reflector) and when it only adds visibility (eBGP fabric) |
+| [bgp-unnumbered-asn](bgp-unnumbered-asn/) | BGP unnumbered on the wire and in the kernel, and three ASN plans for a rail-optimized fabric after failures |
 
 Configurations are for labs. Validate them against the documentation of your release before production use.

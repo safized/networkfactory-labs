@@ -1,0 +1,28 @@
+### leaf1# show bgp ipv4 unicast summary
+BGP router identifier 10.255.1.1, local AS number 65101 VRF default vrf-id 0
+BGP table version 23
+RIB entries 11, using 1408 bytes of memory
+Peers 2, using 33 KiB of memory
+Peer groups 1, using 64 bytes of memory
+
+Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
+eth1            4      65000        23        26       23    0    0 00:00:07            4        6 N/A
+eth2            4      65000        16        22       23    0    0 00:00:25            4        6 N/A
+
+Total number of neighbors 2
+
+### spine1# show bgp ipv4 unicast summary
+BGP router identifier 10.255.0.1, local AS number 65000 VRF default vrf-id 0
+BGP table version 7
+RIB entries 11, using 1408 bytes of memory
+Peers 4, using 66 KiB of memory
+Peer groups 1, using 64 bytes of memory
+
+Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
+eth1            4      65101        27        24        7    0    0 00:00:07            1        5 N/A
+eth2            4      65102        18        18        7    0    0 00:00:25            1        5 N/A
+eth3            4      65111        18        18        7    0    0 00:00:25            1        5 N/A
+eth4            4      65112        18        18        7    0    0 00:00:25            1        5 N/A
+
+Total number of neighbors 4
+

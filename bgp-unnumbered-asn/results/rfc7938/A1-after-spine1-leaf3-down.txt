@@ -1,0 +1,14 @@
+### spine1# show bgp ipv4 unicast 10.255.2.1/32
+% Network not in table
+
+### leaf1# show bgp ipv4 unicast 10.255.2.1/32
+BGP routing table entry for 10.255.2.1/32, version 24
+Paths: (1 available, best #1, table default)
+  Advertised to non peer-group peers:
+  eth1 eth2
+  65000 65111
+    fe80::a8c1:abff:fe52:7b23 from eth2 (10.255.0.2)
+    (fe80::a8c1:abff:fe52:7b23) (used)
+      Origin IGP, valid, external, best (First path received)
+      Last update: Thu Oct 22 21:42:37 2026
+

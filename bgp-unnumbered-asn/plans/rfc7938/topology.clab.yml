@@ -1,0 +1,52 @@
+# BGP unnumbered and ASN plans, plan "rfc7938". Deploy: containerlab deploy -t topology.clab.yml
+name: unnum-rfc7938
+topology:
+  defaults:
+    kind: linux
+    image: quay.io/frrouting/frr:10.2.1
+    sysctls:
+      net.ipv4.ip_forward: 1
+      net.ipv6.conf.all.disable_ipv6: 0
+      net.ipv6.conf.default.disable_ipv6: 0
+      net.ipv6.conf.all.forwarding: 1
+      net.ipv4.fib_multipath_hash_policy: 1
+  nodes:
+    spine1:
+      binds:
+        - ../../common/daemons:/etc/frr/daemons
+        - ../../common/vtysh.conf:/etc/frr/vtysh.conf
+        - spine1.conf:/etc/frr/frr.conf
+    spine2:
+      binds:
+        - ../../common/daemons:/etc/frr/daemons
+        - ../../common/vtysh.conf:/etc/frr/vtysh.conf
+        - spine2.conf:/etc/frr/frr.conf
+    leaf1:
+      binds:
+        - ../../common/daemons:/etc/frr/daemons
+        - ../../common/vtysh.conf:/etc/frr/vtysh.conf
+        - leaf1.conf:/etc/frr/frr.conf
+    leaf2:
+      binds:
+        - ../../common/daemons:/etc/frr/daemons
+        - ../../common/vtysh.conf:/etc/frr/vtysh.conf
+        - leaf2.conf:/etc/frr/frr.conf
+    leaf3:
+      binds:
+        - ../../common/daemons:/etc/frr/daemons
+        - ../../common/vtysh.conf:/etc/frr/vtysh.conf
+        - leaf3.conf:/etc/frr/frr.conf
+    leaf4:
+      binds:
+        - ../../common/daemons:/etc/frr/daemons
+        - ../../common/vtysh.conf:/etc/frr/vtysh.conf
+        - leaf4.conf:/etc/frr/frr.conf
+  links:
+    - endpoints: ["leaf1:eth1", "spine1:eth1"]
+    - endpoints: ["leaf1:eth2", "spine2:eth1"]
+    - endpoints: ["leaf2:eth1", "spine1:eth2"]
+    - endpoints: ["leaf2:eth2", "spine2:eth2"]
+    - endpoints: ["leaf3:eth1", "spine1:eth3"]
+    - endpoints: ["leaf3:eth2", "spine2:eth3"]
+    - endpoints: ["leaf4:eth1", "spine1:eth4"]
+    - endpoints: ["leaf4:eth2", "spine2:eth4"]

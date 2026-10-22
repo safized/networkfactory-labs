@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="635" height="270" viewBox="0 0 635 270">
+<rect width="635" height="270" rx="10" fill="#ffffff"/>
+<path d="M0 10a10 10 0 0 1 10-10h615a10 10 0 0 1 10 10v20h-635z" fill="#e9eef0"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="317.5" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#8a9a9c" text-anchor="middle">u-bgp-open-update.pcap · UPDATE from spine1: leaf3 loopback, IPv6 next hop</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">▾ Path Attribute - MP_REACH_NLRI</text>
+<rect x="12" y="62" width="611" height="18" rx="3" fill="#d8ecff"/>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">      Address family identifier (AFI): IPv4 (1)</text>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">      Subsequent address family identifier (SAFI): Unicast (1)</text>
+<rect x="12" y="98" width="611" height="18" rx="3" fill="#d8ecff"/>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">    ▾ Next hop: IPv6=fe80::a8c1:abff:fe4b:7444 Link-local=fe80::a8c1:abff:fe4b:7444</text>
+<text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">          IPv6 Address: fe80::a8c1:abff:fe4b:7444</text>
+<text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">          Link-local Address: fe80::a8c1:abff:fe4b:7444</text>
+<text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">      Number of Subnetwork points of attachment (SNPA): 0</text>
+<text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">    ▾ Network Layer Reachability Information (NLRI)</text>
+<rect x="12" y="188" width="611" height="18" rx="3" fill="#d8ecff"/>
+<text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">        ▾ 10.255.2.1/32</text>
+<text x="24" y="219" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              MP Reach NLRI prefix length: 32</text>
+<text x="24" y="237" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              MP Reach NLRI IPv4 prefix: 10.255.2.1</text>
+<text x="24" y="255" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">▸ Path Attribute - AS_PATH: 65000 65111</text>
+</svg>
