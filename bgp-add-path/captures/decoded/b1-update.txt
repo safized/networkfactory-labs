@@ -1,0 +1,380 @@
+Frame 18: Packet, 93 bytes on wire (744 bits), 93 bytes captured (744 bits)
+Ethernet II, Src: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c), Dst: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa)
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.21
+Transmission Control Protocol, Src Port: 179, Dst Port: 37513, Seq: 20, Ack: 20, Len: 27
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 27
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 4
+    Withdrawn Routes
+        10.20.1.0/24
+            Withdrawn route prefix length: 24
+            Withdrawn prefix: 10.20.1.0
+    Total Path Attribute Length: 0
+
+Frame 20: Packet, 93 bytes on wire (744 bits), 93 bytes captured (744 bits)
+Ethernet II, Src: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c), Dst: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa)
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.22
+Transmission Control Protocol, Src Port: 179, Dst Port: 43021, Seq: 20, Ack: 20, Len: 27
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 27
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 4
+    Withdrawn Routes
+        10.20.1.0/24
+            Withdrawn route prefix length: 24
+            Withdrawn prefix: 10.20.1.0
+    Total Path Attribute Length: 0
+
+Frame 55: Packet, 136 bytes on wire (1088 bits), 136 bytes captured (1088 bits)
+Ethernet II, Src: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c), Dst: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa)
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.22
+Transmission Control Protocol, Src Port: 179, Dst Port: 43021, Seq: 66, Ack: 39, Len: 70
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 70
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 43
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: empty
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 0
+        Path Attribute - NEXT_HOP: 10.255.0.11 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.255.0.11
+        Path Attribute - MULTI_EXIT_DISC: 0
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: MULTI_EXIT_DISC (4)
+            Length: 4
+            Multiple exit discriminator: 0
+        Path Attribute - LOCAL_PREF: 100
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: LOCAL_PREF (5)
+            Length: 4
+            Local preference: 100
+        Path Attribute - ORIGINATOR_ID: 10.255.0.11 
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGINATOR_ID (9)
+            Length: 4
+            Originator identifier: 10.255.0.11
+        Path Attribute - CLUSTER_LIST: 10.255.0.1
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: CLUSTER_LIST (10)
+            Length: 4
+            Cluster List: 10.255.0.1
+                Cluster ID: 10.255.0.1
+    Network Layer Reachability Information (NLRI)
+        10.20.1.0/24
+            NLRI prefix length: 24
+            NLRI prefix: 10.20.1.0
+
+Frame 56: Packet, 136 bytes on wire (1088 bits), 136 bytes captured (1088 bits)
+Ethernet II, Src: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c), Dst: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa)
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.21
+Transmission Control Protocol, Src Port: 179, Dst Port: 37513, Seq: 66, Ack: 39, Len: 70
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 70
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 43
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: empty
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 0
+        Path Attribute - NEXT_HOP: 10.255.0.11 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.255.0.11
+        Path Attribute - MULTI_EXIT_DISC: 0
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: MULTI_EXIT_DISC (4)
+            Length: 4
+            Multiple exit discriminator: 0
+        Path Attribute - LOCAL_PREF: 100
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: LOCAL_PREF (5)
+            Length: 4
+            Local preference: 100
+        Path Attribute - ORIGINATOR_ID: 10.255.0.11 
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGINATOR_ID (9)
+            Length: 4
+            Originator identifier: 10.255.0.11
+        Path Attribute - CLUSTER_LIST: 10.255.0.1
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: CLUSTER_LIST (10)
+            Length: 4
+            Cluster List: 10.255.0.1
+                Cluster ID: 10.255.0.1
+    Network Layer Reachability Information (NLRI)
+        10.20.1.0/24
+            NLRI prefix length: 24
+            NLRI prefix: 10.20.1.0
+
+Frame 59: Packet, 239 bytes on wire (1912 bits), 239 bytes captured (1912 bits)
+Ethernet II, Src: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c), Dst: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa)
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.11
+Transmission Control Protocol, Src Port: 179, Dst Port: 46833, Seq: 145, Ack: 226, Len: 173
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 70
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 43
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: empty
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 0
+        Path Attribute - NEXT_HOP: 10.255.0.11 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.255.0.11
+        Path Attribute - MULTI_EXIT_DISC: 0
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: MULTI_EXIT_DISC (4)
+            Length: 4
+            Multiple exit discriminator: 0
+        Path Attribute - LOCAL_PREF: 100
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: LOCAL_PREF (5)
+            Length: 4
+            Local preference: 100
+        Path Attribute - ORIGINATOR_ID: 10.255.0.11 
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGINATOR_ID (9)
+            Length: 4
+            Originator identifier: 10.255.0.11
+        Path Attribute - CLUSTER_LIST: 10.255.0.1
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: CLUSTER_LIST (10)
+            Length: 4
+            Cluster List: 10.255.0.1
+                Cluster ID: 10.255.0.1
+    Network Layer Reachability Information (NLRI)
+        10.20.1.0/24
+            NLRI prefix length: 24
+            NLRI prefix: 10.20.1.0
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 80
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 53
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65098 65100 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 10
+            AS Path segment: 65098 65100
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 2
+                AS4: 65098
+                AS4: 65100
+        Path Attribute - NEXT_HOP: 10.255.0.21 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.255.0.21
+        Path Attribute - MULTI_EXIT_DISC: 0
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: MULTI_EXIT_DISC (4)
+            Length: 4
+            Multiple exit discriminator: 0
+        Path Attribute - LOCAL_PREF: 100
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: LOCAL_PREF (5)
+            Length: 4
+            Local preference: 100
+        Path Attribute - ORIGINATOR_ID: 10.255.0.21 
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGINATOR_ID (9)
+            Length: 4
+            Originator identifier: 10.255.0.21
+        Path Attribute - CLUSTER_LIST: 10.255.0.1
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: CLUSTER_LIST (10)
+            Length: 4
+            Cluster List: 10.255.0.1
+                Cluster ID: 10.255.0.1
+    Network Layer Reachability Information (NLRI)
+        10.99.0.0/24
+            NLRI prefix length: 24
+            NLRI prefix: 10.99.0.0
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 23
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 0
+

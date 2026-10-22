@@ -1,0 +1,406 @@
+Frame 47: Packet, 596 bytes on wire (4768 bits), 596 bytes captured (4768 bits)
+Ethernet II, Src: aa:c1:ab:d6:da:44 (aa:c1:ab:d6:da:44), Dst: aa:c1:ab:36:a5:69 (aa:c1:ab:36:a5:69)
+Internet Protocol Version 4, Src: 10.0.1.1, Dst: 10.0.1.0
+Transmission Control Protocol, Src Port: 179, Dst Port: 41276, Seq: 123, Ack: 205, Len: 530
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 65
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 25
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65011 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 10
+            AS Path segment: 65000 65011
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 2
+                AS4: 65000
+                AS4: 65011
+        Path Attribute - NEXT_HOP: 10.0.1.1 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.0.1.1
+    Network Layer Reachability Information (NLRI)
+        10.20.1.0/24 PathId 2 
+            NLRI path id: 2
+            Prefix Length: 24
+            NLRI prefix: 10.20.1.0
+        10.255.0.11/32 PathId 6 
+            NLRI path id: 6
+            Prefix Length: 32
+            NLRI prefix: 10.255.0.11
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 69
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 29
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65021 65099 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 14
+            AS Path segment: 65000 65021 65099
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 3
+                AS4: 65000
+                AS4: 65021
+                AS4: 65099
+        Path Attribute - NEXT_HOP: 10.0.1.1 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.0.1.1
+    Network Layer Reachability Information (NLRI)
+        10.99.0.0/24 PathId 3 
+            NLRI path id: 3
+            Prefix Length: 24
+            NLRI prefix: 10.99.0.0
+        10.255.0.99/32 PathId 11 
+            NLRI path id: 11
+            Prefix Length: 32
+            NLRI prefix: 10.255.0.99
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 69
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 29
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65022 65099 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 14
+            AS Path segment: 65000 65022 65099
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 3
+                AS4: 65000
+                AS4: 65022
+                AS4: 65099
+        Path Attribute - NEXT_HOP: 10.0.1.1 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.0.1.1
+    Network Layer Reachability Information (NLRI)
+        10.99.0.0/24 PathId 4 
+            NLRI path id: 4
+            Prefix Length: 24
+            NLRI prefix: 10.99.0.0
+        10.255.0.99/32 PathId 12 
+            NLRI path id: 12
+            Prefix Length: 32
+            NLRI prefix: 10.255.0.99
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 60
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 28
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 6
+            AS Path segment: 65000
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 1
+                AS4: 65000
+        Path Attribute - NEXT_HOP: 10.0.1.1 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.0.1.1
+        Path Attribute - MULTI_EXIT_DISC: 0
+            Flags: 0x80, Optional, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: MULTI_EXIT_DISC (4)
+            Length: 4
+            Multiple exit discriminator: 0
+    Network Layer Reachability Information (NLRI)
+        10.255.0.1/32 PathId 5 
+            NLRI path id: 5
+            Prefix Length: 32
+            NLRI prefix: 10.255.0.1
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 57
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 25
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65021 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 10
+            AS Path segment: 65000 65021
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 2
+                AS4: 65000
+                AS4: 65021
+        Path Attribute - NEXT_HOP: 10.0.1.1 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.0.1.1
+    Network Layer Reachability Information (NLRI)
+        10.255.0.21/32 PathId 7 
+            NLRI path id: 7
+            Prefix Length: 32
+            NLRI prefix: 10.255.0.21
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 65
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 33
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65022 65099 65021 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 18
+            AS Path segment: 65000 65022 65099 65021
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 4
+                AS4: 65000
+                AS4: 65022
+                AS4: 65099
+                AS4: 65021
+        Path Attribute - NEXT_HOP: 10.0.1.1 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.0.1.1
+    Network Layer Reachability Information (NLRI)
+        10.255.0.21/32 PathId 8 
+            NLRI path id: 8
+            Prefix Length: 32
+            NLRI prefix: 10.255.0.21
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 57
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 25
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65022 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 10
+            AS Path segment: 65000 65022
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 2
+                AS4: 65000
+                AS4: 65022
+        Path Attribute - NEXT_HOP: 10.0.1.1 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.0.1.1
+    Network Layer Reachability Information (NLRI)
+        10.255.0.22/32 PathId 9 
+            NLRI path id: 9
+            Prefix Length: 32
+            NLRI prefix: 10.255.0.22
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 65
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 33
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65000 65021 65099 65022 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 18
+            AS Path segment: 65000 65021 65099 65022
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 4
+                AS4: 65000
+                AS4: 65021
+                AS4: 65099
+                AS4: 65022
+        Path Attribute - NEXT_HOP: 10.0.1.1 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: NEXT_HOP (3)
+            Length: 4
+            Next hop: 10.0.1.1
+    Network Layer Reachability Information (NLRI)
+        10.255.0.22/32 PathId 10 
+            NLRI path id: 10
+            Prefix Length: 32
+            NLRI prefix: 10.255.0.22
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 23
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 0
+

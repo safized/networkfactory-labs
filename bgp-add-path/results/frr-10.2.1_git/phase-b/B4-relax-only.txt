@@ -1,0 +1,13 @@
+### leaf1# show bgp ipv4 unicast 10.99.0.0/24
+BGP routing table entry for 10.99.0.0/24, version 2
+Paths: (1 available, best #1, table default)
+  Not advertised to any peer
+  65098 65100
+    10.255.0.21 (metric 10) from 10.255.0.1 (10.255.0.21)
+      Origin IGP, metric 0, localpref 100, valid, internal, best (First path received)
+      Originator: 10.255.0.21, Cluster list: 10.255.0.1 
+      Last update: Thu Oct 22 09:09:11 2026
+
+### leaf1# ip route show 10.99.0.0/24
+10.99.0.0/24 nhid 31 via 10.0.1.1 dev eth1 proto bgp metric 20 
+

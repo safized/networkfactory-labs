@@ -28,11 +28,21 @@ topology:
         - ../common/daemons:/etc/frr/daemons
         - ../common/vtysh.conf:/etc/frr/vtysh.conf
         - border2.conf:/etc/frr/frr.conf
-    dcgw:
+    dcgw1:
       binds:
         - ../common/daemons:/etc/frr/daemons
         - ../common/vtysh.conf:/etc/frr/vtysh.conf
-        - dcgw.conf:/etc/frr/frr.conf
+        - dcgw1.conf:/etc/frr/frr.conf
+    dcgw2:
+      binds:
+        - ../common/daemons:/etc/frr/daemons
+        - ../common/vtysh.conf:/etc/frr/vtysh.conf
+        - dcgw2.conf:/etc/frr/frr.conf
+    wan:
+      binds:
+        - ../common/daemons:/etc/frr/daemons
+        - ../common/vtysh.conf:/etc/frr/vtysh.conf
+        - wan.conf:/etc/frr/frr.conf
     h1:
       image: nicolaka/netshoot:latest
       exec:
@@ -47,7 +57,9 @@ topology:
     - endpoints: ["leaf1:eth1", "border1:eth1"]
     - endpoints: ["leaf1:eth2", "border2:eth1"]
     - endpoints: ["leaf1:eth3", "rr1:eth1"]
-    - endpoints: ["border1:eth2", "dcgw:eth1"]
-    - endpoints: ["border2:eth2", "dcgw:eth2"]
+    - endpoints: ["border1:eth2", "dcgw1:eth1"]
+    - endpoints: ["border2:eth2", "dcgw2:eth1"]
+    - endpoints: ["dcgw1:eth2", "wan:eth1"]
+    - endpoints: ["dcgw2:eth2", "wan:eth2"]
     - endpoints: ["leaf1:eth9", "h1:eth1"]
-    - endpoints: ["dcgw:eth9", "h2:eth1"]
+    - endpoints: ["wan:eth9", "h2:eth1"]

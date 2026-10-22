@@ -152,8 +152,9 @@ def phase_b(failover):
     L = Lab('b')
     print('Phase B: iBGP with an off-path route reflector')
     ok = L.wait_established('rr1', ['10.255.0.11', '10.255.0.21', '10.255.0.22'])
+    L.wait_established('wan', ['10.0.3.0', '10.0.3.2'])
     L.save('B1-underlay-and-sessions', ('leaf1', 'show ip ospf neighbor'), ('rr1', 'show bgp ipv4 unicast summary'),
-           ('border1', 'show bgp ipv4 unicast summary'))
+           ('border1', 'show bgp ipv4 unicast summary'), ('wan', 'show bgp ipv4 unicast summary'))
     check('B1 sessions', ok, 'rr1 has 3 established iBGP clients')
 
     L.wait_for(lambda: len(L.bgp_paths('rr1')) == 2)
@@ -161,38 +162,58 @@ def phase_b(failover):
     L.save('B2-reflector-hides-a-path', ('rr1', f'show bgp ipv4 unicast {PREFIX}'), ('leaf1', f'show bgp ipv4 unicast {PREFIX}'),
            ('leaf1', f'ip route show {PREFIX}'))
     check('B2 reflector hides a path', len(rr) == 2 and len(leaf) == 1 and len(nh) == 1,
-          f'rr1 knows {len(rr)} paths, leaf1 receives {len(leaf)}, kernel next hops {nh}')
-    share, gbps = L.traffic('leaf1', 'eth1', 'eth2')
-    (L.out / 'B3-traffic.txt').write_text(f'eth1 share {share}%, {gbps} Gb/s total\n')
-    check('B3 traffic', share in (0, 100), f'{share}% on eth1, {100 - share}% on eth2 (one link idle), {gbps} Gb/s')
+          f'rr1 knows {len(rr)} paths ({" / ".join(p["aspath"]["string"] for p in rr)}), leaf1 receives {len(leaf)}, kernel next hops {nh}')
 
-    L.configure('rr1', 'router bgp 65000', 'address-family ipv4 unicast', 'neighbor 10.255.0.11 addpath-tx-all-paths')
-    L.vtysh('rr1', 'clear bgp ipv4 unicast 10.255.0.11')
-    time.sleep(3)
-    L.wait_established('rr1', ['10.255.0.11'])
+    def leaf_state(name):
+        """Save leaf1's view, measure traffic, return (paths, kernel next hops, eth1 share, Gb/s)."""
+        L.save(name, ('leaf1', f'show bgp ipv4 unicast {PREFIX}'), ('leaf1', f'ip route show {PREFIX}'))
+        share, gbps = L.traffic('leaf1', 'eth1', 'eth2')
+        (L.out / f'{name}-traffic.txt').write_text(f'eth1 share {share}%, {gbps} Gb/s total\n')
+        return len(L.bgp_paths('leaf1')), L.kernel_nexthops('leaf1'), share, gbps
+
+    def relax(on):
+        L.configure('leaf1', 'router bgp 65000', ('' if on else 'no ') + 'bgp bestpath as-path multipath-relax')
+        time.sleep(3)
+
+    def addpath(policy, peers=('10.255.0.11',)):
+        L.configure('rr1', 'router bgp 65000', 'address-family ipv4 unicast',
+                    *[f'{"" if policy else "no "}neighbor {p} addpath-tx-{policy or "all-paths"}' for p in peers], check=bool(policy))
+        for p in peers:
+            L.vtysh('rr1', f'clear bgp ipv4 unicast {p}')
+        time.sleep(3)
+        L.wait_established('rr1', list(peers))
+
+    n, nh, share, gbps = leaf_state('B3-neither')
+    check('B3 neither knob', n == 1 and len(nh) == 1 and share in (0, 100), f'{n} path, {len(nh)} next hop, {share}% on eth1, {gbps} Gb/s')
+
+    relax(True)
+    n, nh, share, gbps = leaf_state('B4-relax-only')
+    check('B4 multipath-relax only', n == 1 and len(nh) == 1 and share in (0, 100), f'{n} path, {len(nh)} next hop, {share}% on eth1: nothing to balance')
+    relax(False)
+
+    addpath('all-paths')
+    L.wait_for(lambda: len(L.bgp_paths('leaf1')) == 2)
+    L.save('B5-addpath-capability', ('rr1', 'show bgp neighbors 10.255.0.11'))
+    n, nh, share, gbps = leaf_state('B5-addpath-only')
+    check('B5 ADD-PATH only', n == 2 and len(nh) == 1 and share in (0, 100), f'{n} paths, {len(nh)} next hop, {share}% on eth1: AS paths differ')
+
+    relax(True)
     L.wait_for(lambda: len(L.kernel_nexthops('leaf1')) == 2)
-    leaf, nh = L.bgp_paths('leaf1'), L.kernel_nexthops('leaf1')
-    L.save('B4-addpath-to-leaf', ('rr1', 'show bgp neighbors 10.255.0.11'), ('leaf1', f'show bgp ipv4 unicast {PREFIX}'),
-           ('leaf1', f'ip route show {PREFIX}'))
-    share, gbps = L.traffic('leaf1', 'eth1', 'eth2')
-    (L.out / 'B4-traffic.txt').write_text(f'eth1 share {share}%, {gbps} Gb/s total\n')
-    check('B4 ADD-PATH changes forwarding', len(leaf) == 2 and sorted(d for _, d in nh) == ['eth1', 'eth2'] and 0 < share < 100,
-          f'leaf1 has {len(leaf)} multipath paths, kernel via {sorted(d for _, d in nh)}, {share}% / {100 - share}% on eth1 / eth2')
+    n, nh, share, gbps = leaf_state('B6-both')
+    check('B6 ADD-PATH and multipath-relax', n == 2 and sorted(d for _, d in nh) == ['eth1', 'eth2'] and 0 < share < 100,
+          f'{n} paths, kernel via {sorted(d for _, d in nh)}, {share}% / {100 - share}% on eth1 / eth2')
 
-    L.configure('rr1', 'router bgp 65000', 'address-family ipv4 unicast', 'no neighbor 10.255.0.11 addpath-tx-all-paths',
-                'neighbor 10.255.0.11 addpath-tx-bestpath-per-AS')
-    L.vtysh('rr1', 'clear bgp ipv4 unicast 10.255.0.11')
-    time.sleep(3)
-    L.wait_established('rr1', ['10.255.0.11'])
-    L.wait_for(lambda: len(L.bgp_paths('leaf1')) == 1)
-    leaf = L.bgp_paths('leaf1')
-    L.save('B5-best-per-as', ('leaf1', f'show bgp ipv4 unicast {PREFIX}'))
-    check('B5 best-per-AS policy', len(leaf) == 1, f'leaf1 receives {len(leaf)} path: both exits share neighbor AS 65099')
+    addpath(None)
+    addpath('bestpath-per-AS')
+    L.wait_for(lambda: len(L.kernel_nexthops('leaf1')) == 2)
+    n, nh = len(L.bgp_paths('leaf1')), L.kernel_nexthops('leaf1')
+    L.save('B7-best-per-as', ('leaf1', f'show bgp ipv4 unicast {PREFIX}'), ('leaf1', f'ip route show {PREFIX}'))
+    check('B7 best-per-AS policy', n == 2 and len(nh) == 2, f'leaf1 receives {n} paths: the exits lead to different neighbor ASes')
     L.configure('rr1', 'router bgp 65000', 'address-family ipv4 unicast', 'no neighbor 10.255.0.11 addpath-tx-bestpath-per-AS')
 
     if not failover:
         return
-    # B6: which source address hashes through border1, so the failure hits the ping flow
+    # B8, with multipath-relax left on at leaf1: which source address hashes through border1, so the failure hits the ping flow
     for s in range(11, 20):
         sh(L.c('h1'), 'ip', 'addr', 'add', f'10.20.1.{s}/24', 'dev', 'eth1', check=False)
     report = []
@@ -215,8 +236,8 @@ def phase_b(failover):
             time.sleep(12)
         report.append(f'{label}: lost {[r[0] for r in runs]} pings (10 ms each), TTL-exceeded errors {[r[1] for r in runs]}')
         print('   ', report[-1])
-    (L.out / 'B6-failover.txt').write_text('border1 loses its gateway link; flow hashed through border1\n' + '\n'.join(report) + '\n')
-    check('B6 failover comparison', True, 'see B6-failover.txt')
+    (L.out / 'B8-failover.txt').write_text('border1 loses its gateway link; flow hashed through border1\n' + '\n'.join(report) + '\n')
+    check('B8 failover comparison', True, 'see B8-failover.txt')
 
 
 if __name__ == '__main__':

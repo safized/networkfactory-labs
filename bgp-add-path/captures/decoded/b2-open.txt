@@ -1,0 +1,832 @@
+Frame 10: Packet, 191 bytes on wire (1528 bits), 191 bytes captured (1528 bits)
+Ethernet II, Src: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c), Dst: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa)
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.11
+Transmission Control Protocol, Src Port: 42905, Dst Port: 179, Seq: 1, Ack: 1, Len: 125
+Border Gateway Protocol - OPEN Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 125
+    Type: OPEN Message (1)
+    Version: 4
+    My AS: 65000
+    Hold Time: 9
+    BGP Identifier: 10.255.0.1
+    Optional Parameters Length: 96
+    Optional Parameters
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Multiprotocol extensions capability
+                Type: Multiprotocol extensions capability (1)
+                Length: 4
+                AFI: IPv4 (1)
+                Reserved: 00
+                SAFI: Unicast (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Route refresh capability
+                Type: Route refresh capability (2)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Enhanced route refresh capability
+                Type: Enhanced route refresh capability (70)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for 4-octet AS number capability
+                Type: Support for 4-octet AS number capability (65)
+                Length: 4
+                AS Number: 65000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: BGP-Extended Message
+                Type: BGP-Extended Message (6)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for Additional Paths
+                Type: Support for Additional Paths (69)
+                Length: 4
+                AFI: IPv4 (1)
+                SAFI: Unicast (1)
+                Send/Receive: Both (3)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: PATHS-LIMIT Capability
+                Type: PATHS-LIMIT Capability (76)
+                Length: 5
+                Unknown: 0001010000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: FQDN Capability
+                Type: FQDN Capability (73)
+                Length: 5
+                Hostname Length: 3
+                Hostname: rr1
+                Domain Name Length: 0
+                Domain Name: 
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 4
+            Capability: Graceful Restart capability
+                Type: Graceful Restart capability (64)
+                Length: 2
+                    [Expert Info (Chat/Request): Graceful Restart Capability supported in Helper mode only]
+                        [Graceful Restart Capability supported in Helper mode only]
+                        [Severity level: Chat]
+                        [Group: Request]
+                Restart Timers: 0xc078, Restart state, Graceful notification
+                    1... .... .... .... = Restart state: Yes
+                    .1.. .... .... .... = Graceful notification: Yes
+                    .... 0000 0111 1000 = Time: 120
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: Long-Lived Graceful Restart (LLGR) Capability
+                Type: Long-Lived Graceful Restart (LLGR) Capability (71)
+                Length: 7
+                Unknown: 00010180000000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 23
+            Capability: Software Version Capability
+                Type: Software Version Capability (75)
+                Length: 21
+                Software Version Length: 20
+                Software Version: FRRouting/10.2.1_git
+
+Frame 12: Packet, 193 bytes on wire (1544 bits), 193 bytes captured (1544 bits)
+Ethernet II, Src: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa), Dst: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c)
+Internet Protocol Version 4, Src: 10.255.0.11, Dst: 10.255.0.1
+Transmission Control Protocol, Src Port: 179, Dst Port: 42905, Seq: 1, Ack: 126, Len: 127
+Border Gateway Protocol - OPEN Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 127
+    Type: OPEN Message (1)
+    Version: 4
+    My AS: 65000
+    Hold Time: 9
+    BGP Identifier: 10.255.0.11
+    Optional Parameters Length: 98
+    Optional Parameters
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Multiprotocol extensions capability
+                Type: Multiprotocol extensions capability (1)
+                Length: 4
+                AFI: IPv4 (1)
+                Reserved: 00
+                SAFI: Unicast (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Route refresh capability
+                Type: Route refresh capability (2)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Enhanced route refresh capability
+                Type: Enhanced route refresh capability (70)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for 4-octet AS number capability
+                Type: Support for 4-octet AS number capability (65)
+                Length: 4
+                AS Number: 65000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: BGP-Extended Message
+                Type: BGP-Extended Message (6)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for Additional Paths
+                Type: Support for Additional Paths (69)
+                Length: 4
+                AFI: IPv4 (1)
+                SAFI: Unicast (1)
+                Send/Receive: Receive (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: PATHS-LIMIT Capability
+                Type: PATHS-LIMIT Capability (76)
+                Length: 5
+                Unknown: 0001010000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: FQDN Capability
+                Type: FQDN Capability (73)
+                Length: 7
+                Hostname Length: 5
+                Hostname: leaf1
+                Domain Name Length: 0
+                Domain Name: 
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 4
+            Capability: Graceful Restart capability
+                Type: Graceful Restart capability (64)
+                Length: 2
+                    [Expert Info (Chat/Request): Graceful Restart Capability supported in Helper mode only]
+                        [Graceful Restart Capability supported in Helper mode only]
+                        [Severity level: Chat]
+                        [Group: Request]
+                Restart Timers: 0xc078, Restart state, Graceful notification
+                    1... .... .... .... = Restart state: Yes
+                    .1.. .... .... .... = Graceful notification: Yes
+                    .... 0000 0111 1000 = Time: 120
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: Long-Lived Graceful Restart (LLGR) Capability
+                Type: Long-Lived Graceful Restart (LLGR) Capability (71)
+                Length: 7
+                Unknown: 00010180000000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 23
+            Capability: Software Version Capability
+                Type: Software Version Capability (75)
+                Length: 21
+                Software Version Length: 20
+                Software Version: FRRouting/10.2.1_git
+
+Frame 13: Packet, 191 bytes on wire (1528 bits), 191 bytes captured (1528 bits)
+Ethernet II, Src: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c), Dst: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa)
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.11
+Transmission Control Protocol, Src Port: 179, Dst Port: 40491, Seq: 1, Ack: 1, Len: 125
+Border Gateway Protocol - OPEN Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 125
+    Type: OPEN Message (1)
+    Version: 4
+    My AS: 65000
+    Hold Time: 9
+    BGP Identifier: 10.255.0.1
+    Optional Parameters Length: 96
+    Optional Parameters
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Multiprotocol extensions capability
+                Type: Multiprotocol extensions capability (1)
+                Length: 4
+                AFI: IPv4 (1)
+                Reserved: 00
+                SAFI: Unicast (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Route refresh capability
+                Type: Route refresh capability (2)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Enhanced route refresh capability
+                Type: Enhanced route refresh capability (70)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for 4-octet AS number capability
+                Type: Support for 4-octet AS number capability (65)
+                Length: 4
+                AS Number: 65000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: BGP-Extended Message
+                Type: BGP-Extended Message (6)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for Additional Paths
+                Type: Support for Additional Paths (69)
+                Length: 4
+                AFI: IPv4 (1)
+                SAFI: Unicast (1)
+                Send/Receive: Both (3)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: PATHS-LIMIT Capability
+                Type: PATHS-LIMIT Capability (76)
+                Length: 5
+                Unknown: 0001010000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: FQDN Capability
+                Type: FQDN Capability (73)
+                Length: 5
+                Hostname Length: 3
+                Hostname: rr1
+                Domain Name Length: 0
+                Domain Name: 
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 4
+            Capability: Graceful Restart capability
+                Type: Graceful Restart capability (64)
+                Length: 2
+                    [Expert Info (Chat/Request): Graceful Restart Capability supported in Helper mode only]
+                        [Graceful Restart Capability supported in Helper mode only]
+                        [Severity level: Chat]
+                        [Group: Request]
+                Restart Timers: 0xc078, Restart state, Graceful notification
+                    1... .... .... .... = Restart state: Yes
+                    .1.. .... .... .... = Graceful notification: Yes
+                    .... 0000 0111 1000 = Time: 120
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: Long-Lived Graceful Restart (LLGR) Capability
+                Type: Long-Lived Graceful Restart (LLGR) Capability (71)
+                Length: 7
+                Unknown: 00010180000000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 23
+            Capability: Software Version Capability
+                Type: Software Version Capability (75)
+                Length: 21
+                Software Version Length: 20
+                Software Version: FRRouting/10.2.1_git
+
+Frame 17: Packet, 193 bytes on wire (1544 bits), 193 bytes captured (1544 bits)
+Ethernet II, Src: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa), Dst: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c)
+Internet Protocol Version 4, Src: 10.255.0.11, Dst: 10.255.0.1
+Transmission Control Protocol, Src Port: 40491, Dst Port: 179, Seq: 1, Ack: 126, Len: 127
+Border Gateway Protocol - OPEN Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 127
+    Type: OPEN Message (1)
+    Version: 4
+    My AS: 65000
+    Hold Time: 9
+    BGP Identifier: 10.255.0.11
+    Optional Parameters Length: 98
+    Optional Parameters
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Multiprotocol extensions capability
+                Type: Multiprotocol extensions capability (1)
+                Length: 4
+                AFI: IPv4 (1)
+                Reserved: 00
+                SAFI: Unicast (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Route refresh capability
+                Type: Route refresh capability (2)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Enhanced route refresh capability
+                Type: Enhanced route refresh capability (70)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for 4-octet AS number capability
+                Type: Support for 4-octet AS number capability (65)
+                Length: 4
+                AS Number: 65000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: BGP-Extended Message
+                Type: BGP-Extended Message (6)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for Additional Paths
+                Type: Support for Additional Paths (69)
+                Length: 4
+                AFI: IPv4 (1)
+                SAFI: Unicast (1)
+                Send/Receive: Receive (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: PATHS-LIMIT Capability
+                Type: PATHS-LIMIT Capability (76)
+                Length: 5
+                Unknown: 0001010000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: FQDN Capability
+                Type: FQDN Capability (73)
+                Length: 7
+                Hostname Length: 5
+                Hostname: leaf1
+                Domain Name Length: 0
+                Domain Name: 
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 4
+            Capability: Graceful Restart capability
+                Type: Graceful Restart capability (64)
+                Length: 2
+                    [Expert Info (Chat/Request): Graceful Restart Capability supported in Helper mode only]
+                        [Graceful Restart Capability supported in Helper mode only]
+                        [Severity level: Chat]
+                        [Group: Request]
+                Restart Timers: 0xc078, Restart state, Graceful notification
+                    1... .... .... .... = Restart state: Yes
+                    .1.. .... .... .... = Graceful notification: Yes
+                    .... 0000 0111 1000 = Time: 120
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: Long-Lived Graceful Restart (LLGR) Capability
+                Type: Long-Lived Graceful Restart (LLGR) Capability (71)
+                Length: 7
+                Unknown: 00010180000000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 23
+            Capability: Software Version Capability
+                Type: Software Version Capability (75)
+                Length: 21
+                Software Version Length: 20
+                Software Version: FRRouting/10.2.1_git
+
+Frame 44: Packet, 193 bytes on wire (1544 bits), 193 bytes captured (1544 bits)
+Ethernet II, Src: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa), Dst: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c)
+Internet Protocol Version 4, Src: 10.255.0.11, Dst: 10.255.0.1
+Transmission Control Protocol, Src Port: 38843, Dst Port: 179, Seq: 1, Ack: 1, Len: 127
+Border Gateway Protocol - OPEN Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 127
+    Type: OPEN Message (1)
+    Version: 4
+    My AS: 65000
+    Hold Time: 9
+    BGP Identifier: 10.255.0.11
+    Optional Parameters Length: 98
+    Optional Parameters
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Multiprotocol extensions capability
+                Type: Multiprotocol extensions capability (1)
+                Length: 4
+                AFI: IPv4 (1)
+                Reserved: 00
+                SAFI: Unicast (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Route refresh capability
+                Type: Route refresh capability (2)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Enhanced route refresh capability
+                Type: Enhanced route refresh capability (70)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for 4-octet AS number capability
+                Type: Support for 4-octet AS number capability (65)
+                Length: 4
+                AS Number: 65000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: BGP-Extended Message
+                Type: BGP-Extended Message (6)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for Additional Paths
+                Type: Support for Additional Paths (69)
+                Length: 4
+                AFI: IPv4 (1)
+                SAFI: Unicast (1)
+                Send/Receive: Receive (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: PATHS-LIMIT Capability
+                Type: PATHS-LIMIT Capability (76)
+                Length: 5
+                Unknown: 0001010000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: FQDN Capability
+                Type: FQDN Capability (73)
+                Length: 7
+                Hostname Length: 5
+                Hostname: leaf1
+                Domain Name Length: 0
+                Domain Name: 
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 4
+            Capability: Graceful Restart capability
+                Type: Graceful Restart capability (64)
+                Length: 2
+                    [Expert Info (Chat/Request): Graceful Restart Capability supported in Helper mode only]
+                        [Graceful Restart Capability supported in Helper mode only]
+                        [Severity level: Chat]
+                        [Group: Request]
+                Restart Timers: 0xc078, Restart state, Graceful notification
+                    1... .... .... .... = Restart state: Yes
+                    .1.. .... .... .... = Graceful notification: Yes
+                    .... 0000 0111 1000 = Time: 120
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: Long-Lived Graceful Restart (LLGR) Capability
+                Type: Long-Lived Graceful Restart (LLGR) Capability (71)
+                Length: 7
+                Unknown: 00010180000000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 23
+            Capability: Software Version Capability
+                Type: Software Version Capability (75)
+                Length: 21
+                Software Version Length: 20
+                Software Version: FRRouting/10.2.1_git
+
+Frame 46: Packet, 193 bytes on wire (1544 bits), 193 bytes captured (1544 bits)
+Ethernet II, Src: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa), Dst: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c)
+Internet Protocol Version 4, Src: 10.255.0.11, Dst: 10.255.0.1
+Transmission Control Protocol, Src Port: 179, Dst Port: 43913, Seq: 1, Ack: 1, Len: 127
+Border Gateway Protocol - OPEN Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 127
+    Type: OPEN Message (1)
+    Version: 4
+    My AS: 65000
+    Hold Time: 9
+    BGP Identifier: 10.255.0.11
+    Optional Parameters Length: 98
+    Optional Parameters
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Multiprotocol extensions capability
+                Type: Multiprotocol extensions capability (1)
+                Length: 4
+                AFI: IPv4 (1)
+                Reserved: 00
+                SAFI: Unicast (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Route refresh capability
+                Type: Route refresh capability (2)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Enhanced route refresh capability
+                Type: Enhanced route refresh capability (70)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for 4-octet AS number capability
+                Type: Support for 4-octet AS number capability (65)
+                Length: 4
+                AS Number: 65000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: BGP-Extended Message
+                Type: BGP-Extended Message (6)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for Additional Paths
+                Type: Support for Additional Paths (69)
+                Length: 4
+                AFI: IPv4 (1)
+                SAFI: Unicast (1)
+                Send/Receive: Receive (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: PATHS-LIMIT Capability
+                Type: PATHS-LIMIT Capability (76)
+                Length: 5
+                Unknown: 0001010000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: FQDN Capability
+                Type: FQDN Capability (73)
+                Length: 7
+                Hostname Length: 5
+                Hostname: leaf1
+                Domain Name Length: 0
+                Domain Name: 
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 4
+            Capability: Graceful Restart capability
+                Type: Graceful Restart capability (64)
+                Length: 2
+                    [Expert Info (Chat/Request): Graceful Restart Capability supported in Helper mode only]
+                        [Graceful Restart Capability supported in Helper mode only]
+                        [Severity level: Chat]
+                        [Group: Request]
+                Restart Timers: 0xc078, Restart state, Graceful notification
+                    1... .... .... .... = Restart state: Yes
+                    .1.. .... .... .... = Graceful notification: Yes
+                    .... 0000 0111 1000 = Time: 120
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: Long-Lived Graceful Restart (LLGR) Capability
+                Type: Long-Lived Graceful Restart (LLGR) Capability (71)
+                Length: 7
+                Unknown: 00010180000000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 23
+            Capability: Software Version Capability
+                Type: Software Version Capability (75)
+                Length: 21
+                Software Version Length: 20
+                Software Version: FRRouting/10.2.1_git
+
+Frame 48: Packet, 191 bytes on wire (1528 bits), 191 bytes captured (1528 bits)
+Ethernet II, Src: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c), Dst: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa)
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.11
+Transmission Control Protocol, Src Port: 179, Dst Port: 38843, Seq: 1, Ack: 128, Len: 125
+Border Gateway Protocol - OPEN Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 125
+    Type: OPEN Message (1)
+    Version: 4
+    My AS: 65000
+    Hold Time: 9
+    BGP Identifier: 10.255.0.1
+    Optional Parameters Length: 96
+    Optional Parameters
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Multiprotocol extensions capability
+                Type: Multiprotocol extensions capability (1)
+                Length: 4
+                AFI: IPv4 (1)
+                Reserved: 00
+                SAFI: Unicast (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Route refresh capability
+                Type: Route refresh capability (2)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Enhanced route refresh capability
+                Type: Enhanced route refresh capability (70)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for 4-octet AS number capability
+                Type: Support for 4-octet AS number capability (65)
+                Length: 4
+                AS Number: 65000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: BGP-Extended Message
+                Type: BGP-Extended Message (6)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for Additional Paths
+                Type: Support for Additional Paths (69)
+                Length: 4
+                AFI: IPv4 (1)
+                SAFI: Unicast (1)
+                Send/Receive: Both (3)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: PATHS-LIMIT Capability
+                Type: PATHS-LIMIT Capability (76)
+                Length: 5
+                Unknown: 0001010000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: FQDN Capability
+                Type: FQDN Capability (73)
+                Length: 5
+                Hostname Length: 3
+                Hostname: rr1
+                Domain Name Length: 0
+                Domain Name: 
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 4
+            Capability: Graceful Restart capability
+                Type: Graceful Restart capability (64)
+                Length: 2
+                    [Expert Info (Chat/Request): Graceful Restart Capability supported in Helper mode only]
+                        [Graceful Restart Capability supported in Helper mode only]
+                        [Severity level: Chat]
+                        [Group: Request]
+                Restart Timers: 0xc078, Restart state, Graceful notification
+                    1... .... .... .... = Restart state: Yes
+                    .1.. .... .... .... = Graceful notification: Yes
+                    .... 0000 0111 1000 = Time: 120
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: Long-Lived Graceful Restart (LLGR) Capability
+                Type: Long-Lived Graceful Restart (LLGR) Capability (71)
+                Length: 7
+                Unknown: 00010180000000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 23
+            Capability: Software Version Capability
+                Type: Software Version Capability (75)
+                Length: 21
+                Software Version Length: 20
+                Software Version: FRRouting/10.2.1_git
+
+Frame 54: Packet, 191 bytes on wire (1528 bits), 191 bytes captured (1528 bits)
+Ethernet II, Src: aa:c1:ab:2f:67:0c (aa:c1:ab:2f:67:0c), Dst: aa:c1:ab:af:89:fa (aa:c1:ab:af:89:fa)
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.11
+Transmission Control Protocol, Src Port: 43913, Dst Port: 179, Seq: 1, Ack: 149, Len: 125
+Border Gateway Protocol - OPEN Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 125
+    Type: OPEN Message (1)
+    Version: 4
+    My AS: 65000
+    Hold Time: 9
+    BGP Identifier: 10.255.0.1
+    Optional Parameters Length: 96
+    Optional Parameters
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Multiprotocol extensions capability
+                Type: Multiprotocol extensions capability (1)
+                Length: 4
+                AFI: IPv4 (1)
+                Reserved: 00
+                SAFI: Unicast (1)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Route refresh capability
+                Type: Route refresh capability (2)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: Enhanced route refresh capability
+                Type: Enhanced route refresh capability (70)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for 4-octet AS number capability
+                Type: Support for 4-octet AS number capability (65)
+                Length: 4
+                AS Number: 65000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 2
+            Capability: BGP-Extended Message
+                Type: BGP-Extended Message (6)
+                Length: 0
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 6
+            Capability: Support for Additional Paths
+                Type: Support for Additional Paths (69)
+                Length: 4
+                AFI: IPv4 (1)
+                SAFI: Unicast (1)
+                Send/Receive: Both (3)
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: PATHS-LIMIT Capability
+                Type: PATHS-LIMIT Capability (76)
+                Length: 5
+                Unknown: 0001010000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 7
+            Capability: FQDN Capability
+                Type: FQDN Capability (73)
+                Length: 5
+                Hostname Length: 3
+                Hostname: rr1
+                Domain Name Length: 0
+                Domain Name: 
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 4
+            Capability: Graceful Restart capability
+                Type: Graceful Restart capability (64)
+                Length: 2
+                    [Expert Info (Chat/Request): Graceful Restart Capability supported in Helper mode only]
+                        [Graceful Restart Capability supported in Helper mode only]
+                        [Severity level: Chat]
+                        [Group: Request]
+                Restart Timers: 0xc078, Restart state, Graceful notification
+                    1... .... .... .... = Restart state: Yes
+                    .1.. .... .... .... = Graceful notification: Yes
+                    .... 0000 0111 1000 = Time: 120
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 9
+            Capability: Long-Lived Graceful Restart (LLGR) Capability
+                Type: Long-Lived Graceful Restart (LLGR) Capability (71)
+                Length: 7
+                Unknown: 00010180000000
+        Optional Parameter: Capability
+            Parameter Type: Capability (2)
+            Parameter Length: 23
+            Capability: Software Version Capability
+                Type: Software Version Capability (75)
+                Length: 21
+                Software Version Length: 20
+                Software Version: FRRouting/10.2.1_git
+

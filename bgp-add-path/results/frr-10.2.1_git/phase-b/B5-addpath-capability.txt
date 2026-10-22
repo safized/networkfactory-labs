@@ -4,8 +4,8 @@ BGP neighbor is 10.255.0.11, remote AS 65000, local AS 65000, internal link
   Remote Role: undefined
 Hostname: leaf1
   BGP version 4, remote router ID 10.255.0.11, local router ID 10.255.0.1
-  BGP state = Established, up for 00:00:03
-  Last read 00:00:02, Last write 00:00:02
+  BGP state = Established, up for 00:00:02
+  Last read 00:00:01, Last write 00:00:01
   Hold time is 9 seconds, keepalive interval is 3 seconds
   Configured hold time is 9 seconds, keepalive interval is 3 seconds
   Configured tcp-mss is 0, synced tcp-mss is 9448
@@ -53,12 +53,12 @@ Hostname: leaf1
     Outq depth is 0
                          Sent       Rcvd
     Opens:                  3          3
-    Notifications:          3          0
+    Notifications:          2          0
     Updates:                7          4
-    Keepalives:             8          8
+    Keepalives:            11         11
     Route Refresh:          0          0
     Capability:             0          0
-    Total:                 21         15
+    Total:                 23         18
   Minimum time between advertisement runs is 0 seconds
   Update source is lo
 
@@ -71,7 +71,7 @@ Hostname: leaf1
   1 accepted prefixes
 
   Connections established 2; dropped 1
-  Last reset 00:00:04,  Notification sent (Cease/Other Configuration Change)
+  Last reset 00:00:03,  Notification sent (Cease/Other Configuration Change)
   Message received that caused BGP to send a NOTIFICATION:
     FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF
     007F0104 FDE80009 0AFF000B 62020601
@@ -82,7 +82,7 @@ Hostname: leaf1
     01018000 00000217 4B151446 52526F75
     74696E67 2F31302E 322E315F 676974
   Internal BGP neighbor may be up to 255 hops away.
-Local host: 10.255.0.1, Local port: 36957
+Local host: 10.255.0.1, Local port: 36969
 Foreign host: 10.255.0.11, Foreign port: 179
 Nexthop: 10.255.0.1
 Nexthop global: ::
@@ -90,29 +90,7 @@ Nexthop local: ::
 BGP connection: non shared network
 BGP Connect Retry Timer in Seconds: 120
 Estimated round trip time: 0 ms
-Read thread: on  Write thread: on  FD used: 26
+Read thread: on  Write thread: on  FD used: 27
 
 
-
-### leaf1# show bgp ipv4 unicast 10.99.0.0/24
-BGP routing table entry for 10.99.0.0/24, version 4
-Paths: (2 available, best #1, table default)
-  Not advertised to any peer
-  65099
-    10.255.0.21 (metric 10) from 10.255.0.1 (10.255.0.21)
-      Origin IGP, metric 0, localpref 100, valid, internal, multipath, best (Router ID)
-      Originator: 10.255.0.21, Cluster list: 10.255.0.1 
-      AddPath ID: RX 3, TX-All 0 TX-Best-Per-AS 0 TX-Best-Selected 0
-      Last update: Wed Oct 21 23:06:05 2026
-  65099
-    10.255.0.22 (metric 10) from 10.255.0.1 (10.255.0.22)
-      Origin IGP, metric 0, localpref 100, valid, internal, multipath
-      Originator: 10.255.0.22, Cluster list: 10.255.0.1 
-      AddPath ID: RX 4, TX-All 0 TX-Best-Per-AS 0 TX-Best-Selected 0
-      Last update: Wed Oct 21 23:06:05 2026
-
-### leaf1# ip route show 10.99.0.0/24
-10.99.0.0/24 nhid 42 proto bgp metric 20 
-	nexthop via 10.0.1.1 dev eth1 weight 1 
-	nexthop via 10.0.1.3 dev eth2 weight 1 
 

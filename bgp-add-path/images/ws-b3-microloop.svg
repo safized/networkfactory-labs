@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="686" height="234" viewBox="0 0 686 234">
+<rect width="686" height="234" rx="10" fill="#ffffff"/>
+<path d="M0 10a10 10 0 0 1 10-10h666a10 10 0 0 1 10 10v20h-686z" fill="#e9eef0"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="343.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#8a9a9c" text-anchor="middle">b3-failover-microloop.pcap · ping seq 279 on the leaf1–border1 link (63 frames)</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">   No  Time      eth.src  ttl   Info</text>
+<rect x="12" y="62" width="662" height="18" rx="3" fill="#d8ecff"/>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">  551  3.062808  leaf1      63  Echo (ping) request  id=0x91bd, seq=279/5889, ttl=63</text>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">  552  3.062822  border1    62  Echo (ping) request  id=0x91bd, seq=279/5889, ttl=62</text>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">  553  3.062830  leaf1      61  Echo (ping) request  id=0x91bd, seq=279/5889, ttl=61</text>
+<text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">  554  3.062835  border1    60  Echo (ping) request  id=0x91bd, seq=279/5889, ttl=60</text>
+<text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8a9a9c">  ⋯</text>
+<text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">  611  3.063084  leaf1       3  Echo (ping) request  id=0x91bd, seq=279/5889, ttl=3</text>
+<text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">  612  3.063088  border1     2  Echo (ping) request  id=0x91bd, seq=279/5889, ttl=2</text>
+<text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">  613  3.063092  leaf1       1  Echo (ping) request  id=0x91bd, seq=279/5889, ttl=1</text>
+<rect x="12" y="206" width="662" height="18" rx="3" fill="#fde2e2"/>
+<text x="24" y="219" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">  614  3.063116  border1    64  Time-to-live exceeded (Time to live exceeded in transit)</text>
+</svg>

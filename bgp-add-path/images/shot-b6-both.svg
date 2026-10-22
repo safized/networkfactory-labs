@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="678" height="288" viewBox="0 0 678 288">
+<rect width="678" height="288" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h658a10 10 0 0 1 10 10v20h-678z" fill="#1b2b30"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="339.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">leaf1, ADD-PATH and multipath-relax on</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">leaf1# show bgp ipv4 unicast 10.99.0.0/24</text>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">Paths: (2 available, best #1, table default)</text>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  65098 65100</text>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">    10.255.0.21 (metric 10) from 10.255.0.1 (10.255.0.21)</text>
+<rect x="12" y="116" width="654" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      Origin IGP, metric 0, localpref 100, valid, internal, multipath, best (Router ID)</text>
+<text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  65099 65100</text>
+<text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">    10.255.0.22 (metric 10) from 10.255.0.1 (10.255.0.22)</text>
+<rect x="12" y="170" width="654" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      Origin IGP, metric 0, localpref 100, valid, internal, multipath</text>
+<text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"></text>
+<text x="24" y="219" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">leaf1# ip route show 10.99.0.0/24</text>
+<text x="24" y="237" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">10.99.0.0/24 nhid 43 proto bgp metric 20 </text>
+<rect x="12" y="242" width="654" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="255" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">	nexthop via 10.0.1.1 dev eth1 weight 1 </text>
+<rect x="12" y="260" width="654" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="273" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">	nexthop via 10.0.1.3 dev eth2 weight 1</text>
+</svg>

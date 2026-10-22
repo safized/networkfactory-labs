@@ -5,14 +5,14 @@ A two-phase lab on FRR (the routing suite inside Cumulus Linux and SONiC), run w
 | Phase | Design | Question it answers |
 |---|---|---|
 | **A** | eBGP fabric, one ASN per switch | Does ADD-PATH give a leaf more paths? (It gives visibility, not forwarding. Multipath-relax is what creates ECMP.) |
-| **B** | iBGP with an off-path route reflector | What does a route reflector hide, and how does ADD-PATH bring the paths back? (Here it changes forwarding: two links instead of one.) |
+| **B** | iBGP with an off-path route reflector, destination dual-homed to two gateway ASes | What does a route reflector hide? Here neither ADD-PATH nor multipath-relax changes anything alone; together they put the idle link to work. |
 
 ![Phase A](images/phase-a-ebgp.svg)
 ![Phase B](images/phase-b-ibgp-rr.svg)
 
-**Time:** about 90 minutes by hand, or 10 minutes with `verify.py`. **Resources:** 4 vCPU, 4 GB RAM is plenty (seven small containers).
+**Time:** about 90 minutes by hand, or 10 minutes with `verify.py`. **Resources:** 4 vCPU, 4 GB RAM is plenty (seven to nine small containers).
 
-**Validated:** FRR 10.2.1 with containerlab 0.81.1 on Ubuntu 24.04, both phases 6/6 with `verify.py`. Raw outputs are in [`results/`](results/).
+**Validated:** FRR 10.2.1 with containerlab 0.81.1 on Ubuntu 24.04: phase A 6/6, phase B 8/8 with `verify.py`. Raw outputs are in [`results/`](results/), packet captures in [`captures/`](captures/).
 **Standards:** ADD-PATH is RFC 7911; route reflection is RFC 4456.
 
 > Commands and expected behavior below are written for FRR 10.x. Outputs differ slightly between releases. **Capture your real outputs**; they become the screenshots for the article and the talk.
@@ -138,6 +138,8 @@ cd phase-a-ebgp && containerlab destroy -t topology.clab.yml --cleanup && cd ..
 
 ## Phase B: iBGP with an off-path route reflector
 
+The destination, h2 behind `wan` (AS 65100), is reachable through two gateways in different ASes: dcgw1 (65098) behind border1, dcgw2 (65099) behind border2. So the two exits have **different AS paths**: `65098 65100` and `65099 65100`.
+
 ```bash
 cd phase-b-ibgp-rr && containerlab deploy -t topology.clab.yml && cd ..
 ```
@@ -146,9 +148,8 @@ cd phase-b-ibgp-rr && containerlab deploy -t topology.clab.yml && cd ..
 ```bash
 v b leaf1 "show ip ospf neighbor"             # rr1, border1, border2 in Full state
 v b rr1   "show bgp ipv4 unicast summary"     # three clients established
-v b border1 "show bgp ipv4 unicast summary"   # rr1 and dcgw established
+v b wan   "show bgp ipv4 unicast summary"     # dcgw1 and dcgw2 established
 ```
-**Capture.**
 
 ### B2. What the route reflector knows, and what it says
 ```bash
@@ -156,21 +157,28 @@ v b rr1   "show bgp ipv4 unicast 10.99.0.0/24"
 v b leaf1 "show bgp ipv4 unicast 10.99.0.0/24"
 x b leaf1 ip route show 10.99.0.0/24
 ```
-Look for:
-- rr1 has **two paths**, next hops 10.255.0.21 (border1) and 10.255.0.22 (border2), one marked best. With equal IGP cost the tie is broken by the originator's router ID, so expect border1.
-- leaf1 has **one path**, next hop 10.255.0.21. The kernel route uses **eth1 only**.
+Look for: rr1 has **two paths** (next hops 10.255.0.21 and 10.255.0.22); leaf1 has **one**, and the kernel route uses **eth1 only**. A reflector advertises only its best path.
 
-The route reflector knows two exits and tells the leaf about one: a reflector advertises only its best path. **Capture.**
-
-### B3. Traffic
+### B3. Traffic: one link idle
 ```bash
 x b h2 iperf3 -s -D
 ./watch-links.sh clab-addpath-b-leaf1 eth1 eth2     # terminal 1
 x b h1 iperf3 -c 10.99.0.10 -P 8 -t 60              # terminal 2
 ```
-Look for: everything on eth1, nothing on eth2, although border2 and its link are healthy. **Capture.**
+Look for: everything on eth1, nothing on eth2, although border2 and its link are healthy.
 
-### B4. Turn on ADD-PATH on the route reflector
+### B4. multipath-relax alone: no change
+```bash
+docker exec -it clab-addpath-b-leaf1 vtysh
+configure terminal
+router bgp 65000
+ bgp bestpath as-path multipath-relax
+end
+show bgp ipv4 unicast 10.99.0.0/24
+```
+Look for: still one path, one next hop; re-run iperf3, still 100% on eth1. Multipath can only balance across paths the leaf knows. Then remove it (`no bgp bestpath as-path multipath-relax`).
+
+### B5. ADD-PATH alone: two paths, still one link
 ```bash
 docker exec -it clab-addpath-b-rr1 vtysh
 configure terminal
@@ -180,14 +188,30 @@ router bgp 65000
 end
 clear bgp ipv4 unicast 10.255.0.11
 ```
-Then:
+The capability is negotiated when the session opens, so the session is reset. Then:
+```bash
+v b rr1   "show bgp neighbors 10.255.0.11"        # AddPath: IPv4 Unicast: TX advertised
+v b leaf1 "show bgp ipv4 unicast 10.99.0.0/24"
+x b leaf1 ip route show 10.99.0.0/24
+```
+Look for: leaf1 has **two paths** with Addpath IDs, **neither marked `multipath`**, and the kernel route still has **one** next hop. Re-run iperf3: still 100% on eth1. Why: the AS paths differ, and BGP only load-shares across identical AS paths by default.
+
+### B6. Both knobs: both links
+Turn multipath-relax back on at leaf1 (as in B4), keep ADD-PATH on rr1:
 ```bash
 v b leaf1 "show bgp ipv4 unicast 10.99.0.0/24"
 x b leaf1 ip route show 10.99.0.0/24
 ```
-Look for: leaf1 now has **two paths**, both `multipath`, next hops 10.255.0.21 and 10.255.0.22. The kernel route has **two next hops, via eth1 and eth2**. Re-run iperf3: traffic is on both links. **Capture all of it; this is the money shot.**
+Look for: both paths `multipath`, **two kernel next hops via eth1 and eth2**. Re-run iperf3: traffic on both links (38/62 in the recorded run, per-flow hashing). **This is the money shot.**
 
-### B5. Selection policy: all paths, or best per AS?
+| | multipath-relax off | multipath-relax on |
+|---|---|---|
+| **ADD-PATH off** | 1 path, 100% on eth1 | 1 path, 100% on eth1 |
+| **ADD-PATH on** | 2 paths, 100% on eth1 | 2 paths, **38% / 62%** |
+
+![Measured 2x2 result](images/grid-2x2.svg)
+
+### B7. Selection policy: all paths, or best per AS?
 ```bash
 docker exec -it clab-addpath-b-rr1 vtysh
 configure terminal
@@ -198,27 +222,49 @@ router bgp 65000
 end
 clear bgp ipv4 unicast 10.255.0.11
 ```
-Look for: leaf1 is back to **one path**. Ask the audience why before revealing it: both paths come from the same neighboring AS (65099), so "best per AS" sends one. The selection policy is a design decision, not a default. Switch back to `addpath-tx-all-paths` afterwards.
+Look for: leaf1 still has **two paths**, because the exits lead to different neighboring ASes (65098, 65099). Ask the audience what would happen if both exits were behind the same AS: one path, and the second link goes idle again. The selection policy is a design decision, not a default.
 
-### B6. Does ADD-PATH speed up failover? (measured: no, and it can loop)
-`python3 verify.py b --failover` fails border1's gateway link three times in each of three cases, with a ping flow (100 per second) that hashes through border1:
+### B8. Does ADD-PATH speed up failover? (measured: no, and it can loop)
+`python3 verify.py b --failover` fails border1's gateway link three times in each of three cases (multipath-relax on at leaf1), with a ping flow at 100 per second hashed through border1:
 
 | Case | Pings lost (10 ms each) | TTL exceeded |
 |---|---|---|
-| No ADD-PATH | 15, 15, 15 | 0 |
-| ADD-PATH to leaf1 | 14, 15, 14 | 0 |
-| ADD-PATH to leaf1 and both borders | 15, 14, 15 | **6, 6, 6** |
+| No ADD-PATH | 15, 14, 15 | 0 |
+| ADD-PATH to leaf1 | 15, 15, 15 | 0 |
+| ADD-PATH to leaf1 and both borders | 15, 15, 14 | **6, 6, 6** |
 
 What it shows:
-- **Convergence did not improve.** Each case loses about 150 ms, the time for border1's withdrawal to travel through rr1 to leaf1. Holding more paths does not shorten that journey.
-- **Backup paths at the borders created a transient loop.** Only border1 lacks a backup by default (the reflector never sends border1 its own path back, and its best path comes from border1). With ADD-PATH toward the borders, border1 gets border2's exit, but the only way to reach border2 is back through leaf1, which still sends the flow to border1 until the withdrawal arrives. The packets bounce until their TTL expires: `Time to live exceeded` from 10.0.1.3.
-- **Compare phase A:** about 50 ms there, because the spine peers directly with both borders and already holds both paths; a reflector adds a hop of propagation.
+- **Convergence did not improve.** About 150 ms in every case: the time for border1's withdrawal to travel through rr1 to leaf1.
+- **Backup paths at the borders created a transient loop.** border1's backup exit is border2, reachable only back through leaf1, which keeps sending the flow to border1 until the withdrawal arrives. The capture `captures/b3-failover-microloop.pcap` shows one ping crossing the leaf1–border1 link 63 times in 0.3 ms before border1 returns `Time to live exceeded`. Timeline from the capture: 0–66 ms dropped at border1, 66–154 ms looping, then via border2.
+- **Compare phase A:** about 50 ms, because the spine peers directly with both borders.
 
-Design lesson: a backup path speeds up failover only if it is reachable without going back through the router that is still sending you the traffic, for example over a direct link between the borders. Otherwise, protect the ingress: fast detection (BFD), and next-hop tracking so the leaf drops a path the moment its exit fails.
+Design lesson: a backup path speeds up failover only if it is reachable without going back through the router that is still sending you the traffic. Otherwise, protect the ingress: fast detection (BFD) and next-hop tracking.
 
 ```bash
 cd phase-b-ibgp-rr && containerlab destroy -t topology.clab.yml --cleanup && cd ..
 ```
+
+---
+
+## Packet captures
+
+`capture.py` records the key moments with tcpdump in a sidecar container that shares the router's network namespace (the FRR containers need nothing extra). Deploy a phase fresh, then:
+
+```bash
+python3 capture.py a     # a1/a2: spine1 to leaf1 updates, without and with ADD-PATH
+python3 capture.py b     # b1/b2: rr1 to leaf1 updates; b3: the failover micro-loop
+```
+
+Open the files in `captures/` with Wireshark. Useful display filters:
+
+| Filter | What it shows |
+|---|---|
+| `bgp.type == 1` | OPEN messages; expand *Support for Additional Paths (69)* to see Send/Receive |
+| `bgp.nlri_path_id` | UPDATEs carrying Path IDs (Wireshark decodes them because the OPEN is in the capture) |
+| `bgp.type == 2 && ip.src == 10.255.0.1` | what the reflector tells leaf1: compare b1 (one path) and b2 (two paths, two next hops) |
+| `icmp.seq == 279 \|\| icmp.type == 11` | in b3: one ping looping with decreasing TTL, then the Time-to-live exceeded |
+
+The figures in `images/` are generated from these files and from `results/`: `python3 shots.py` (screenshots) and `python3 diagrams.py` (diagrams).
 
 ---
 
@@ -228,20 +274,22 @@ cd phase-b-ibgp-rr && containerlab destroy -t topology.clab.yml --cleanup && cd 
 |---|---|---|---|
 | eBGP fabric, next hop rewritten | Each hop, using its own multipath | No: paths collapse onto one next hop | `bgp bestpath as-path multipath-relax` on every tier |
 | iBGP with an in-path reflector (the spine) | The reflector, which forwards traffic too | Little: the spine balances anyway | iBGP multipath on the reflector |
-| iBGP with an off-path reflector | The receiver of the routes | **Yes**: hidden exits become usable next hops | ADD-PATH on the reflector, `maximum-paths ibgp` on clients |
+| iBGP with an off-path reflector, exits in the same AS | The receiver of the routes | **Yes**: hidden exits become usable next hops | ADD-PATH on the reflector, `maximum-paths ibgp` on clients |
+| iBGP with an off-path reflector, exits in different ASes | The receiver of the routes | **Only with multipath-relax** on the receiver | ADD-PATH, `maximum-paths ibgp` and multipath-relax |
 | Overlays with encapsulation (EVPN, MPLS, SRv6) | The ingress, which tunnels to the next hop | **Yes**: next hops are tunnel endpoints | ADD-PATH, plus a selection policy you chose on purpose |
 
 Costs to mention: more paths means more memory and more update processing on every receiver, and the selection policy (all, best-per-AS, best N) decides how much you pay.
 
 ## Presenting it (15 minutes)
 
-1. **The puzzle (1 min):** two healthy exits, one carrying all the traffic. Show B3.
+1. **The puzzle (1 min):** two healthy exits, one link idle. Show B3.
 2. **The cause (2 min):** a route reflector advertises only its best path. Show B2.
-3. **The fix (3 min):** ADD-PATH, live. Show B4, traffic on both links.
-4. **The twist (4 min):** run the same feature in an eBGP fabric and nothing changes in forwarding. Show A5. Why: next-hop rewrite. What actually works there: multipath-relax (A4).
-5. **The policy (2 min):** best-per-AS sends one path here. Show B5.
-6. **The myth (2 min):** "ADD-PATH gives you fast failover." Show B6: same 150 ms, and a loop when backups sit behind the ingress.
-7. **The decision table (2 min):** the table above, and the costs.
+3. **First reflex, no change (1 min):** multipath-relax on the leaf. Show B4.
+4. **The famous fix, no change (3 min):** ADD-PATH. The leaf sees two paths, uses one. Show B5 and the b2 capture with Path IDs 3 and 4. Ask why before revealing: the AS paths differ.
+5. **Both knobs (2 min):** traffic on both links. Show B6 and the 2x2 table.
+6. **The counter-example (2 min):** the eBGP fabric, where ADD-PATH changes nothing (A5, a2 capture: two Path IDs, one next hop).
+7. **The myth (3 min):** "ADD-PATH gives you fast failover." Show B8, then the b3 capture with the looping ping.
+8. **The decision table (1 min).**
 
 Equivalent configuration for Cumulus Linux NVUE and Cisco NX-OS is in [EQUIVALENTS.md](EQUIVALENTS.md).
 

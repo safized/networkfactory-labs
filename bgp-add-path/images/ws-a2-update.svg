@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="558" viewBox="0 0 520 558">
+<rect width="520" height="558" rx="10" fill="#ffffff"/>
+<path d="M0 10a10 10 0 0 1 10-10h500a10 10 0 0 1 10 10v20h-520z" fill="#e9eef0"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="260.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#8a9a9c" text-anchor="middle">a2-ebgp-with-addpath.pcap · spine1 → leaf1</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">▾ Border Gateway Protocol - UPDATE Message</text>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">    ▾ Path attributes</text>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">        ▸ Path Attribute - ORIGIN: IGP</text>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">          Path Attribute - AS_PATH: 65000 65021 65099</text>
+<rect x="12" y="116" width="496" height="18" rx="3" fill="#fde2e2"/>
+<text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">          Path Attribute - NEXT_HOP: 10.0.1.1</text>
+<text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">    ▾ Network Layer Reachability Information (NLRI)</text>
+<rect x="12" y="152" width="496" height="18" rx="3" fill="#d8ecff"/>
+<text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">        ▾ 10.99.0.0/24 PathId 3</text>
+<text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              NLRI path id: 3</text>
+<text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              Prefix Length: 24</text>
+<text x="24" y="219" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              NLRI prefix: 10.99.0.0</text>
+<rect x="12" y="224" width="496" height="18" rx="3" fill="#d8ecff"/>
+<text x="24" y="237" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">        ▾ 10.255.0.99/32 PathId 11</text>
+<text x="24" y="255" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              NLRI path id: 11</text>
+<text x="24" y="273" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              Prefix Length: 32</text>
+<text x="24" y="291" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              NLRI prefix: 10.255.0.99</text>
+<text x="24" y="309" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">▾ Border Gateway Protocol - UPDATE Message</text>
+<text x="24" y="327" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">    ▾ Path attributes</text>
+<text x="24" y="345" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">        ▸ Path Attribute - ORIGIN: IGP</text>
+<text x="24" y="363" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">          Path Attribute - AS_PATH: 65000 65022 65099</text>
+<rect x="12" y="368" width="496" height="18" rx="3" fill="#fde2e2"/>
+<text x="24" y="381" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">          Path Attribute - NEXT_HOP: 10.0.1.1</text>
+<text x="24" y="399" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">    ▾ Network Layer Reachability Information (NLRI)</text>
+<rect x="12" y="404" width="496" height="18" rx="3" fill="#d8ecff"/>
+<text x="24" y="417" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">        ▾ 10.99.0.0/24 PathId 4</text>
+<text x="24" y="435" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              NLRI path id: 4</text>
+<text x="24" y="453" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              Prefix Length: 24</text>
+<text x="24" y="471" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              NLRI prefix: 10.99.0.0</text>
+<rect x="12" y="476" width="496" height="18" rx="3" fill="#d8ecff"/>
+<text x="24" y="489" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">        ▾ 10.255.0.99/32 PathId 12</text>
+<text x="24" y="507" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              NLRI path id: 12</text>
+<text x="24" y="525" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              Prefix Length: 32</text>
+<text x="24" y="543" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#1d2a2f" xml:space="preserve">              NLRI prefix: 10.255.0.99</text>
+</svg>
