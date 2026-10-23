@@ -51,7 +51,7 @@ containerlab destroy -t topology.clab.yml --cleanup
    `results/unique-spines/V2-*.txt` (valley path on spine1) with `results/rfc7938/A1-*.txt`.
 
 A note on churn: `verify.py` counts BGP messages after one link failure. In a six-switch fabric both spine plans
-produce the same few updates; path hunting needs many alternative paths, so it grows with fabric size (RFC 7938, section 7).
+produce the same few updates; path hunting needs many alternative paths, so it grows with fabric size (RFC 7938, section 5.1).
 
 ## Files
 
