@@ -4,7 +4,12 @@ Run after the scenario scripts. Lines are filtered, never edited.
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'common'))
-from panels import SKIP, block, drop, panel   # noqa: E402
+from panels import SKIP, block, drop, panel as _panel   # noqa: E402
+
+
+def panel(*a, **k):
+    """Every panel of this lab is at least one article column wide (840 px), so text renders at one size."""
+    return _panel(*a, min_width=840, **k)
 
 HERE = Path(__file__).parent
 RES, DEC = HERE / 'results', HERE / 'captures' / 'decoded'
@@ -136,7 +141,8 @@ def s3():
     write('s3-loss', panel(loss, {'lost': 'key'}, 'Continuous pings every 100 ms from both fabrics during the two moves'))
     d = show('s3b', 'dad', 'LEAF-5', 'sudo vtysh -c "show evpn mac vni 10010 mac 50:01:00:08:00:00"', 'Sync-info', 'Neighbors', '10.10.10.108 Active') + [''] + \
         [l for l in show('s3b', 'dad', 'LEAF-5', 'sudo vtysh -c "show evpn"') if 'Duplicate' in l or 'max-moves' in l or 'LEAF-5#' in l] + [''] + \
-        [l for l in show('s3b', 'nxos-dad', 'NX-LEAF-01', 'show logging logfile | include -i dup|freez|frozen|L2RIB') if 'DUPLEX' not in l]
+        [x for l in show('s3b', 'nxos-dad', 'NX-LEAF-01', 'show logging logfile | include -i dup|freez|frozen|L2RIB') if 'DUPLEX' not in l
+         for x in (l.replace(': Detected', ':\n    Detected').replace(' during Local', '\n    during Local').split('\n'))]
     write('s3b-duplicate-detection', panel(d, {'Duplicate, detected': 'bad', 'L2RIB_DUPLICATE_HOST': 'bad', 'max-moves 5': 'key'},
                                            'Eight moves in 40 s: both vendors flag the MAC as a duplicate'))
 

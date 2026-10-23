@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="765" height="198" viewBox="0 0 765 198">
-<rect width="765" height="198" rx="10" fill="#0f1c20"/>
-<path d="M0 10a10 10 0 0 1 10-10h745a10 10 0 0 1 10 10v20h-765z" fill="#1b2b30"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="198" viewBox="0 0 840 198">
+<rect width="840" height="198" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h820a10 10 0 0 1 10 10v20h-840z" fill="#1b2b30"/>
 <circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
-<text x="382.5" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">Routed packet on the interconnect: VNI 50001, router MAC to router MAC, TTL 63</text>
+<text x="420.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">Routed packet on the interconnect: VNI 50001, router MAC to router MAC, TTL 63</text>
 <text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">▾ Internet Protocol Version 4, Src: 10.0.0.4, Dst: 10.0.1.10</text>
 <text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      Time to Live: 62</text>
 <text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  User Datagram Protocol, Src Port: 37555, Dst Port: 4789</text>
 <text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">▾ Virtual eXtensible Local Area Network</text>
-<rect x="12" y="116" width="741" height="18" rx="3" fill="#1f6a5a"/>
+<rect x="12" y="116" width="816" height="18" rx="3" fill="#1f6a5a"/>
 <text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      VXLAN Network Identifier (VNI): 50001</text>
-<rect x="12" y="134" width="741" height="18" rx="3" fill="#1f6a5a"/>
+<rect x="12" y="134" width="816" height="18" rx="3" fill="#1f6a5a"/>
 <text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Ethernet II, Src: 50:00:00:04:00:08 (50:00:00:04:00:08), Dst: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)</text>
 <text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">▾ Internet Protocol Version 4, Src: 10.20.20.107, Dst: 10.30.30.111</text>
-<rect x="12" y="170" width="741" height="18" rx="3" fill="#1f6a5a"/>
+<rect x="12" y="170" width="816" height="18" rx="3" fill="#1f6a5a"/>
 <text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      Time to Live: 63</text>
 </svg>

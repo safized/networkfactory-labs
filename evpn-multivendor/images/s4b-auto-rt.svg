@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="740" height="468" viewBox="0 0 740 468">
-<rect width="740" height="468" rx="10" fill="#0f1c20"/>
-<path d="M0 10a10 10 0 0 1 10-10h720a10 10 0 0 1 10 10v20h-740z" fill="#1b2b30"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="468" viewBox="0 0 840 468">
+<rect width="840" height="468" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h820a10 10 0 0 1 10 10v20h-840z" fill="#1b2b30"/>
 <circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
-<text x="370.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">Automatic RTs on Cumulus: Cumulus still imports everything, NX-OS drops every Cumulus route</text>
+<text x="420.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">Automatic RTs on Cumulus: Cumulus still imports everything, NX-OS drops every Cumulus route</text>
 <text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"># explicit RT 65000:10010 on every leaf</text>
 <text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">LEAF-3 (Cumulus), VNI 10010:</text>
 <text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Import Route Target:</text>
@@ -19,17 +19,17 @@
 <text x="24" y="273" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"># Cumulus leaves on automatic RTs, NX-OS explicit</text>
 <text x="24" y="291" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">LEAF-3 (Cumulus), VNI 10010:</text>
 <text x="24" y="309" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Import Route Target:</text>
-<rect x="12" y="314" width="716" height="18" rx="3" fill="#5a2323"/>
+<rect x="12" y="314" width="816" height="18" rx="3" fill="#5a2323"/>
 <text x="24" y="327" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">    65103:10010</text>
 <text x="24" y="345" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Export Route Target:</text>
-<rect x="12" y="350" width="716" height="18" rx="3" fill="#5a2323"/>
+<rect x="12" y="350" width="816" height="18" rx="3" fill="#5a2323"/>
 <text x="24" y="363" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">    65103:10010</text>
 <text x="24" y="381" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">NX-LEAF-02 receives SERVER-6 with:</text>
-<rect x="12" y="386" width="716" height="18" rx="3" fill="#5a2323"/>
+<rect x="12" y="386" width="816" height="18" rx="3" fill="#5a2323"/>
 <text x="24" y="399" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      Extcommunity: RT:65103:10010 ENCAP:8</text>
-<rect x="12" y="404" width="716" height="18" rx="3" fill="#5a2323"/>
+<rect x="12" y="404" width="816" height="18" rx="3" fill="#5a2323"/>
 <text x="24" y="417" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">NX-LEAF-02 L2RIB entries for the Cumulus hosts: 0</text>
 <text x="24" y="435" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">SERVER-6 -&gt; SERVER-8 (Cumulus):   0% packet loss</text>
-<rect x="12" y="440" width="716" height="18" rx="3" fill="#5a2323"/>
+<rect x="12" y="440" width="816" height="18" rx="3" fill="#5a2323"/>
 <text x="24" y="453" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">SERVER-6 -&gt; CLIENT-16 (NX-OS):    100% packet loss</text>
 </svg>

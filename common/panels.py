@@ -21,10 +21,10 @@ def drop(lines, *patterns):
     return [l for l in lines if not any(p in l for p in patterns)]
 
 
-def panel(lines, marks, title, dark=True, tree=False, rows=None):
+def panel(lines, marks, title, dark=True, tree=False, rows=None, min_width=520):
     """lines: str or SKIP; marks: {substring: color key}; returns standalone SVG text."""
     width = int(max(len(l) for l in lines if l is not SKIP) * CW) + 48
-    width = max(width, 520, int(len(title) * 6.6) + 140)    # wide enough for the title too
+    width = max(width, min_width, int(len(title) * 6.6) + 140)    # wide enough for the title too
     head = 30
     h = head + 14 + LH * len(lines) + 10
     bg, fg, chrome, dim = (('#0f1c20', '#d5e1de', '#1b2b30', '#5f7a78') if dark else

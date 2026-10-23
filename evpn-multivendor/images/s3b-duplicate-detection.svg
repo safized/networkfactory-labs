@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1512" height="270" viewBox="0 0 1512 270">
-<rect width="1512" height="270" rx="10" fill="#0f1c20"/>
-<path d="M0 10a10 10 0 0 1 10-10h1492a10 10 0 0 1 10 10v20h-1512z" fill="#1b2b30"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="306" viewBox="0 0 840 306">
+<rect width="840" height="306" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h820a10 10 0 0 1 10 10v20h-840z" fill="#1b2b30"/>
 <circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
-<text x="756.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">Eight moves in 40 s: both vendors flag the MAC as a duplicate</text>
+<text x="420.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">Eight moves in 40 s: both vendors flag the MAC as a duplicate</text>
 <text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">LEAF-5# sudo vtysh -c &quot;show evpn mac vni 10010 mac 50:01:00:08:00:00&quot;</text>
 <text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">MAC: 50:01:00:08:00:00</text>
 <text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> Intf: swp3(5) VLAN: 10</text>
 <text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> Local Seq: 10 Remote Seq: 9</text>
-<rect x="12" y="116" width="1488" height="18" rx="3" fill="#5a2323"/>
+<rect x="12" y="116" width="816" height="18" rx="3" fill="#5a2323"/>
 <text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> Duplicate, detected at Fri Oct 23 18:19:15 2026</text>
 <text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"></text>
 <text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">LEAF-5# sudo vtysh -c &quot;show evpn&quot;</text>
 <text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">Duplicate address detection: Enable</text>
-<rect x="12" y="188" width="1488" height="18" rx="3" fill="#1f6a5a"/>
+<rect x="12" y="188" width="816" height="18" rx="3" fill="#1f6a5a"/>
 <text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Detection max-moves 5, time 180</text>
 <text x="24" y="219" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"></text>
 <text x="24" y="237" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">NX-LEAF-01# show logging logfile | include -i dup|freez|frozen|L2RIB</text>
-<rect x="12" y="242" width="1488" height="18" rx="3" fill="#5a2323"/>
-<text x="24" y="255" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">2026 Oct 23 18:18:44 NX-LEAF-01 %L2RIB-2-L2RIB_DUPLICATE_HOST_DURING_LOCAL_UPDATE: Detected duplicate host MAC 5001.0008.0000 in topology: 10 during Local update with host located at remote VTEP: Eth1/3</text>
+<rect x="12" y="242" width="816" height="18" rx="3" fill="#5a2323"/>
+<text x="24" y="255" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">2026 Oct 23 18:18:44 NX-LEAF-01 %L2RIB-2-L2RIB_DUPLICATE_HOST_DURING_LOCAL_UPDATE:</text>
+<text x="24" y="273" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">    Detected duplicate host MAC 5001.0008.0000 in topology: 10</text>
+<text x="24" y="291" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">    during Local update with host located at remote VTEP: Eth1/3</text>
 </svg>
