@@ -141,6 +141,43 @@ def s3():
                                            'Eight moves in 40 s: both vendors flag the MAC as a duplicate'))
 
 
+def s4():
+    rows = []
+    for tag, label in (('1-mtu-9216', 'interconnect MTU 9216'), ('2-mtu-1500', 'interconnect MTU 1500'), ('3-restored', 'restored to 9216')):
+        f = RES / 's4a' / f'{tag}.txt'
+        rows.append(f'# {label}')
+        for src in ('SERVER-6', 'SERVER-8'):
+            small = block(f, f'{src}# ping -c 3 -W 1 -M do -s 1400 10.10.10.116 | tail -2')[0]
+            big = block(f, f'{src}# ping -c 3 -W 1 -M do -s 1472 10.10.10.116 | tail -2')[0]
+            tcp = [l for l in block(f, f'{src}# iperf3 -c 10.10.10.116 -t 5 -f m 2>&1 | grep -E "sender|receiver|error|unable" || echo "(no result: transfer failed)"') if 'receiver' in l]
+            pct = lambda l: l.split(',')[2].strip()
+            rows.append(f'  {src:<9} ping 1428 B: {pct(small):<17} ping 1500 B: {pct(big):<18} TCP: {tcp[0].split("sec", 1)[1].split("receiver")[0].strip() if tcp else "failed"}')
+        bgp = block(f, 'LEAF-3# sudo vtysh -c "show bgp summary" | grep 10.255.0.1')[0].split()
+        drops = block(f, 'LEAF-3# ip -s link show swp4 | head -8')[5].split()
+        rows.append(f'  BGP over the link: up {bgp[8]}   swp4 TX errors {drops[2]}, dropped {drops[3]}')
+        rows.append('')
+    write('s4a-mtu-results', panel(rows[:-1], {'100% packet loss': 'bad', '0.00 Bytes': 'bad', 'BGP over the link': 'key'},
+                                   'MTU 1500 on the interconnect: small packets fine, full-size packets and TCP dead, BGP and counters clean'))
+    fr = ['No.  Outer src  Outer dst  IP id   offset  more-frags  length'] + \
+         [f'{f[0]:>3}  {f[1].split(",")[0]:<10} {f[2].split(",")[0]:<10} {f[3].split(",")[0]:<7} {int(f[4].split(",")[0]) * 8:>6}  {f[5].split(",")[0]:<10}  {f[6]}'
+          for f in (l.split('\t') for l in listing('s4a-dci-fragments.txt')[:6])]
+    write('s4a-fragments', panel(fr, {'True': 'bad'},
+                                 'Outer VXLAN packet fragmented by LEAF-3, never reassembled'))
+
+    a = []
+    for tag, label in (('1-explicit-rt', 'explicit RT 65000:10010 on every leaf'), ('2-auto-rt-on-cumulus', 'Cumulus leaves on automatic RTs, NX-OS explicit')):
+        f = f'{tag}'
+        a += [f'# {label}', 'LEAF-3 (Cumulus), VNI 10010:'] + show('s4b', f, 'LEAF-3', 'sudo vtysh -c "show bgp l2vpn evpn vni 10010" | grep -E "Import Route Target|Export Route Target|^ +[0-9]+:[0-9]+"')[1:]
+        a += ['NX-LEAF-02 receives SERVER-6 with:'] + show('s4b', f, 'NX-LEAF-02', 'show bgp l2vpn evpn 5001.0006.0000 | include Extcommunity')[1:2]
+        nx = show('s4b', f, 'NX-LEAF-02', 'show l2route evpn mac all | include 5001.0006|5001.0008')[1:]
+        a += [f'NX-LEAF-02 L2RIB entries for the Cumulus hosts: {len(nx)}']
+        pings = [l for l in block(RES / 's4b' / f'{f}.txt', 'SERVER-6# ip neigh flush all; ping -c 3 -W 1 10.10.10.108 | tail -2') if 'loss' in l] + \
+                [l for l in block(RES / 's4b' / f'{f}.txt', 'SERVER-6# ping -c 3 -W 1 10.10.10.116 | tail -2') if 'loss' in l]
+        a += [f'SERVER-6 -> SERVER-8 (Cumulus):   {pings[0].split(",")[2].strip()}', f'SERVER-6 -> CLIENT-16 (NX-OS):    {pings[1].split(",")[2].strip()}', '']
+    write('s4b-auto-rt', panel(a[:-1], {'65103:10010': 'bad', 'entries for the Cumulus hosts: 0': 'bad', '100% packet loss': 'bad'},
+                               'Automatic RTs on Cumulus: Cumulus still imports everything, NX-OS drops every Cumulus route'))
+
+
 if __name__ == '__main__':
     for f in sys.argv[1:] or ['s1']:
         globals()[f]()

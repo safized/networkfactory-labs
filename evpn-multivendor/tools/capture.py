@@ -3,7 +3,7 @@ the pcap streams back over SSH.
 
 EVE names the host side of every node interface vun0010001<node id, 3 hex><interface index, 2 hex>.
 """
-import subprocess, time
+import shlex, subprocess, time
 from pathlib import Path
 
 SSH = ['ssh', '-i', str(Path.home() / '.ssh/eve_lab'), '-o', 'BatchMode=yes', 'labops@192.168.1.112']
@@ -16,7 +16,7 @@ def tap(node_id, iface):
 class Capture:
     """with Capture(tap(3, 4), 'out.pcap', 'udp port 4789'): ...run traffic..."""
     def __init__(self, ifname, out, bpf='', seconds=60):
-        self.cmd = SSH + [f'timeout {seconds} /usr/local/bin/tcpdump-lab -U -s 0 -i {ifname} -w - {bpf}']
+        self.cmd = SSH + [f'timeout {seconds} /usr/local/bin/tcpdump-lab -U -s 0 -i {ifname} -w - {shlex.quote(bpf) if bpf else ""}']
         self.out = Path(out)
 
     def __enter__(self):

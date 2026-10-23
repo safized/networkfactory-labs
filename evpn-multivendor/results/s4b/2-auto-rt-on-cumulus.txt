@@ -1,0 +1,21 @@
+### LEAF-3# sudo vtysh -c "show bgp l2vpn evpn vni 10010" | grep -E "Import Route Target|Export Route Target|^ +[0-9]+:[0-9]+"
+  Import Route Target:
+    65103:10010
+  Export Route Target:
+    65103:10010
+### LEAF-3# sudo vtysh -c "show evpn mac vni 10010" | grep -E "50:01:00:(08|10)"
+50:01:00:08:00:00 remote       10.0.0.5                             0/10
+50:01:00:10:00:00 remote       10.0.1.12                            0/0
+### NX-LEAF-02# show l2route evpn mac all | include 5001.0006|5001.0008
+
+### NX-LEAF-02# show bgp l2vpn evpn 5001.0006.0000 | include Extcommunity
+      Extcommunity: RT:65103:10010 ENCAP:8
+      Extcommunity: RT:65103:10010 ENCAP:8
+      Extcommunity: RT:65000:50001 RT:65103:10010 ENCAP:8 Router MAC:5000.0003.0008
+      Extcommunity: RT:65000:50001 RT:65103:10010 ENCAP:8 Router MAC:5000.0003.0008
+      Extcommunity: RT:65000:50001 RT:65103:10010 ENCAP:8 Router MAC:5000.0003.0008
+### SERVER-6# ip neigh flush all; ping -c 3 -W 1 10.10.10.108 | tail -2
+3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+rtt min/avg/max/mdev = 2.863/3.017/3.194/0.135 ms
+### SERVER-6# ping -c 3 -W 1 10.10.10.116 | tail -2
+3 packets transmitted, 0 received, 100% packet loss, time 2033ms

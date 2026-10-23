@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="780" height="216" viewBox="0 0 780 216">
-<rect width="780" height="216" rx="10" fill="#0f1c20"/>
-<path d="M0 10a10 10 0 0 1 10-10h760a10 10 0 0 1 10 10v20h-780z" fill="#1b2b30"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="786" height="216" viewBox="0 0 786 216">
+<rect width="786" height="216" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h766a10 10 0 0 1 10 10v20h-786z" fill="#1b2b30"/>
 <circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
-<text x="390.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">BGP UPDATEs on the interconnect: the new location is announced, the old one withdrawn within 0.3 s</text>
+<text x="393.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">BGP UPDATEs on the interconnect: the new location is announced, the old one withdrawn within 0.3 s</text>
 <text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">   time  from            what                                     RD                 MAC mobility seq</text>
-<rect x="12" y="62" width="756" height="18" rx="3" fill="#1f6a5a"/>
+<rect x="12" y="62" width="762" height="18" rx="3" fill="#1f6a5a"/>
 <text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> 10.29s  NX-OS   side    announce MAC+IP 10.10.10.108             10.0.1.11:32777    1</text>
-<rect x="12" y="80" width="756" height="18" rx="3" fill="#1f6a5a"/>
+<rect x="12" y="80" width="762" height="18" rx="3" fill="#1f6a5a"/>
 <text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> 10.35s  Cumulus side    announce MAC+IP 10.10.10.108             10.0.1.11:32777    1</text>
-<rect x="12" y="98" width="756" height="18" rx="3" fill="#5a2323"/>
+<rect x="12" y="98" width="762" height="18" rx="3" fill="#5a2323"/>
 <text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> 10.56s  Cumulus side    withdraw MAC and MAC+IP                  10.0.0.5:2         -</text>
 <text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> 10.78s  NX-OS   side    announce MAC only                        10.0.1.11:32777    1</text>
 <text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> 10.83s  Cumulus side    announce MAC only                        10.0.1.11:32777    1</text>
-<rect x="12" y="152" width="756" height="18" rx="3" fill="#1f6a5a"/>
+<rect x="12" y="152" width="762" height="18" rx="3" fill="#1f6a5a"/>
 <text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> 25.98s  Cumulus side    announce MAC+IP 10.10.10.108             10.0.0.5:2         2</text>
-<rect x="12" y="170" width="756" height="18" rx="3" fill="#5a2323"/>
+<rect x="12" y="170" width="762" height="18" rx="3" fill="#5a2323"/>
 <text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> 26.01s  NX-OS   side    withdraw MAC and MAC+IP                  10.0.1.11:32777    -</text>
-<rect x="12" y="188" width="756" height="18" rx="3" fill="#5a2323"/>
+<rect x="12" y="188" width="762" height="18" rx="3" fill="#5a2323"/>
 <text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"> 26.06s  Cumulus side    withdraw MAC and MAC+IP                  10.0.1.11:32777    -</text>
 </svg>

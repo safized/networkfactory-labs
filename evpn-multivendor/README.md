@@ -27,14 +27,16 @@ route targets `65000:<VNI>` on both vendors.
 | 20 | 10020 | 10.20.20.0/24 | Cumulus only | SERVER-7 (.107), SERVER-9 (.109) |
 | 30 | 10030 | 10.30.30.0/24 | NX-OS only | SERVER-11 (.111) |
 
-Hosts are [netshoot](https://github.com/nicolaka/netshoot) containers.
+Hosts are [netshoot](https://github.com/nicolaka/netshoot) containers. SERVER-8-NEW, behind NX-LEAF-01, has no address of its own: scenario 3 moves SERVER-8 onto it.
+
+**Validated:** 13/13 baseline checks with `verify.py` (results in `results/verify.txt`).
 
 ## Scenarios
 
 1. **One VLAN across two vendors**, and what ARP suppression really needs ([details](#scenario-1-one-vlan-across-two-vendors))
 2. **Anycast gateway and symmetric IRB** between VLAN 20 and VLAN 30 ([details](#scenario-2-one-anycast-gateway-symmetric-irb-between-vendors))
 3. **Host mobility**: a host moves from one vendor to the other ([details](#scenario-3-a-host-moves-from-one-vendor-to-the-other))
-4. **Break it**: underlay MTU and automatic route targets (in progress)
+4. **Break it**: underlay MTU and automatic route targets ([details](#scenario-4-break-it-two-mistakes-that-keep-every-dashboard-green))
 
 ## Scenario 1: one VLAN across two vendors
 
@@ -190,6 +192,63 @@ this.
 - Detection and freezing are two different things. Both vendors detected the flapping; in this run neither froze
   the MAC, so the churn would continue. Decide per vendor whether you want freezing, and with what recovery, and
   make the two behave the same: check the defaults of your release in the vendor documentation.
+
+## Scenario 4: break it (two mistakes that keep every dashboard green)
+
+```bash
+python3 scenarios/s4_mtu.py       # interconnect at MTU 1500, then restored
+python3 scenarios/s4_auto_rt.py   # Cumulus leaves on automatic route targets, then restored
+```
+
+![Scenario 4](diagrams/s4-break-it.png)
+
+### 4a: the interconnect at MTU 1500
+
+VXLAN adds 50 bytes. With the interconnect at 1500 on both ends and everything else at 9216, small pings still
+work, but 1500-byte pings and a TCP transfer die completely. The BGP session over the same link never flaps, and
+the interface shows no errors and no drops. Monitoring sees a healthy link.
+
+![Results at 9216, 1500 and restored](images/s4a-mtu-results.svg)
+
+Where the packets went depends on the role of the switch in front of the small link. When LEAF-3 is the VTEP, the
+packet never reaches the wire. When LEAF-3 only routes another leaf's VXLAN packet, it fragments the outer packet
+(VXLAN does not set DF on the outer header), and the NX-OS VTEP never reassembles it. Nobody sends an ICMP
+"fragmentation needed", so path MTU discovery cannot rescue TCP.
+
+![The outer packet split into two fragments](images/s4a-fragments.svg)
+
+Fragmentation of the outer packet is what Cumulus VX does with software forwarding; switch hardware generally
+drops instead. The outcome for the application is the same.
+
+### 4b: automatic route targets in a multi-vendor eBGP fabric
+
+The three Cumulus leaves drop the explicit RT for VNI 10010 and derive their own: `<own ASN>:<VNI>`, so 65103:10010
+on LEAF-3 and 65105:10010 on LEAF-5. NX-OS keeps 65000:10010.
+
+![Automatic route targets: a one-way failure](images/s4b-auto-rt.svg)
+
+The failure is one-way, which makes it hard to diagnose:
+
+- Inside the Cumulus fabric everything still works, because FRR imports automatic route targets as a wildcard,
+  `*:VNI` ([FRR EVPN documentation](https://docs.frrouting.org/en/latest/evpn.html); the
+  [NVIDIA Cumulus documentation](https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-57/Network-Virtualization/Ethernet-Virtual-Private-Network-EVPN/EVPN-Enhancements/)
+  describes the same behaviour for eBGP).
+- NX-OS receives the Cumulus routes in BGP, but none of them reach its L2RIB: 65103:10010 is not 65000:10010.
+  Pings from Cumulus hosts to NX-OS hosts are 100% lost.
+- Cumulus keeps importing the NX-OS routes (65000:10010 matches `*:10010`), so half of the tables look correct.
+
+**What to take away**
+
+- Set the underlay MTU to at least the host MTU plus 50 on every link, on both ends, and test it with
+  `ping -M do -s 1472` (Linux) between hosts on different leaves. A BGP session is not an MTU test.
+- In a multi-vendor eBGP fabric, configure route targets explicitly and identically everywhere. Automatic
+  route targets are derived differently by each vendor and matched differently on import.
+
+## Verify the lab
+
+```bash
+python3 verify.py      # the healthy baseline: peers, gateway MAC, route targets, MTU and reachability
+```
 
 ## Files
 

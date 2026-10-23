@@ -1,0 +1,26 @@
+### SERVER-6# ping -c 3 -W 1 -M do -s 1400 10.10.10.116 | tail -2
+3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+rtt min/avg/max/mdev = 16.797/19.515/21.342/1.959 ms
+### SERVER-6# ping -c 3 -W 1 -M do -s 1472 10.10.10.116 | tail -2
+3 packets transmitted, 0 received, 100% packet loss, time 2052ms
+### SERVER-6# iperf3 -c 10.10.10.116 -t 5 -f m 2>&1 | grep -E "sender|receiver|error|unable" || echo "(no result: transfer failed)"
+[  5]   0.00-5.00   sec  0.00 Bytes  0.00 Mbits/sec    4            sender
+[  5]   0.00-5.02   sec  0.00 Bytes  0.00 Mbits/sec                  receiver
+### SERVER-8# ping -c 3 -W 1 -M do -s 1400 10.10.10.116 | tail -2
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 19.632/20.418/21.304/0.686 ms
+### SERVER-8# ping -c 3 -W 1 -M do -s 1472 10.10.10.116 | tail -2
+3 packets transmitted, 0 received, 100% packet loss, time 2051ms
+### SERVER-8# iperf3 -c 10.10.10.116 -t 5 -f m 2>&1 | grep -E "sender|receiver|error|unable" || echo "(no result: transfer failed)"
+[  5]   0.00-5.00   sec  0.00 Bytes  0.00 Mbits/sec    4            sender
+[  5]   0.00-5.02   sec  0.00 Bytes  0.00 Mbits/sec                  receiver
+### LEAF-3# sudo vtysh -c "show bgp summary" | grep 10.255.0.1
+10.255.0.1      4      65210      3418      3509        0    0    0 00:30:49            5       10
+10.255.0.1      4      65210      3418      3509        0    0    0 00:30:49           16       32
+### LEAF-3# ip -s link show swp4 | head -8
+6: swp4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 50:00:00:03:00:04 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    4705505    41702    0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    91903440   68058    0       0       0       0

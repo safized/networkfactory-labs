@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="826" height="306" viewBox="0 0 826 306">
+<rect width="826" height="306" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h806a10 10 0 0 1 10 10v20h-826z" fill="#1b2b30"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="413.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">MTU 1500 on the interconnect: small packets fine, full-size packets and TCP dead, BGP and counters clean</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"># interconnect MTU 9216</text>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  SERVER-6  ping 1428 B: 0% packet loss    ping 1500 B: 0% packet loss     TCP: 7.75 MBytes  12.8 Mbits/sec</text>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  SERVER-8  ping 1428 B: 0% packet loss    ping 1500 B: 0% packet loss     TCP: 8.62 MBytes  13.9 Mbits/sec</text>
+<rect x="12" y="98" width="802" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  BGP over the link: up 00:30:12   swp4 TX errors 0, dropped 0</text>
+<text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"></text>
+<text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"># interconnect MTU 1500</text>
+<rect x="12" y="152" width="802" height="18" rx="3" fill="#5a2323"/>
+<text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  SERVER-6  ping 1428 B: 0% packet loss    ping 1500 B: 100% packet loss   TCP: 0.00 Bytes  0.00 Mbits/sec</text>
+<rect x="12" y="170" width="802" height="18" rx="3" fill="#5a2323"/>
+<text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  SERVER-8  ping 1428 B: 0% packet loss    ping 1500 B: 100% packet loss   TCP: 0.00 Bytes  0.00 Mbits/sec</text>
+<rect x="12" y="188" width="802" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  BGP over the link: up 00:30:49   swp4 TX errors 0, dropped 0</text>
+<text x="24" y="219" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"></text>
+<text x="24" y="237" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"># restored to 9216</text>
+<text x="24" y="255" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  SERVER-6  ping 1428 B: 0% packet loss    ping 1500 B: 0% packet loss     TCP: 7.12 MBytes  11.9 Mbits/sec</text>
+<text x="24" y="273" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  SERVER-8  ping 1428 B: 0% packet loss    ping 1500 B: 0% packet loss     TCP: 7.62 MBytes  12.5 Mbits/sec</text>
+<rect x="12" y="278" width="802" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="291" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  BGP over the link: up 00:31:23   swp4 TX errors 0, dropped 0</text>
+</svg>
