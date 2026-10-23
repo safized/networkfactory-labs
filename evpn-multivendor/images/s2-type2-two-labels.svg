@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="751" height="234" viewBox="0 0 751 234">
+<rect width="751" height="234" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h731a10 10 0 0 1 10 10v20h-751z" fill="#1b2b30"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="375.5" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">LEAF-BORDER: SERVER-7&#x27;s MAC+IP route carries the L2 VNI and the L3VNI, and lands in TENANT1</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">LEAF-BORDER# show bgp l2vpn evpn 10.20.20.107</text>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">Route Distinguisher: 10.0.0.4:3</text>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">BGP routing table entry for [2]:[0]:[0]:[48]:[5001.0007.0000]:[32]:[10.20.20.107]/272, version 34</text>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">Paths: (1 available, best #1)</text>
+<text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Path type: external, path is valid, is best path, no labeled nexthop</text>
+<rect x="12" y="134" width="727" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">             Imported paths list: TENANT1 L3-50001</text>
+<text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  AS-Path: 65103 65100 65104 , path sourced external to AS</text>
+<text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">    10.0.0.4 (metric 0) from 10.255.0.0 (10.0.0.3)</text>
+<rect x="12" y="188" width="727" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      Received label 10020 50001</text>
+<rect x="12" y="206" width="727" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="219" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      Extcommunity: RT:65000:10020 RT:65000:50001 ENCAP:8 Router MAC:5000.0004.0008</text>
+</svg>

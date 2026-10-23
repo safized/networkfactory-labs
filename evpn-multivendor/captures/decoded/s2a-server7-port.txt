@@ -1,0 +1,11 @@
+    1   0.000000 50:00:00:04:00:03 → Nearest-Customer-Bridge STP 53 RST. Root = 32768/0/50:00:00:04:00:08  Cost = 0  Port = 0x8001
+    2   2.000144 50:00:00:04:00:03 → Nearest-Customer-Bridge STP 53 RST. Root = 32768/0/50:00:00:04:00:08  Cost = 0  Port = 0x8001
+    3   2.660459 50:01:00:07:00:00 → Broadcast    ARP 42 Who has 10.20.20.1? Tell 10.20.20.107
+    4   2.662211 IETF-VRRP-VRID_01 → 50:01:00:07:00:00 ARP 42 10.20.20.1 is at 00:00:5e:00:01:01
+    5   2.662259 10.20.20.107 → 10.30.30.111 ICMP 98 Echo (ping) request  id=0xdf80, seq=1/256, ttl=64
+    6   3.164773 10.20.20.107 → 10.30.30.111 ICMP 98 Echo (ping) request  id=0xdf80, seq=2/512, ttl=64
+    7   3.176094 10.30.30.111 → 10.20.20.107 ICMP 98 Echo (ping) reply    id=0xdf80, seq=2/512, ttl=62 (request in 6)
+    8   3.665723 10.20.20.107 → 10.30.30.111 ICMP 98 Echo (ping) request  id=0xdf80, seq=3/768, ttl=64
+    9   3.676439 10.30.30.111 → 10.20.20.107 ICMP 98 Echo (ping) reply    id=0xdf80, seq=3/768, ttl=62 (request in 8)
+   10   4.000779 50:00:00:04:00:03 → Nearest-Customer-Bridge STP 53 RST. Root = 32768/0/50:00:00:04:00:08  Cost = 0  Port = 0x8001
+   11   6.000780 50:00:00:04:00:03 → Nearest-Customer-Bridge STP 53 RST. Root = 32768/0/50:00:00:04:00:08  Cost = 0  Port = 0x8001

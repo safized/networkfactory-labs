@@ -1,0 +1,6 @@
+    1   0.000000 10.20.20.107 → 10.30.30.111 ICMP 148 Echo (ping) request  id=0xdf81, seq=1/256, ttl=63
+    2   0.010573 10.30.30.111 → 10.20.20.107 ICMP 148 Echo (ping) reply    id=0xdf81, seq=1/256, ttl=63 (request in 1)
+    3   0.500421 10.20.20.107 → 10.30.30.111 ICMP 148 Echo (ping) request  id=0xdf81, seq=2/512, ttl=63
+    4   0.505666 10.30.30.111 → 10.20.20.107 ICMP 148 Echo (ping) reply    id=0xdf81, seq=2/512, ttl=63 (request in 3)
+    5   1.001268 10.20.20.107 → 10.30.30.111 ICMP 148 Echo (ping) request  id=0xdf81, seq=3/768, ttl=63
+    6   1.009023 10.30.30.111 → 10.20.20.107 ICMP 148 Echo (ping) reply    id=0xdf81, seq=3/768, ttl=63 (request in 5)

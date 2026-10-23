@@ -32,7 +32,7 @@ Hosts are [netshoot](https://github.com/nicolaka/netshoot) containers.
 ## Scenarios
 
 1. **One VLAN across two vendors**, and what ARP suppression really needs ([details](#scenario-1-one-vlan-across-two-vendors))
-2. **Anycast gateway and symmetric IRB** between VLAN 20 and VLAN 30 (in progress)
+2. **Anycast gateway and symmetric IRB** between VLAN 20 and VLAN 30 ([details](#scenario-2-one-anycast-gateway-symmetric-irb-between-vendors))
 3. **Host mobility**: a host moves from one vendor to the other (in progress)
 4. **Break it**: underlay MTU and automatic route targets (in progress)
 
@@ -97,6 +97,54 @@ reloads the three NX-OS leaves. After that, no ARP crosses the link in either di
   a quirk of the virtual platform; check it on hardware before relying on it either way.
 - NX-OSv 9000 keeps no boot variable by default, so the first `reload` stops at `loader >`. The generated
   configuration sets `boot nxos bootflash:...`.
+
+## Scenario 2: one anycast gateway, symmetric IRB between vendors
+
+SERVER-7 (VLAN 20, Cumulus only) pings SERVER-11 (VLAN 30, NX-OS only). No leaf has both VLANs, so the packet is
+routed at the ingress leaf, carried across in the L3VNI, and routed again at the egress leaf.
+
+```bash
+python3 scenarios/s2_anycast_irb.py a   # cold: LEAF-BORDER's ARP entry for SERVER-11 is cleared first
+python3 scenarios/s2_anycast_irb.py b   # warm
+```
+
+![Scenario 2](diagrams/s2-symmetric-irb.png)
+
+**One gateway, two vendors.** Cumulus calls it VRR, NX-OS calls it the anycast gateway; configured with the same
+MAC, the hosts cannot tell which vendor answers.
+
+![The same gateway MAC from both vendors](images/s2-anycast-gateway.svg)
+
+**The packet on the wire.** On the interconnect the routed packet travels in VNI 50001, not in VNI 10020 or 10030.
+The inner Ethernet header goes from LEAF-4's router MAC to LEAF-BORDER's router MAC, and the inner TTL is already
+63. SERVER-11 receives it with TTL 62: two routing hops, one on each vendor.
+
+![VXLAN headers of the routed packet](images/s2-vxlan-l3vni.svg)
+
+**Where those MACs come from.** SERVER-7's MAC+IP route reaches LEAF-BORDER with two labels (10020 and 50001),
+two route targets and LEAF-4's Router MAC. LEAF-BORDER has no VLAN 20, so it imports only the L3 half: a /32 in
+TENANT1.
+
+![SERVER-7's type-2 route on LEAF-BORDER](images/s2-type2-two-labels.svg)
+
+**The cold destination.** If LEAF-BORDER has no ARP entry for SERVER-11, LEAF-4 only has the /24 type-5 route.
+Request 1 reaches LEAF-BORDER, which ARPs for SERVER-11 and drops the packet that triggered the ARP. From then on
+LEAF-BORDER advertises a /32 and nothing else is lost.
+
+![LEAF-4: subnet route first, host route after](images/s2-route-cold-warm.svg)
+![Request 1 is lost while LEAF-BORDER resolves ARP](images/s2-first-packet.svg)
+
+**What to take away**
+
+- Same anycast MAC on every leaf of every vendor, set explicitly. Nothing in either platform's defaults makes them
+  match.
+- Explicit route targets let the two vendors exchange the L3VNI routes; the Router MAC community is what makes
+  symmetric IRB work between them, and both vendors carry it.
+- One lost packet to a silent host is normal behaviour for a glean, not a fabric fault. Health checks that send a
+  single probe to a silent host will raise false alarms.
+- The lab uses `00:00:5e:00:01:01` as the anycast MAC, which Wireshark shows as `IETF-VRRP-VRID_01`: it is the
+  VRRP MAC for VRID 1 (RFC 5798). Harmless here, but in production pick a locally administered MAC
+  (second hex digit 2, 6, A or E) so it cannot collide with VRRP.
 
 ## Files
 

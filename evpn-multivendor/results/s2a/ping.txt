@@ -1,0 +1,8 @@
+### SERVER-7# ping -c 3 -i 0.5 10.30.30.111
+PING 10.30.30.111 (10.30.30.111) 56(84) bytes of data.
+64 bytes from 10.30.30.111: icmp_seq=2 ttl=62 time=11.4 ms
+64 bytes from 10.30.30.111: icmp_seq=3 ttl=62 time=10.8 ms
+
+--- 10.30.30.111 ping statistics ---
+3 packets transmitted, 2 received, 33.3333% packet loss, time 1005ms
+rtt min/avg/max/mdev = 10.786/11.087/11.389/0.301 ms

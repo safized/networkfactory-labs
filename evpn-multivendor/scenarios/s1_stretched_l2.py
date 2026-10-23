@@ -12,7 +12,7 @@ Phase a pings in one direction (SERVER-6 to CLIENT-16); phases b and c ping both
 import sys, time
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / 'tools'))
-from lab import Lab, tshark, save
+from lab import Lab, tshark, first, save
 
 phase = sys.argv[1]
 # list view with the outer (VTEP) addresses and the VNI next to the inner packet
@@ -60,8 +60,8 @@ if phase == 'c':                                           # the cache once both
 for _, _, name, _ in caps:
     save(f'captures/decoded/s1{phase}-{name}.txt', tshark(C / f's1{phase}-{name}.pcap'))
 save(f'captures/decoded/s1{phase}-dci-vteps.txt', tshark(C / f's1{phase}-dci.pcap', *VTEP_COLUMNS))
-save(f'captures/decoded/s1{phase}-dci-arp-detail.txt', tshark(C / f's1{phase}-dci.pcap', '-Y', 'arp', '-V', '-c', '1'))
-save(f'captures/decoded/s1{phase}-dci-icmp-detail.txt', tshark(C / f's1{phase}-dci.pcap', '-Y', 'icmp', '-V', '-c', '1'))
+save(f'captures/decoded/s1{phase}-dci-arp-detail.txt', first(C / f's1{phase}-dci.pcap', 'arp'))
+save(f'captures/decoded/s1{phase}-dci-icmp-detail.txt', first(C / f's1{phase}-dci.pcap', 'icmp'))
 
 arp_dci = tshark(C / f's1{phase}-dci.pcap', '-Y', 'arp.opcode == 1', '-T', 'fields', '-e', 'ip.src', '-e', 'ip.dst', '-e', 'arp.src.proto_ipv4', '-e', 'arp.dst.proto_ipv4')
 print('loss:', [l for l in pings.splitlines() if 'packet loss' in l])

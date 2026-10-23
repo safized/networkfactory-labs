@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="216" viewBox="0 0 520 216">
+<rect width="520" height="216" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h500a10 10 0 0 1 10 10v20h-520z" fill="#1b2b30"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="260.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">LEAF-4 before and after the first ping: subnet route (type-5), then host route (type-2)</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">LEAF-4# sudo vtysh -c &quot;show ip route vrf TENANT1 10.30.30.111&quot;</text>
+<rect x="12" y="62" width="496" height="18" rx="3" fill="#5a2323"/>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">Routing entry for 10.30.30.0/24</text>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Known via &quot;bgp&quot;, distance 20, metric 0, vrf TENANT1, best</text>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  * 10.0.1.10, via vlan3001_l3 onlink, weight 1</text>
+<text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve"></text>
+<text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">LEAF-4# sudo vtysh -c &quot;show ip route vrf TENANT1 10.30.30.111&quot;</text>
+<rect x="12" y="152" width="496" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">Routing entry for 10.30.30.111/32</text>
+<text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Known via &quot;bgp&quot;, distance 20, metric 0, vrf TENANT1, best</text>
+<text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  * 10.0.1.10, via vlan3001_l3 onlink, weight 1</text>
+</svg>

@@ -80,6 +80,34 @@ def s1():
                            'Inter-fabric link, phase c: zero ARP in either direction, only the pings'))
 
 
+def s2():
+    g = show('s2b', 'gateway-macs', 'SERVER-7', 'ip neigh show 10.20.20.1') + \
+        show('s2b', 'gateway-macs', 'SERVER-11', 'ip neigh show 10.30.30.1') + [''] + \
+        show('s2b', 'gateway-macs', 'LEAF-4', 'nv show interface vlan20 ip vrr', 'mac-id', 'enable') + [''] + \
+        show('s2b', 'gateway-macs', 'LEAF-BORDER', 'show running-config | include anycast-gateway-mac')
+    write('s2-anycast-gateway', panel(g, {'00:00:5e:00:01:01': 'key', '0000.5e00.0101': 'key'},
+                                      'One gateway MAC, two vendors: Cumulus VRR and NX-OS anycast gateway'))
+    r = show('s2b', 'LEAF-BORDER-evpn-10.20.20.107', 'LEAF-BORDER', 'show bgp l2vpn evpn 10.20.20.107')
+    cut = next(i for i, l in enumerate(r) if 'Path-id 1 advertised' in l)
+    r = [l for l in r[:cut] if not any(k in l for k in ('Flags:', 'Advertised path-id', 'Imported to 2', 'Origin IGP', 'BGP routing table information'))]
+    write('s2-type2-two-labels', panel(r, {'Received label 10020 50001': 'key', 'RT:65000:50001': 'key', 'Imported paths list': 'key'},
+                                       'LEAF-BORDER: SERVER-7\'s MAC+IP route carries the L2 VNI and the L3VNI, and lands in TENANT1'))
+    rt = show('s2a', 'LEAF-4-route-before', 'LEAF-4', 'sudo vtysh -c "show ip route vrf TENANT1 10.30.30.111"', 'Last update') + [''] + \
+         show('s2a', 'LEAF-4-route-after', 'LEAF-4', 'sudo vtysh -c "show ip route vrf TENANT1 10.30.30.111"', 'Last update')
+    write('s2-route-cold-warm', panel(rt, {'10.30.30.0/24': 'bad', '10.30.30.111/32': 'key'},
+                                      'LEAF-4 before and after the first ping: subnet route (type-5), then host route (type-2)'))
+    t = tree('s2b-dci-icmp-detail.txt', 'Internet Protocol Version 4', 'Internet Control Message',
+             keep=('Internet Protocol', 'User Datagram', 'Virtual eXtensible', 'Identifier (VNI)', 'Ethernet II', 'Time to Live'))
+    write('s2-vxlan-l3vni', panel(t, {'(VNI): 50001': 'key', 'Ethernet II': 'key', 'Time to Live: 63': 'key'},
+                                  'Routed packet on the interconnect: VNI 50001, router MAC to router MAC, TTL 63', tree=True))
+    lost = vteps('s2a-dci-vteps.txt', 11)
+    lost = [lost[0]] + [l for l in lost[1:] if 'Echo' in l]
+    write('s2-first-packet', panel(lost + ['', '(SERVER-11 port: LEAF-BORDER ARPs for 10.30.30.111, then seq 2 arrives)'] +
+                                   listing('s2a-server11-port.txt', 'ARP', 'seq=2/512')[:3],
+                                   {'seq=1/256': 'bad', 'Who has 10.30.30.111': 'bad'},
+                                   'Cold destination: request 1 reaches LEAF-BORDER and is dropped while it resolves ARP'))
+
+
 if __name__ == '__main__':
     for f in sys.argv[1:] or ['s1']:
         globals()[f]()

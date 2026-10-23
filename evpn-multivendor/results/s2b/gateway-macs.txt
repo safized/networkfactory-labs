@@ -1,0 +1,14 @@
+### SERVER-7# ip neigh show 10.20.20.1
+10.20.20.1 dev eth0 lladdr 00:00:5e:00:01:01 REACHABLE
+### SERVER-11# ip neigh show 10.30.30.1
+10.30.30.1 dev eth0 lladdr 00:00:5e:00:01:01 REACHABLE
+### LEAF-4# nv show interface vlan20 ip vrr
+             operational        applied          
+-----------  -----------------  -----------------
+enable                          on               
+mac-address  00:00:5e:00:01:01  00:00:5e:00:01:01
+mac-id                          none             
+[address]    10.20.20.1/24      10.20.20.1/24    
+state        up                 up
+### LEAF-BORDER# show running-config | include anycast-gateway-mac
+fabric forwarding anycast-gateway-mac 0000.5e00.0101

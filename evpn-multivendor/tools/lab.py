@@ -66,6 +66,13 @@ def tshark(pcap, *args):
     return subprocess.run(cmd, capture_output=True, text=True).stdout
 
 
+def first(pcap, display_filter):
+    """Full decode (-V) of the first packet matching the filter. (tshark's -c counts packets read, not shown.)"""
+    out = tshark(pcap, '-Y', display_filter, '-V')
+    i = out.find('\nFrame ', 1)
+    return out if i < 0 else out[:i]
+
+
 def save(path, text):
     path = ROOT / path
     path.parent.mkdir(parents=True, exist_ok=True)

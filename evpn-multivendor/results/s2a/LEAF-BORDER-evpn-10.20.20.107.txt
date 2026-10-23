@@ -1,0 +1,35 @@
+### LEAF-BORDER# show bgp l2vpn evpn 10.20.20.107
+BGP routing table information for VRF default, address family L2VPN EVPN
+Route Distinguisher: 10.0.0.4:3
+BGP routing table entry for [2]:[0]:[0]:[48]:[5001.0007.0000]:[32]:[10.20.20.107]/272, version 34
+Paths: (1 available, best #1)
+Flags: (0x000202) (high32 00000000) on xmit-list, is not in l2rib/evpn, is not in HW
+
+  Advertised path-id 1
+  Path type: external, path is valid, is best path, no labeled nexthop
+             Imported to 2 destination(s)
+             Imported paths list: TENANT1 L3-50001
+  AS-Path: 65103 65100 65104 , path sourced external to AS
+    10.0.0.4 (metric 0) from 10.255.0.0 (10.0.0.3)
+      Origin IGP, MED not set, localpref 100, weight 0
+      Received label 10020 50001
+      Extcommunity: RT:65000:10020 RT:65000:50001 ENCAP:8 Router MAC:5000.0004.0008
+
+  Path-id 1 advertised to peers:
+    10.1.0.4           10.1.1.4       
+
+Route Distinguisher: 10.0.1.10:4    (L3VNI 50001)
+BGP routing table entry for [2]:[0]:[0]:[48]:[5001.0007.0000]:[32]:[10.20.20.107]/272, version 39
+Paths: (1 available, best #1)
+Flags: (0x000202) (high32 00000000) on xmit-list, is not in l2rib/evpn, is not in HW
+
+  Advertised path-id 1
+  Path type: external, path is valid, is best path, no labeled nexthop
+             Imported from 10.0.0.4:3:[2]:[0]:[0]:[48]:[5001.0007.0000]:[32]:[10.20.20.107]/272 
+  AS-Path: 65103 65100 65104 , path sourced external to AS
+    10.0.0.4 (metric 0) from 10.255.0.0 (10.0.0.3)
+      Origin IGP, MED not set, localpref 100, weight 0
+      Received label 10020 50001
+      Extcommunity: RT:65000:10020 RT:65000:50001 ENCAP:8 Router MAC:5000.0004.0008
+
+  Path-id 1 not advertised to any peer

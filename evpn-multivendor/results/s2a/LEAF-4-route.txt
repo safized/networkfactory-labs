@@ -1,0 +1,5 @@
+### LEAF-4# sudo vtysh -c "show ip route vrf TENANT1 10.30.30.111"
+Routing entry for 10.30.30.111/32
+  Known via "bgp", distance 20, metric 0, vrf TENANT1, best
+  Last update 00:00:09 ago
+  * 10.0.1.10, via vlan3001_l3 onlink, weight 1

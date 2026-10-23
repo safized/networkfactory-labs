@@ -1,0 +1,9 @@
+### LEAF-BORDER# show ip route 10.20.20.107 vrf TENANT1
+IP Route Table for VRF "TENANT1"
+'*' denotes best ucast next-hop
+'**' denotes best mcast next-hop
+'[x/y]' denotes [preference/metric]
+'%<string>' in via output denotes VRF <string>
+
+10.20.20.107/32, ubest/mbest: 1/0
+    *via 10.0.0.4%default, [20/0], 00:13:50, bgp-65210, external, tag 65103, segid: 50001 tunnelid: 0xa000004 encap: VXLAN
