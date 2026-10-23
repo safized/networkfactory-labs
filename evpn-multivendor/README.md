@@ -33,7 +33,7 @@ Hosts are [netshoot](https://github.com/nicolaka/netshoot) containers.
 
 1. **One VLAN across two vendors**, and what ARP suppression really needs ([details](#scenario-1-one-vlan-across-two-vendors))
 2. **Anycast gateway and symmetric IRB** between VLAN 20 and VLAN 30 ([details](#scenario-2-one-anycast-gateway-symmetric-irb-between-vendors))
-3. **Host mobility**: a host moves from one vendor to the other (in progress)
+3. **Host mobility**: a host moves from one vendor to the other ([details](#scenario-3-a-host-moves-from-one-vendor-to-the-other))
 4. **Break it**: underlay MTU and automatic route targets (in progress)
 
 ## Scenario 1: one VLAN across two vendors
@@ -145,6 +145,51 @@ LEAF-BORDER advertises a /32 and nothing else is lost.
 - The lab uses `00:00:5e:00:01:01` as the anycast MAC, which Wireshark shows as `IETF-VRRP-VRID_01`: it is the
   VRRP MAC for VRID 1 (RFC 5798). Harmless here, but in production pick a locally administered MAC
   (second hex digit 2, 6, A or E) so it cannot collide with VRRP.
+
+## Scenario 3: a host moves from one vendor to the other
+
+SERVER-8 lives behind Cumulus LEAF-5. A "move" shuts its port and brings the same MAC and IP up behind NX-OS
+NX-LEAF-01 with a gratuitous ARP, the way a hypervisor announces a migrated VM; then it moves back. SERVER-6
+(Cumulus) and CLIENT-16 (NX-OS) ping it every 100 ms throughout, and the interconnect is captured.
+
+```bash
+python3 scenarios/s3_mobility.py a   # one move there and back
+python3 scenarios/s3_mobility.py b   # flapping: eight moves in 40 s
+```
+
+![Scenario 3](diagrams/s3-mobility.png)
+
+**Who wins the MAC.** Both leaves can advertise the same MAC; EVPN decides with the MAC Mobility extended community
+(RFC 7432, section 7.7). The new location advertises a higher sequence number and every leaf, of either vendor,
+prefers it.
+
+![Both vendors agree on the sequence number](images/s3-sequence.svg)
+
+**On the wire.** The interconnect carries the whole story in BGP UPDATEs: the new location announced with
+sequence 1, the old one withdrawn 0.27 s later, then the reverse. (The "Cumulus side" announcements of the
+NX-LEAF-01 route are LEAF-3 passing the best path back to its other eBGP peer; AS-path loop prevention drops them.)
+
+![BGP UPDATEs during the moves](images/s3-bgp-timeline.svg)
+![Pings lost per move](images/s3-loss.svg)
+
+Most of the 700-900 ms is the move itself (the port going down, the gratuitous ARP, the new leaf learning the
+MAC); the EVPN part, from the new advertisement to the old withdrawal, is a fraction of it.
+
+**Flapping.** Eight moves in 40 s and both vendors raise a duplicate-host alarm: Cumulus after its default 5 moves
+in 180 s, NX-OS with an `L2RIB_DUPLICATE_HOST` message. A loop, or two hosts sharing a MAC, looks exactly like
+this.
+
+![Duplicate detection on both vendors](images/s3b-duplicate-detection.svg)
+
+**What to take away**
+
+- Mobility works across vendors without any special configuration: the MAC Mobility community is standard and
+  both implementations honour each other's sequence numbers.
+- The sequence number only grows. After a long life, a host that has moved many times carries a high number;
+  that is normal.
+- Detection and freezing are two different things. Both vendors detected the flapping; in this run neither froze
+  the MAC, so the churn would continue. Decide per vendor whether you want freezing, and with what recovery, and
+  make the two behave the same: check the defaults of your release in the vendor documentation.
 
 ## Files
 

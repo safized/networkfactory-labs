@@ -33,6 +33,7 @@ ACCESS = {    # leaf: {port: vlan}
     'LEAF-4': {'swp3': 20},
     'LEAF-5': {'swp3': 10, 'swp4': 20},
 }
+# SERVER-8-NEW (behind NX-LEAF-01 Ethernet1/3) has no address of its own: scenario 3 moves SERVER-8 onto it
 HOSTS = {     # name: (leaf, vlan, last octet); every host uses the anycast gateway .1
     'SERVER-6': ('LEAF-3', 10, 106), 'SERVER-7': ('LEAF-4', 20, 107), 'SERVER-8': ('LEAF-5', 10, 108),
     'SERVER-9': ('LEAF-5', 20, 109), 'SERVER-11': ('LEAF-BORDER', 30, 111), 'CLIENT-16': ('NX-LEAF-02', 10, 116),
@@ -116,7 +117,7 @@ NX_LINKS = {
     'NX-SPINE-02': [('Ethernet1/1', 'NX-LEAF-01', 'Ethernet1/2'), ('Ethernet1/2', 'NX-LEAF-02', 'Ethernet1/2'),
                     ('Ethernet1/3', 'LEAF-BORDER', 'Ethernet1/3')],
 }
-NX_ACCESS = {'LEAF-BORDER': {'Ethernet1/11': 30}, 'NX-LEAF-01': {}, 'NX-LEAF-02': {'Ethernet1/3': 10}}
+NX_ACCESS = {'LEAF-BORDER': {'Ethernet1/11': 30}, 'NX-LEAF-01': {'Ethernet1/3': 10}, 'NX-LEAF-02': {'Ethernet1/3': 10}}
 NX_DCI = {'LEAF-BORDER': ('Ethernet1/1', '10.255.0.1/31', '10.255.0.0', 65103)}
 
 

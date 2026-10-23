@@ -1,0 +1,11 @@
+### NX-LEAF-01# show logging logfile | include -i dup|freez|frozen|L2RIB
+2026 Oct 23 17:57:18 NX-LEAF-01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/1, operational duplex mode changed to Full
+2026 Oct 23 17:57:18 NX-LEAF-01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/2, operational duplex mode changed to Full
+2026 Oct 23 17:57:18 NX-LEAF-01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/3, operational duplex mode changed to Full
+2026 Oct 23 17:57:19 NX-LEAF-01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/4, operational duplex mode changed to Full
+2026 Oct 23 17:57:19 NX-LEAF-01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/5, operational duplex mode changed to Full
+2026 Oct 23 17:57:19 NX-LEAF-01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/6, operational duplex mode changed to Full
+2026 Oct 23 17:57:19 NX-LEAF-01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/7, operational duplex mode changed to Full
+2026 Oct 23 18:14:52 NX-LEAF-01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/3, operational duplex mode changed to Full
+2026 Oct 23 18:18:44 NX-LEAF-01 %L2RIB-2-L2RIB_DUPLICATE_HOST_DURING_LOCAL_UPDATE: Detected duplicate host MAC 5001.0008.0000 in topology: 10 during Local update with host located at remote VTEP: Eth1/3
+### NX-LEAF-01# show running-config all | include dup-host

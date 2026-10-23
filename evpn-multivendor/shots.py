@@ -108,6 +108,39 @@ def s2():
                                    'Cold destination: request 1 reaches LEAF-BORDER and is dropped while it resolves ARP'))
 
 
+def rd(hexrd):
+    """Type-1 route distinguisher from tshark hex (0001 + IPv4 + 16-bit number) to 10.0.1.11:32777."""
+    b = bytes.fromhex(hexrd)
+    return f'{b[2]}.{b[3]}.{b[4]}.{b[5]}:{int.from_bytes(b[6:8], "big")}'
+
+
+def s3():
+    seq = []
+    for tag, label in (('0-home', 'home (LEAF-5)'), ('1-moved-to-nxos', 'moved (NX-LEAF-01)'), ('2-back-on-cumulus', 'back (LEAF-5)')):
+        seq += [f'# {label}'] + show('s3a', tag, 'LEAF-3', 'sudo vtysh -c "show evpn mac vni 10010 mac 50:01:00:08:00:00"', 'Sync-info', 'Neighbors', '10.10.10.108 Active', 'MAC:')[1:] + \
+               show('s3a', tag, 'NX-LEAF-02', 'show l2route evpn mac all | include 5001.0008')[1:] + ['']
+    write('s3-sequence', panel(['LEAF-3 (Cumulus): show evpn mac ...   NX-LEAF-02 (NX-OS): show l2route evpn mac all', ''] + seq[:-1],
+                               {'Remote Seq: 1': 'key', 'Remote Seq: 2': 'key', 'SplRcv             1 ': 'key', 'SplRcv             2 ': 'key'},
+                               'Both vendors agree: MAC Mobility sequence 0, then 1 after the move, then 2 after the move back'))
+    rows = ['   time  from            what                                     RD                 MAC mobility seq']
+    for l in listing('s3a-bgp-list.txt'):
+        f = l.split('\t')
+        t, src, rds, ips, seqn, attrs = f[0], f[1], f[3], f[5], f[6], f[7]
+        side = 'NX-OS  ' if src == '10.255.0.1' else 'Cumulus'
+        kind = 'withdraw' if attrs.split('\\')[0] == '15' or attrs == '15' else 'announce'
+        what = f'{kind} MAC' + ('+IP 10.10.10.108' if ips else ' only') if kind == 'announce' else 'withdraw MAC and MAC+IP'
+        rows.append(f'{float(t):6.2f}s  {side} side    {what:<40} {rd(rds.split(chr(92))[0]):<18} {seqn.split(chr(92))[0] or "-"}')
+    write('s3-bgp-timeline', panel(rows, {'withdraw': 'bad', 'announce MAC+IP': 'key'},
+                                   'BGP UPDATEs on the interconnect: the new location is announced, the old one withdrawn within 0.3 s'))
+    loss = (RES / 's3a' / 'summary.txt').read_text().strip().split('\n')
+    write('s3-loss', panel(loss, {'lost': 'key'}, 'Continuous pings every 100 ms from both fabrics during the two moves'))
+    d = show('s3b', 'dad', 'LEAF-5', 'sudo vtysh -c "show evpn mac vni 10010 mac 50:01:00:08:00:00"', 'Sync-info', 'Neighbors', '10.10.10.108 Active') + [''] + \
+        [l for l in show('s3b', 'dad', 'LEAF-5', 'sudo vtysh -c "show evpn"') if 'Duplicate' in l or 'max-moves' in l or 'LEAF-5#' in l] + [''] + \
+        [l for l in show('s3b', 'nxos-dad', 'NX-LEAF-01', 'show logging logfile | include -i dup|freez|frozen|L2RIB') if 'DUPLEX' not in l]
+    write('s3b-duplicate-detection', panel(d, {'Duplicate, detected': 'bad', 'L2RIB_DUPLICATE_HOST': 'bad', 'max-moves 5': 'key'},
+                                           'Eight moves in 40 s: both vendors flag the MAC as a duplicate'))
+
+
 if __name__ == '__main__':
     for f in sys.argv[1:] or ['s1']:
         globals()[f]()

@@ -1,0 +1,1656 @@
+Frame 217: Packet, 208 bytes on wire (1664 bits), 208 bytes captured (1664 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 23, 2026 18:16:42.533280000 UTC
+    UTC Arrival Time: Oct 23, 2026 18:16:42.533280000 UTC
+    Epoch Arrival Time: 1792779402.533280000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time delta from previous captured frame: 51.827000 milliseconds]
+    [Time since reference or first frame: 10.293966000 seconds]
+    Frame Number: 217
+    Frame Length: 208 bytes (1664 bits)
+    Capture Length: 208 bytes (1664 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:bgp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08), Dst: 50:00:00:03:00:04 (50:00:00:03:00:04)
+    Destination: 50:00:00:03:00:04 (50:00:00:03:00:04)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.0
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0xc0 (DSCP: CS6, ECN: Not-ECT)
+        1100 00.. = Differentiated Services Codepoint: Class Selector 6 (48)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 194
+    Identification: 0x4962 (18786)
+    000. .... = Flags: 0x0
+        0... .... = Reserved bit: Not set
+        .0.. .... = Don't fragment: Not set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 1
+        [Expert Info (Note/Sequence): "Time To Live" only 1]
+            ["Time To Live" only 1]
+            [Severity level: Note]
+            [Group: Sequence]
+    Protocol: TCP (6)
+    Header Checksum: 0x5916 [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.255.0.1
+    Destination Address: 10.255.0.0
+    [Stream index: 2]
+Transmission Control Protocol, Src Port: 179, Dst Port: 54872, Seq: 77, Ack: 77, Len: 142
+    Source Port: 179
+    Destination Port: 54872
+    [Stream index: 0]
+    [Stream Packet Number: 17]
+    [Conversation completeness: Incomplete (12)]
+        ..0. .... = RST: Absent
+        ...0 .... = FIN: Absent
+        .... 1... = Data: Present
+        .... .1.. = ACK: Present
+        .... ..0. = SYN-ACK: Absent
+        .... ...0 = SYN: Absent
+        [Completeness Flags: ··DA··]
+    [TCP Segment Len: 142]
+    Sequence Number: 77    (relative sequence number)
+    Sequence Number (raw): 585916585
+    [Next Sequence Number: 219    (relative sequence number)]
+    Acknowledgment Number: 77    (relative ack number)
+    Acknowledgment number (raw): 4102073902
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Accurate ECN: Not set
+        .... 0... .... = Congestion Window Reduced: Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······AP···]
+    Window: 22441
+    [Calculated window size: 22441]
+    [Window size scaling factor: -1 (unknown)]
+    Checksum: 0x458a [unverified]
+    [Checksum Status: Unverified]
+    Urgent Pointer: 0
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Timestamps: TSval 4270025598, TSecr 4279866656
+            Kind: Time Stamp Option (8)
+            Length: 10
+            Timestamp value: 4270025598
+            Timestamp echo reply: 4279866656
+    [Timestamps]
+        [Time since first frame in this TCP stream: 10.061267000 seconds]
+        [Time since previous frame in this TCP stream: 644.485000 milliseconds]
+    [SEQ/ACK analysis]
+        [Bytes in flight: 142]
+        [Bytes sent since last PSH flag: 142]
+    [Client Contiguous Streams: 1]
+    [Server Contiguous Streams: 1]
+    TCP payload (142 bytes)
+    [PDU Size: 142]
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 142
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 119
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 51
+            Address family identifier (AFI): Layer-2 VPN (25)
+            Subsequent address family identifier (SAFI): EVPN (70)
+            Next hop: 10.0.1.11
+                IPv4 Address: 10.0.1.11
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 40
+                    Route Distinguisher: 00010a00010b8009 (10.0.1.11:32777)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 32
+                    IPv4 address: 10.10.10.108
+                    0000 0000 0010 0111 0001 .... = MPLS Label 1: 625
+                    0000 0000 1100 0011 0101 .... = MPLS Label 2: 3125
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65210 65200 65211 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 14
+            AS Path segment: 65210 65200 65211
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 3
+                AS4: 65210
+                AS4: 65200
+                AS4: 65211
+        Path Attribute - EXTENDED_COMMUNITIES
+            Flags: 0xc0, Optional, Transitive, Complete
+                1... .... = Optional: Set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: EXTENDED_COMMUNITIES (16)
+            Length: 40
+            Carried extended communities: (5 communities)
+                Route Target: 65000:10010 [Transitive 2-Octet AS-Specific]
+                    Type: Transitive 2-Octet AS-Specific (0x00)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (AS2): Route Target (0x02)
+                    2-Octet AS: 65000
+                    Local Administrator: 0x00, Type: VID (802.1Q VLAN ID)
+                        0... .... = A-Bit: auto-derived
+                        .000 .... = Type: VID (802.1Q VLAN ID) (0)
+                        .... 0000 = Domain Id: 0
+                    Service Id: 10010
+                Route Target: 65000:50001 [Transitive 2-Octet AS-Specific]
+                    Type: Transitive 2-Octet AS-Specific (0x00)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (AS2): Route Target (0x02)
+                    2-Octet AS: 65000
+                    Local Administrator: 0x00, Type: VID (802.1Q VLAN ID)
+                        0... .... = A-Bit: auto-derived
+                        .000 .... = Type: VID (802.1Q VLAN ID) (0)
+                        .... 0000 = Domain Id: 0
+                    Service Id: 50001
+                Encapsulation: VXLAN Encapsulation [Transitive Opaque]
+                    Type: Transitive Opaque (0x03)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (Opaque): Encapsulation (0x0c)
+                    Tunnel type: VXLAN Encapsulation (8)
+                MAC Mobility: Movable MAC [Transitive EVPN]
+                    Type: Transitive EVPN (0x06)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (EVPN): MAC Mobility (0x00)
+                    Flags: 0x00
+                        .... ...0 = Sticky/Static MAC: No
+                    Sequence number: 1
+                EVPN Router's MAC: Router's MAC: 50:0f:00:00:1b:08 [Transitive EVPN]
+                    Type: Transitive EVPN (0x06)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (EVPN): EVPN Router's MAC (0x03)
+                    Router's MAC: 50:0f:00:00:1b:08 (50:0f:00:00:1b:08)
+
+Frame 220: Packet, 213 bytes on wire (1704 bits), 213 bytes captured (1704 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 23, 2026 18:16:42.591986000 UTC
+    UTC Arrival Time: Oct 23, 2026 18:16:42.591986000 UTC
+    Epoch Arrival Time: 1792779402.591986000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time delta from previous captured frame: 37.643000 milliseconds]
+    [Time delta from previous displayed frame: 58.706000 milliseconds]
+    [Time since reference or first frame: 10.352672000 seconds]
+    Frame Number: 220
+    Frame Length: 213 bytes (1704 bits)
+    Capture Length: 213 bytes (1704 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:bgp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: 50:00:00:03:00:04 (50:00:00:03:00:04), Dst: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+    Destination: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 50:00:00:03:00:04 (50:00:00:03:00:04)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 10.255.0.0, Dst: 10.255.0.1
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0xc0 (DSCP: CS6, ECN: Not-ECT)
+        1100 00.. = Differentiated Services Codepoint: Class Selector 6 (48)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 199
+    Identification: 0x9705 (38661)
+    010. .... = Flags: 0x2, Don't fragment
+        0... .... = Reserved bit: Not set
+        .1.. .... = Don't fragment: Set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 1
+        [Expert Info (Note/Sequence): "Time To Live" only 1]
+            ["Time To Live" only 1]
+            [Severity level: Note]
+            [Group: Sequence]
+    Protocol: TCP (6)
+    Header Checksum: 0xcb6d [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.255.0.0
+    Destination Address: 10.255.0.1
+    [Stream index: 2]
+Transmission Control Protocol, Src Port: 54872, Dst Port: 179, Seq: 77, Ack: 219, Len: 147
+    Source Port: 54872
+    Destination Port: 179
+    [Stream index: 0]
+    [Stream Packet Number: 19]
+    [Conversation completeness: Incomplete (12)]
+        ..0. .... = RST: Absent
+        ...0 .... = FIN: Absent
+        .... 1... = Data: Present
+        .... .1.. = ACK: Present
+        .... ..0. = SYN-ACK: Absent
+        .... ...0 = SYN: Absent
+        [Completeness Flags: ··DA··]
+    [TCP Segment Len: 147]
+    Sequence Number: 77    (relative sequence number)
+    Sequence Number (raw): 4102073902
+    [Next Sequence Number: 224    (relative sequence number)]
+    Acknowledgment Number: 219    (relative ack number)
+    Acknowledgment number (raw): 585916727
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Accurate ECN: Not set
+        .... 0... .... = Congestion Window Reduced: Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······AP···]
+    Window: 249
+    [Calculated window size: 249]
+    [Window size scaling factor: -1 (unknown)]
+    Checksum: 0x16b8 [unverified]
+    [Checksum Status: Unverified]
+    Urgent Pointer: 0
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Timestamps: TSval 4279867359, TSecr 4270025598
+            Kind: Time Stamp Option (8)
+            Length: 10
+            Timestamp value: 4279867359
+            Timestamp echo reply: 4270025598
+    [Timestamps]
+        [Time since first frame in this TCP stream: 10.119973000 seconds]
+        [Time since previous frame in this TCP stream: 58.048000 milliseconds]
+    [SEQ/ACK analysis]
+        [Bytes in flight: 147]
+        [Bytes sent since last PSH flag: 147]
+    [Client Contiguous Streams: 1]
+    [Server Contiguous Streams: 1]
+    TCP payload (147 bytes)
+    [PDU Size: 147]
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 147
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 124
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 51
+            Address family identifier (AFI): Layer-2 VPN (25)
+            Subsequent address family identifier (SAFI): EVPN (70)
+            Next hop: 10.0.1.11
+                IPv4 Address: 10.0.1.11
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 40
+                    Route Distinguisher: 00010a00010b8009 (10.0.1.11:32777)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 32
+                    IPv4 address: 10.10.10.108
+                    0000 0000 0010 0111 0001 .... = MPLS Label 1: 625
+                    0000 0000 1100 0011 0101 .... = MPLS Label 2: 3125
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65103 65210 65200 65211 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 18
+            AS Path segment: 65103 65210 65200 65211
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 4
+                AS4: 65103
+                AS4: 65210
+                AS4: 65200
+                AS4: 65211
+        Path Attribute - EXTENDED_COMMUNITIES
+            Flags: 0xc0, Optional, Transitive, Complete
+                1... .... = Optional: Set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: EXTENDED_COMMUNITIES (16)
+            Length: 40
+            Carried extended communities: (5 communities)
+                Route Target: 65000:10010 [Transitive 2-Octet AS-Specific]
+                    Type: Transitive 2-Octet AS-Specific (0x00)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (AS2): Route Target (0x02)
+                    2-Octet AS: 65000
+                    Local Administrator: 0x00, Type: VID (802.1Q VLAN ID)
+                        0... .... = A-Bit: auto-derived
+                        .000 .... = Type: VID (802.1Q VLAN ID) (0)
+                        .... 0000 = Domain Id: 0
+                    Service Id: 10010
+                Route Target: 65000:50001 [Transitive 2-Octet AS-Specific]
+                    Type: Transitive 2-Octet AS-Specific (0x00)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (AS2): Route Target (0x02)
+                    2-Octet AS: 65000
+                    Local Administrator: 0x00, Type: VID (802.1Q VLAN ID)
+                        0... .... = A-Bit: auto-derived
+                        .000 .... = Type: VID (802.1Q VLAN ID) (0)
+                        .... 0000 = Domain Id: 0
+                    Service Id: 50001
+                Encapsulation: VXLAN Encapsulation [Transitive Opaque]
+                    Type: Transitive Opaque (0x03)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (Opaque): Encapsulation (0x0c)
+                    Tunnel type: VXLAN Encapsulation (8)
+                MAC Mobility: Movable MAC [Transitive EVPN]
+                    Type: Transitive EVPN (0x06)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (EVPN): MAC Mobility (0x00)
+                    Flags: 0x00
+                        .... ...0 = Sticky/Static MAC: No
+                    Sequence number: 1
+                EVPN Router's MAC: Router's MAC: 50:0f:00:00:1b:08 [Transitive EVPN]
+                    Type: Transitive EVPN (0x06)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (EVPN): EVPN Router's MAC (0x03)
+                    Router's MAC: 50:0f:00:00:1b:08 (50:0f:00:00:1b:08)
+
+Frame 226: Packet, 170 bytes on wire (1360 bits), 170 bytes captured (1360 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 23, 2026 18:16:42.802190000 UTC
+    UTC Arrival Time: Oct 23, 2026 18:16:42.802190000 UTC
+    Epoch Arrival Time: 1792779402.802190000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time delta from previous captured frame: 43.631000 milliseconds]
+    [Time delta from previous displayed frame: 210.204000 milliseconds]
+    [Time since reference or first frame: 10.562876000 seconds]
+    Frame Number: 226
+    Frame Length: 170 bytes (1360 bits)
+    Capture Length: 170 bytes (1360 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:bgp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: 50:00:00:03:00:04 (50:00:00:03:00:04), Dst: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+    Destination: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 50:00:00:03:00:04 (50:00:00:03:00:04)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 10.255.0.0, Dst: 10.255.0.1
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0xc0 (DSCP: CS6, ECN: Not-ECT)
+        1100 00.. = Differentiated Services Codepoint: Class Selector 6 (48)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 156
+    Identification: 0x9706 (38662)
+    010. .... = Flags: 0x2, Don't fragment
+        0... .... = Reserved bit: Not set
+        .1.. .... = Don't fragment: Set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 1
+        [Expert Info (Note/Sequence): "Time To Live" only 1]
+            ["Time To Live" only 1]
+            [Severity level: Note]
+            [Group: Sequence]
+    Protocol: TCP (6)
+    Header Checksum: 0xcb97 [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.255.0.0
+    Destination Address: 10.255.0.1
+    [Stream index: 2]
+Transmission Control Protocol, Src Port: 54872, Dst Port: 179, Seq: 224, Ack: 219, Len: 104
+    Source Port: 54872
+    Destination Port: 179
+    [Stream index: 0]
+    [Stream Packet Number: 21]
+    [Conversation completeness: Incomplete (12)]
+        ..0. .... = RST: Absent
+        ...0 .... = FIN: Absent
+        .... 1... = Data: Present
+        .... .1.. = ACK: Present
+        .... ..0. = SYN-ACK: Absent
+        .... ...0 = SYN: Absent
+        [Completeness Flags: ··DA··]
+    [TCP Segment Len: 104]
+    Sequence Number: 224    (relative sequence number)
+    Sequence Number (raw): 4102074049
+    [Next Sequence Number: 328    (relative sequence number)]
+    Acknowledgment Number: 219    (relative ack number)
+    Acknowledgment number (raw): 585916727
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Accurate ECN: Not set
+        .... 0... .... = Congestion Window Reduced: Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······AP···]
+    Window: 249
+    [Calculated window size: 249]
+    [Window size scaling factor: -1 (unknown)]
+    Checksum: 0x168d [unverified]
+    [Checksum Status: Unverified]
+    Urgent Pointer: 0
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Timestamps: TSval 4279867569, TSecr 4270025660
+            Kind: Time Stamp Option (8)
+            Length: 10
+            Timestamp value: 4279867569
+            Timestamp echo reply: 4270025660
+    [Timestamps]
+        [Time since first frame in this TCP stream: 10.330177000 seconds]
+        [Time since previous frame in this TCP stream: 206.339000 milliseconds]
+    [SEQ/ACK analysis]
+        [Bytes in flight: 104]
+        [Bytes sent since last PSH flag: 104]
+    [Client Contiguous Streams: 1]
+    [Server Contiguous Streams: 1]
+    TCP payload (104 bytes)
+    [PDU Size: 104]
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 104
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 81
+    Path attributes
+        Path Attribute - MP_UNREACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_UNREACH_NLRI (15)
+            Length: 77
+            Address family identifier (AFI): Layer-2 VPN (25)
+            Subsequent address family identifier (SAFI): EVPN (70)
+            Withdrawn Routes
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 33
+                    Route Distinguisher: 00010a0000050002 (10.0.0.5:2)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 0
+                    IP Address: NOT INCLUDED
+                        [Expert Info (Note/Protocol): IP Address: NOT INCLUDED]
+                            [IP Address: NOT INCLUDED]
+                            [Severity level: Note]
+                            [Group: Protocol]
+                    0000 0000 0000 0000 0000 .... = MPLS Label 1: 0
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 37
+                    Route Distinguisher: 00010a0000050002 (10.0.0.5:2)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 32
+                    IPv4 address: 10.10.10.108
+                    0000 0000 0000 0000 0000 .... = MPLS Label 1: 0
+
+Frame 232: Packet, 185 bytes on wire (1480 bits), 185 bytes captured (1480 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 23, 2026 18:16:43.018099000 UTC
+    UTC Arrival Time: Oct 23, 2026 18:16:43.018099000 UTC
+    Epoch Arrival Time: 1792779403.018099000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time delta from previous captured frame: 60.000000 milliseconds]
+    [Time delta from previous displayed frame: 215.909000 milliseconds]
+    [Time since reference or first frame: 10.778785000 seconds]
+    Frame Number: 232
+    Frame Length: 185 bytes (1480 bits)
+    Capture Length: 185 bytes (1480 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:bgp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08), Dst: 50:00:00:03:00:04 (50:00:00:03:00:04)
+    Destination: 50:00:00:03:00:04 (50:00:00:03:00:04)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.0
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0xc0 (DSCP: CS6, ECN: Not-ECT)
+        1100 00.. = Differentiated Services Codepoint: Class Selector 6 (48)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 171
+    Identification: 0x4965 (18789)
+    000. .... = Flags: 0x0
+        0... .... = Reserved bit: Not set
+        .0.. .... = Don't fragment: Not set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 1
+        [Expert Info (Note/Sequence): "Time To Live" only 1]
+            ["Time To Live" only 1]
+            [Severity level: Note]
+            [Group: Sequence]
+    Protocol: TCP (6)
+    Header Checksum: 0x592a [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.255.0.1
+    Destination Address: 10.255.0.0
+    [Stream index: 2]
+Transmission Control Protocol, Src Port: 179, Dst Port: 54872, Seq: 219, Ack: 328, Len: 119
+    Source Port: 179
+    Destination Port: 54872
+    [Stream index: 0]
+    [Stream Packet Number: 23]
+    [Conversation completeness: Incomplete (12)]
+        ..0. .... = RST: Absent
+        ...0 .... = FIN: Absent
+        .... 1... = Data: Present
+        .... .1.. = ACK: Present
+        .... ..0. = SYN-ACK: Absent
+        .... ...0 = SYN: Absent
+        [Completeness Flags: ··DA··]
+    [TCP Segment Len: 119]
+    Sequence Number: 219    (relative sequence number)
+    Sequence Number (raw): 585916727
+    [Next Sequence Number: 338    (relative sequence number)]
+    Acknowledgment Number: 328    (relative ack number)
+    Acknowledgment number (raw): 4102074153
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Accurate ECN: Not set
+        .... 0... .... = Congestion Window Reduced: Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······AP···]
+    Window: 23451
+    [Calculated window size: 23451]
+    [Window size scaling factor: -1 (unknown)]
+    Checksum: 0x6818 [unverified]
+    [Checksum Status: Unverified]
+    Urgent Pointer: 0
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Timestamps: TSval 4270026083, TSecr 4279867569
+            Kind: Time Stamp Option (8)
+            Length: 10
+            Timestamp value: 4270026083
+            Timestamp echo reply: 4279867569
+    [Timestamps]
+        [Time since first frame in this TCP stream: 10.546086000 seconds]
+        [Time since previous frame in this TCP stream: 212.915000 milliseconds]
+    [SEQ/ACK analysis]
+        [Bytes in flight: 119]
+        [Bytes sent since last PSH flag: 119]
+    [Client Contiguous Streams: 1]
+    [Server Contiguous Streams: 1]
+    TCP payload (119 bytes)
+    [PDU Size: 119]
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 119
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 96
+    Path attributes
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65210 65200 65211 
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 14
+            AS Path segment: 65210 65200 65211
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 3
+                AS4: 65210
+                AS4: 65200
+                AS4: 65211
+        Path Attribute - EXTENDED_COMMUNITIES
+            Flags: 0xc0, Optional, Transitive, Complete
+                1... .... = Optional: Set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: EXTENDED_COMMUNITIES (16)
+            Length: 24
+            Carried extended communities: (3 communities)
+                Route Target: 65000:10010 [Transitive 2-Octet AS-Specific]
+                    Type: Transitive 2-Octet AS-Specific (0x00)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (AS2): Route Target (0x02)
+                    2-Octet AS: 65000
+                    4-Octet AN: 10010
+                Encapsulation: VXLAN Encapsulation [Transitive Opaque]
+                    Type: Transitive Opaque (0x03)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (Opaque): Encapsulation (0x0c)
+                    Tunnel type: VXLAN Encapsulation (8)
+                MAC Mobility: Movable MAC [Transitive EVPN]
+                    Type: Transitive EVPN (0x06)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (EVPN): MAC Mobility (0x00)
+                    Flags: 0x00
+                        .... ...0 = Sticky/Static MAC: No
+                    Sequence number: 1
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 44
+            Address family identifier (AFI): Layer-2 VPN (25)
+            Subsequent address family identifier (SAFI): EVPN (70)
+            Next hop: 10.0.1.11
+                IPv4 Address: 10.0.1.11
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 33
+                    Route Distinguisher: 00010a00010b8009 (10.0.1.11:32777)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 0
+                    IP Address: NOT INCLUDED
+                        [Expert Info (Note/Protocol): IP Address: NOT INCLUDED]
+                            [IP Address: NOT INCLUDED]
+                            [Severity level: Note]
+                            [Group: Protocol]
+                    VNI: 10010
+
+Frame 236: Packet, 190 bytes on wire (1520 bits), 190 bytes captured (1520 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 23, 2026 18:16:43.069267000 UTC
+    UTC Arrival Time: Oct 23, 2026 18:16:43.069267000 UTC
+    Epoch Arrival Time: 1792779403.069267000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time delta from previous captured frame: 14.944000 milliseconds]
+    [Time delta from previous displayed frame: 51.168000 milliseconds]
+    [Time since reference or first frame: 10.829953000 seconds]
+    Frame Number: 236
+    Frame Length: 190 bytes (1520 bits)
+    Capture Length: 190 bytes (1520 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:bgp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: 50:00:00:03:00:04 (50:00:00:03:00:04), Dst: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+    Destination: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 50:00:00:03:00:04 (50:00:00:03:00:04)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 10.255.0.0, Dst: 10.255.0.1
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0xc0 (DSCP: CS6, ECN: Not-ECT)
+        1100 00.. = Differentiated Services Codepoint: Class Selector 6 (48)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 176
+    Identification: 0x9708 (38664)
+    010. .... = Flags: 0x2, Don't fragment
+        0... .... = Reserved bit: Not set
+        .1.. .... = Don't fragment: Set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 1
+        [Expert Info (Note/Sequence): "Time To Live" only 1]
+            ["Time To Live" only 1]
+            [Severity level: Note]
+            [Group: Sequence]
+    Protocol: TCP (6)
+    Header Checksum: 0xcb81 [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.255.0.0
+    Destination Address: 10.255.0.1
+    [Stream index: 2]
+Transmission Control Protocol, Src Port: 54872, Dst Port: 179, Seq: 328, Ack: 338, Len: 124
+    Source Port: 54872
+    Destination Port: 179
+    [Stream index: 0]
+    [Stream Packet Number: 25]
+    [Conversation completeness: Incomplete (12)]
+        ..0. .... = RST: Absent
+        ...0 .... = FIN: Absent
+        .... 1... = Data: Present
+        .... .1.. = ACK: Present
+        .... ..0. = SYN-ACK: Absent
+        .... ...0 = SYN: Absent
+        [Completeness Flags: ··DA··]
+    [TCP Segment Len: 124]
+    Sequence Number: 328    (relative sequence number)
+    Sequence Number (raw): 4102074153
+    [Next Sequence Number: 452    (relative sequence number)]
+    Acknowledgment Number: 338    (relative ack number)
+    Acknowledgment number (raw): 585916846
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Accurate ECN: Not set
+        .... 0... .... = Congestion Window Reduced: Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······AP···]
+    Window: 249
+    [Calculated window size: 249]
+    [Window size scaling factor: -1 (unknown)]
+    Checksum: 0x16a1 [unverified]
+    [Checksum Status: Unverified]
+    Urgent Pointer: 0
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Timestamps: TSval 4279867836, TSecr 4270026083
+            Kind: Time Stamp Option (8)
+            Length: 10
+            Timestamp value: 4279867836
+            Timestamp echo reply: 4270026083
+    [Timestamps]
+        [Time since first frame in this TCP stream: 10.597254000 seconds]
+        [Time since previous frame in this TCP stream: 50.813000 milliseconds]
+    [SEQ/ACK analysis]
+        [Bytes in flight: 124]
+        [Bytes sent since last PSH flag: 124]
+    [Client Contiguous Streams: 1]
+    [Server Contiguous Streams: 1]
+    TCP payload (124 bytes)
+    [PDU Size: 124]
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 124
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 101
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 44
+            Address family identifier (AFI): Layer-2 VPN (25)
+            Subsequent address family identifier (SAFI): EVPN (70)
+            Next hop: 10.0.1.11
+                IPv4 Address: 10.0.1.11
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 33
+                    Route Distinguisher: 00010a00010b8009 (10.0.1.11:32777)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 0
+                    IP Address: NOT INCLUDED
+                        [Expert Info (Note/Protocol): IP Address: NOT INCLUDED]
+                            [IP Address: NOT INCLUDED]
+                            [Severity level: Note]
+                            [Group: Protocol]
+                    0000 0000 0010 0111 0001 .... = MPLS Label 1: 625
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65103 65210 65200 65211 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 18
+            AS Path segment: 65103 65210 65200 65211
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 4
+                AS4: 65103
+                AS4: 65210
+                AS4: 65200
+                AS4: 65211
+        Path Attribute - EXTENDED_COMMUNITIES
+            Flags: 0xc0, Optional, Transitive, Complete
+                1... .... = Optional: Set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: EXTENDED_COMMUNITIES (16)
+            Length: 24
+            Carried extended communities: (3 communities)
+                Route Target: 65000:10010 [Transitive 2-Octet AS-Specific]
+                    Type: Transitive 2-Octet AS-Specific (0x00)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (AS2): Route Target (0x02)
+                    2-Octet AS: 65000
+                    Local Administrator: 0x00, Type: VID (802.1Q VLAN ID)
+                        0... .... = A-Bit: auto-derived
+                        .000 .... = Type: VID (802.1Q VLAN ID) (0)
+                        .... 0000 = Domain Id: 0
+                    Service Id: 10010
+                Encapsulation: VXLAN Encapsulation [Transitive Opaque]
+                    Type: Transitive Opaque (0x03)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (Opaque): Encapsulation (0x0c)
+                    Tunnel type: VXLAN Encapsulation (8)
+                MAC Mobility: Movable MAC [Transitive EVPN]
+                    Type: Transitive EVPN (0x06)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (EVPN): MAC Mobility (0x00)
+                    Flags: 0x00
+                        .... ...0 = Sticky/Static MAC: No
+                    Sequence number: 1
+
+Frame 552: Packet, 329 bytes on wire (2632 bits), 329 bytes captured (2632 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 23, 2026 18:16:58.219951000 UTC
+    UTC Arrival Time: Oct 23, 2026 18:16:58.219951000 UTC
+    Epoch Arrival Time: 1792779418.219951000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time delta from previous captured frame: 145.336000 milliseconds]
+    [Time delta from previous displayed frame: 15.150684000 seconds]
+    [Time since reference or first frame: 25.980637000 seconds]
+    Frame Number: 552
+    Frame Length: 329 bytes (2632 bits)
+    Capture Length: 329 bytes (2632 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:bgp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: 50:00:00:03:00:04 (50:00:00:03:00:04), Dst: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+    Destination: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 50:00:00:03:00:04 (50:00:00:03:00:04)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 10.255.0.0, Dst: 10.255.0.1
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0xc0 (DSCP: CS6, ECN: Not-ECT)
+        1100 00.. = Differentiated Services Codepoint: Class Selector 6 (48)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 315
+    Identification: 0x9713 (38675)
+    010. .... = Flags: 0x2, Don't fragment
+        0... .... = Reserved bit: Not set
+        .1.. .... = Don't fragment: Set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 1
+        [Expert Info (Note/Sequence): "Time To Live" only 1]
+            ["Time To Live" only 1]
+            [Severity level: Note]
+            [Group: Sequence]
+    Protocol: TCP (6)
+    Header Checksum: 0xcaeb [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.255.0.0
+    Destination Address: 10.255.0.1
+    [Stream index: 2]
+Transmission Control Protocol, Src Port: 54872, Dst Port: 179, Seq: 547, Ack: 433, Len: 263
+    Source Port: 54872
+    Destination Port: 179
+    [Stream index: 0]
+    [Stream Packet Number: 47]
+    [Conversation completeness: Incomplete (12)]
+        ..0. .... = RST: Absent
+        ...0 .... = FIN: Absent
+        .... 1... = Data: Present
+        .... .1.. = ACK: Present
+        .... ..0. = SYN-ACK: Absent
+        .... ...0 = SYN: Absent
+        [Completeness Flags: ··DA··]
+    [TCP Segment Len: 263]
+    Sequence Number: 547    (relative sequence number)
+    Sequence Number (raw): 4102074372
+    [Next Sequence Number: 810    (relative sequence number)]
+    Acknowledgment Number: 433    (relative ack number)
+    Acknowledgment number (raw): 585916941
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Accurate ECN: Not set
+        .... 0... .... = Congestion Window Reduced: Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······AP···]
+    Window: 249
+    [Calculated window size: 249]
+    [Window size scaling factor: -1 (unknown)]
+    Checksum: 0x172c [unverified]
+    [Checksum Status: Unverified]
+    Urgent Pointer: 0
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Timestamps: TSval 4279882986, TSecr 4270041085
+            Kind: Time Stamp Option (8)
+            Length: 10
+            Timestamp value: 4279882986
+            Timestamp echo reply: 4270041085
+    [Timestamps]
+        [Time since first frame in this TCP stream: 25.747938000 seconds]
+        [Time since previous frame in this TCP stream: 197.792000 milliseconds]
+    [SEQ/ACK analysis]
+        [Bytes in flight: 263]
+        [Bytes sent since last PSH flag: 263]
+    [Client Contiguous Streams: 1]
+    [Server Contiguous Streams: 1]
+    TCP payload (263 bytes)
+    [PDU Size: 120]
+    [PDU Size: 143]
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 120
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 97
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 44
+            Address family identifier (AFI): Layer-2 VPN (25)
+            Subsequent address family identifier (SAFI): EVPN (70)
+            Next hop: 10.0.0.5
+                IPv4 Address: 10.0.0.5
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 33
+                    Route Distinguisher: 00010a0000050002 (10.0.0.5:2)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 0
+                    IP Address: NOT INCLUDED
+                        [Expert Info (Note/Protocol): IP Address: NOT INCLUDED]
+                            [IP Address: NOT INCLUDED]
+                            [Severity level: Note]
+                            [Group: Protocol]
+                    0000 0000 0010 0111 0001 .... = MPLS Label 1: 625
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65103 65100 65105 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 14
+            AS Path segment: 65103 65100 65105
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 3
+                AS4: 65103
+                AS4: 65100
+                AS4: 65105
+        Path Attribute - EXTENDED_COMMUNITIES
+            Flags: 0xc0, Optional, Transitive, Complete
+                1... .... = Optional: Set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: EXTENDED_COMMUNITIES (16)
+            Length: 24
+            Carried extended communities: (3 communities)
+                Route Target: 65000:10010 [Transitive 2-Octet AS-Specific]
+                    Type: Transitive 2-Octet AS-Specific (0x00)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (AS2): Route Target (0x02)
+                    2-Octet AS: 65000
+                    Local Administrator: 0x00, Type: VID (802.1Q VLAN ID)
+                        0... .... = A-Bit: auto-derived
+                        .000 .... = Type: VID (802.1Q VLAN ID) (0)
+                        .... 0000 = Domain Id: 0
+                    Service Id: 10010
+                Encapsulation: VXLAN Encapsulation [Transitive Opaque]
+                    Type: Transitive Opaque (0x03)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (Opaque): Encapsulation (0x0c)
+                    Tunnel type: VXLAN Encapsulation (8)
+                MAC Mobility: Movable MAC [Transitive EVPN]
+                    Type: Transitive EVPN (0x06)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (EVPN): MAC Mobility (0x00)
+                    Flags: 0x00
+                        .... ...0 = Sticky/Static MAC: No
+                    Sequence number: 2
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 143
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 120
+    Path attributes
+        Path Attribute - MP_REACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_REACH_NLRI (14)
+            Length: 51
+            Address family identifier (AFI): Layer-2 VPN (25)
+            Subsequent address family identifier (SAFI): EVPN (70)
+            Next hop: 10.0.0.5
+                IPv4 Address: 10.0.0.5
+            Number of Subnetwork points of attachment (SNPA): 0
+            Network Layer Reachability Information (NLRI)
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 40
+                    Route Distinguisher: 00010a0000050002 (10.0.0.5:2)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 32
+                    IPv4 address: 10.10.10.108
+                    VNI: 10010
+                    VNI: 50001
+        Path Attribute - ORIGIN: IGP
+            Flags: 0x40, Transitive, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: ORIGIN (1)
+            Length: 1
+            Origin: IGP (0)
+        Path Attribute - AS_PATH: 65103 65100 65105 
+            Flags: 0x50, Transitive, Extended-Length, Well-known, Complete
+                0... .... = Optional: Not set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: AS_PATH (2)
+            Length: 14
+            AS Path segment: 65103 65100 65105
+                Segment type: AS_SEQUENCE (2)
+                Segment length (number of ASN): 3
+                AS4: 65103
+                AS4: 65100
+                AS4: 65105
+        Path Attribute - EXTENDED_COMMUNITIES
+            Flags: 0xc0, Optional, Transitive, Complete
+                1... .... = Optional: Set
+                .1.. .... = Transitive: Set
+                ..0. .... = Partial: Not set
+                ...0 .... = Extended-Length: Not set
+                .... 0000 = Unused: 0x0
+            Type Code: EXTENDED_COMMUNITIES (16)
+            Length: 40
+            Carried extended communities: (5 communities)
+                Route Target: 65000:10010 [Transitive 2-Octet AS-Specific]
+                    Type: Transitive 2-Octet AS-Specific (0x00)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (AS2): Route Target (0x02)
+                    2-Octet AS: 65000
+                    Local Administrator: 0x00, Type: VID (802.1Q VLAN ID)
+                        0... .... = A-Bit: auto-derived
+                        .000 .... = Type: VID (802.1Q VLAN ID) (0)
+                        .... 0000 = Domain Id: 0
+                    Service Id: 10010
+                Route Target: 65000:50001 [Transitive 2-Octet AS-Specific]
+                    Type: Transitive 2-Octet AS-Specific (0x00)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (AS2): Route Target (0x02)
+                    2-Octet AS: 65000
+                    Local Administrator: 0x00, Type: VID (802.1Q VLAN ID)
+                        0... .... = A-Bit: auto-derived
+                        .000 .... = Type: VID (802.1Q VLAN ID) (0)
+                        .... 0000 = Domain Id: 0
+                    Service Id: 50001
+                Encapsulation: VXLAN Encapsulation [Transitive Opaque]
+                    Type: Transitive Opaque (0x03)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (Opaque): Encapsulation (0x0c)
+                    Tunnel type: VXLAN Encapsulation (8)
+                MAC Mobility: Movable MAC [Transitive EVPN]
+                    Type: Transitive EVPN (0x06)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (EVPN): MAC Mobility (0x00)
+                    Flags: 0x00
+                        .... ...0 = Sticky/Static MAC: No
+                    Sequence number: 2
+                EVPN Router's MAC: Router's MAC: 50:00:00:05:00:08 [Transitive EVPN]
+                    Type: Transitive EVPN (0x06)
+                        0... .... = IANA Authority: Allocated on First Come First Serve Basis
+                        .0.. .... = Transitive across ASes: Transitive
+                    Subtype (EVPN): EVPN Router's MAC (0x03)
+                    Router's MAC: 50:00:00:05:00:08 (50:00:00:05:00:08)
+
+Frame 554: Packet, 170 bytes on wire (1360 bits), 170 bytes captured (1360 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 23, 2026 18:16:58.248798000 UTC
+    UTC Arrival Time: Oct 23, 2026 18:16:58.248798000 UTC
+    Epoch Arrival Time: 1792779418.248798000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time delta from previous captured frame: 25.835000 milliseconds]
+    [Time delta from previous displayed frame: 28.847000 milliseconds]
+    [Time since reference or first frame: 26.009484000 seconds]
+    Frame Number: 554
+    Frame Length: 170 bytes (1360 bits)
+    Capture Length: 170 bytes (1360 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:bgp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08), Dst: 50:00:00:03:00:04 (50:00:00:03:00:04)
+    Destination: 50:00:00:03:00:04 (50:00:00:03:00:04)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 10.255.0.1, Dst: 10.255.0.0
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0xc0 (DSCP: CS6, ECN: Not-ECT)
+        1100 00.. = Differentiated Services Codepoint: Class Selector 6 (48)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 156
+    Identification: 0x4972 (18802)
+    000. .... = Flags: 0x0
+        0... .... = Reserved bit: Not set
+        .0.. .... = Don't fragment: Not set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 1
+        [Expert Info (Note/Sequence): "Time To Live" only 1]
+            ["Time To Live" only 1]
+            [Severity level: Note]
+            [Group: Sequence]
+    Protocol: TCP (6)
+    Header Checksum: 0x592c [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.255.0.1
+    Destination Address: 10.255.0.0
+    [Stream index: 2]
+Transmission Control Protocol, Src Port: 179, Dst Port: 54872, Seq: 433, Ack: 810, Len: 104
+    Source Port: 179
+    Destination Port: 54872
+    [Stream index: 0]
+    [Stream Packet Number: 49]
+    [Conversation completeness: Incomplete (12)]
+        ..0. .... = RST: Absent
+        ...0 .... = FIN: Absent
+        .... 1... = Data: Present
+        .... .1.. = ACK: Present
+        .... ..0. = SYN-ACK: Absent
+        .... ...0 = SYN: Absent
+        [Completeness Flags: ··DA··]
+    [TCP Segment Len: 104]
+    Sequence Number: 433    (relative sequence number)
+    Sequence Number (raw): 585916941
+    [Next Sequence Number: 537    (relative sequence number)]
+    Acknowledgment Number: 810    (relative ack number)
+    Acknowledgment number (raw): 4102074635
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Accurate ECN: Not set
+        .... 0... .... = Congestion Window Reduced: Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······AP···]
+    Window: 24460
+    [Calculated window size: 24460]
+    [Window size scaling factor: -1 (unknown)]
+    Checksum: 0x52a5 [unverified]
+    [Checksum Status: Unverified]
+    Urgent Pointer: 0
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Timestamps: TSval 4270041313, TSecr 4279882986
+            Kind: Time Stamp Option (8)
+            Length: 10
+            Timestamp value: 4270041313
+            Timestamp echo reply: 4279882986
+    [Timestamps]
+        [Time since first frame in this TCP stream: 25.776785000 seconds]
+        [Time since previous frame in this TCP stream: 25.835000 milliseconds]
+    [SEQ/ACK analysis]
+        [Bytes in flight: 104]
+        [Bytes sent since last PSH flag: 104]
+    [Client Contiguous Streams: 1]
+    [Server Contiguous Streams: 1]
+    TCP payload (104 bytes)
+    [PDU Size: 104]
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 104
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 81
+    Path attributes
+        Path Attribute - MP_UNREACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_UNREACH_NLRI (15)
+            Length: 77
+            Address family identifier (AFI): Layer-2 VPN (25)
+            Subsequent address family identifier (SAFI): EVPN (70)
+            Withdrawn Routes
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 33
+                    Route Distinguisher: 00010a00010b8009 (10.0.1.11:32777)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 0
+                    IP Address: NOT INCLUDED
+                        [Expert Info (Note/Protocol): IP Address: NOT INCLUDED]
+                            [IP Address: NOT INCLUDED]
+                            [Severity level: Note]
+                            [Group: Protocol]
+                    1000 0000 0000 0000 0000 .... = MPLS Label 1: 524288
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 37
+                    Route Distinguisher: 00010a00010b8009 (10.0.1.11:32777)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 32
+                    IPv4 address: 10.10.10.108
+                    1000 0000 0000 0000 0000 .... = MPLS Label 1: 524288
+
+Frame 559: Packet, 170 bytes on wire (1360 bits), 170 bytes captured (1360 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 23, 2026 18:16:58.300625000 UTC
+    UTC Arrival Time: Oct 23, 2026 18:16:58.300625000 UTC
+    Epoch Arrival Time: 1792779418.300625000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time delta from previous captured frame: 11.284000 milliseconds]
+    [Time delta from previous displayed frame: 51.827000 milliseconds]
+    [Time since reference or first frame: 26.061311000 seconds]
+    Frame Number: 559
+    Frame Length: 170 bytes (1360 bits)
+    Capture Length: 170 bytes (1360 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:bgp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: 50:00:00:03:00:04 (50:00:00:03:00:04), Dst: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+    Destination: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 50:00:00:03:00:04 (50:00:00:03:00:04)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 10.255.0.0, Dst: 10.255.0.1
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0xc0 (DSCP: CS6, ECN: Not-ECT)
+        1100 00.. = Differentiated Services Codepoint: Class Selector 6 (48)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 156
+    Identification: 0x9715 (38677)
+    010. .... = Flags: 0x2, Don't fragment
+        0... .... = Reserved bit: Not set
+        .1.. .... = Don't fragment: Set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 1
+        [Expert Info (Note/Sequence): "Time To Live" only 1]
+            ["Time To Live" only 1]
+            [Severity level: Note]
+            [Group: Sequence]
+    Protocol: TCP (6)
+    Header Checksum: 0xcb88 [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.255.0.0
+    Destination Address: 10.255.0.1
+    [Stream index: 2]
+Transmission Control Protocol, Src Port: 54872, Dst Port: 179, Seq: 810, Ack: 537, Len: 104
+    Source Port: 54872
+    Destination Port: 179
+    [Stream index: 0]
+    [Stream Packet Number: 51]
+    [Conversation completeness: Incomplete (12)]
+        ..0. .... = RST: Absent
+        ...0 .... = FIN: Absent
+        .... 1... = Data: Present
+        .... .1.. = ACK: Present
+        .... ..0. = SYN-ACK: Absent
+        .... ...0 = SYN: Absent
+        [Completeness Flags: ··DA··]
+    [TCP Segment Len: 104]
+    Sequence Number: 810    (relative sequence number)
+    Sequence Number (raw): 4102074635
+    [Next Sequence Number: 914    (relative sequence number)]
+    Acknowledgment Number: 537    (relative ack number)
+    Acknowledgment number (raw): 585917045
+    1000 .... = Header Length: 32 bytes (8)
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Accurate ECN: Not set
+        .... 0... .... = Congestion Window Reduced: Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+        [TCP Flags: ·······AP···]
+    Window: 249
+    [Calculated window size: 249]
+    [Window size scaling factor: -1 (unknown)]
+    Checksum: 0x168d [unverified]
+    [Checksum Status: Unverified]
+    Urgent Pointer: 0
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - No-Operation (NOP)
+            Kind: No-Operation (1)
+        TCP Option - Timestamps: TSval 4279883067, TSecr 4270041313
+            Kind: Time Stamp Option (8)
+            Length: 10
+            Timestamp value: 4279883067
+            Timestamp echo reply: 4270041313
+    [Timestamps]
+        [Time since first frame in this TCP stream: 25.828612000 seconds]
+        [Time since previous frame in this TCP stream: 51.174000 milliseconds]
+    [SEQ/ACK analysis]
+        [Bytes in flight: 104]
+        [Bytes sent since last PSH flag: 104]
+    [Client Contiguous Streams: 1]
+    [Server Contiguous Streams: 1]
+    TCP payload (104 bytes)
+    [PDU Size: 104]
+Border Gateway Protocol - UPDATE Message
+    Marker: ffffffffffffffffffffffffffffffff
+    Length: 104
+    Type: UPDATE Message (2)
+    Withdrawn Routes Length: 0
+    Total Path Attribute Length: 81
+    Path attributes
+        Path Attribute - MP_UNREACH_NLRI
+            Flags: 0x90, Optional, Extended-Length, Non-transitive, Complete
+                1... .... = Optional: Set
+                .0.. .... = Transitive: Not set
+                ..0. .... = Partial: Not set
+                ...1 .... = Extended-Length: Set
+                .... 0000 = Unused: 0x0
+            Type Code: MP_UNREACH_NLRI (15)
+            Length: 77
+            Address family identifier (AFI): Layer-2 VPN (25)
+            Subsequent address family identifier (SAFI): EVPN (70)
+            Withdrawn Routes
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 33
+                    Route Distinguisher: 00010a00010b8009 (10.0.1.11:32777)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 0
+                    IP Address: NOT INCLUDED
+                        [Expert Info (Note/Protocol): IP Address: NOT INCLUDED]
+                            [IP Address: NOT INCLUDED]
+                            [Severity level: Note]
+                            [Group: Protocol]
+                    0000 0000 0000 0000 0000 .... = MPLS Label 1: 0
+                EVPN NLRI: MAC Advertisement Route
+                    Route Type: MAC Advertisement Route (2)
+                    Length: 37
+                    Route Distinguisher: 00010a00010b8009 (10.0.1.11:32777)
+                    ESI: 00:00:00:00:00:00:00:00:00:00
+                        ESI Type: ESI 9 bytes value (0)
+                        ESI Value: 00 00 00 00 00 00 00 00 00
+                        ESI 9 bytes value: 00 00 00 00 00 00 00 00 00
+                    Ethernet Tag ID: 0
+                    MAC Address Length: 48
+                    MAC Address: 50:01:00:08:00:00 (50:01:00:08:00:00)
+                    IP Address Length: 32
+                    IPv4 address: 10.10.10.108
+                    0000 0000 0000 0000 0000 .... = MPLS Label 1: 0

@@ -1,0 +1,3 @@
+move to NX-OS at t=10.0s, back to Cumulus at t=25.8s (pings every 100 ms)
+SERVER-6: 16 lost of 400; gaps (icmp_seq): 113-121 (900 ms), 269-275 (700 ms)
+CLIENT-16: 16 lost of 400; gaps (icmp_seq): 104-112 (900 ms), 261-267 (700 ms)

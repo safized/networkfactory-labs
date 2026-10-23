@@ -1,0 +1,79 @@
+### LEAF-3# sudo vtysh -c "show evpn mac vni 10010 mac 50:01:00:08:00:00"
+MAC: 50:01:00:08:00:00
+ Remote VTEP: 10.0.1.11
+ Sync-info: neigh#: 0
+ Local Seq: 0 Remote Seq: 1
+ Neighbors:
+    10.10.10.108 Active
+### LEAF-3# sudo vtysh -c "show bgp l2vpn evpn route type macip" | grep -A3 "50:01:00:08:00:00\]:\[32"
+*> [2]:[0]:[48]:[50:01:00:08:00:00]:[32]:[10.10.10.108] RD 10.0.1.11:32777
+                    10.0.1.11                              0 65210 65200 65211 i
+                    RT:65000:10010 RT:65000:50001 ET:8 MM:1 Rmac:50:0f:00:00:1b:08
+Route Distinguisher: 10.0.1.12:32777
+### NX-LEAF-02# show l2route evpn mac all | include 5001.0008
+10          5001.0008.0000 BGP    SplRcv             1          10.0.1.11 (Label: 10010)
+### NX-LEAF-02# show bgp l2vpn evpn 5001.0008.0000 | include "Route Dist|Extcommunity|from|AS-Path"
+Route Distinguisher: 10.0.0.5:2
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Extcommunity: RT:65000:10010 ENCAP:8
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.0.2 (10.0.1.1)
+      Extcommunity: RT:65000:10010 ENCAP:8
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0005.0008
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.0.2 (10.0.1.1)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0005.0008
+Route Distinguisher: 10.0.1.11:32777
+  AS-Path: 65200 65211 , path sourced external to AS
+    10.0.1.11 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Extcommunity: RT:65000:10010 ENCAP:8 MAC Mobility Sequence:00:1
+  AS-Path: 65200 65211 , path sourced external to AS
+    10.0.1.11 (metric 0) from 10.1.0.2 (10.0.1.1)
+      Extcommunity: RT:65000:10010 ENCAP:8 MAC Mobility Sequence:00:1
+  AS-Path: 65200 65211 , path sourced external to AS
+    10.0.1.11 (metric 0) from 10.1.0.2 (10.0.1.1)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 MAC Mobility Sequence:00:1
+  AS-Path: 65200 65211 , path sourced external to AS
+    10.0.1.11 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 MAC Mobility Sequence:00:1
+Route Distinguisher: 10.0.1.12:32777    (L2VNI 10010)
+             Imported from 10.0.1.11:32777:[2]:[0]:[0]:[48]:[5001.0008.0000]:[0]:[0.0.0.0]/216 
+  AS-Path: 65200 65211 , path sourced external to AS
+    10.0.1.11 (metric 0) from 10.1.0.2 (10.0.1.1)
+      Extcommunity: RT:65000:10010 ENCAP:8 MAC Mobility Sequence:00:1
+             Imported from 10.0.0.5:2:[2]:[0]:[0]:[48]:[5001.0008.0000]:[0]:[0.0.0.0]/216 
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Extcommunity: RT:65000:10010 ENCAP:8
+             Imported from 10.0.0.5:2:[2]:[0]:[0]:[48]:[5001.0008.0000]:[0]:[0.0.0.0]/216 
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.0.2 (10.0.1.1)
+      Extcommunity: RT:65000:10010 ENCAP:8
+             Imported from 10.0.0.5:2:[2]:[0]:[0]:[48]:[5001.0008.0000]:[32]:[10.10.10.108]/248 
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0005.0008
+             Imported from 10.0.1.11:32777:[2]:[0]:[0]:[48]:[5001.0008.0000]:[32]:[10.10.10.108]/272 
+  AS-Path: 65200 65211 , path sourced external to AS
+    10.0.1.11 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 MAC Mobility Sequence:00:1
+             Imported from 10.0.0.5:2:[2]:[0]:[0]:[48]:[5001.0008.0000]:[32]:[10.10.10.108]/248 
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.0.2 (10.0.1.1)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0005.0008
+Route Distinguisher: 10.0.1.12:4    (L3VNI 50001)
+             Imported from 10.0.0.5:2:[2]:[0]:[0]:[48]:[5001.0008.0000]:[32]:[10.10.10.108]/248 
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0005.0008
+             Imported from 10.0.1.11:32777:[2]:[0]:[0]:[48]:[5001.0008.0000]:[32]:[10.10.10.108]/272 
+  AS-Path: 65200 65211 , path sourced external to AS
+    10.0.1.11 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 MAC Mobility Sequence:00:1
+             Imported from 10.0.0.5:2:[2]:[0]:[0]:[48]:[5001.0008.0000]:[32]:[10.10.10.108]/248 
+  AS-Path: 65200 65210 65103 65100 65105 , path sourced external to AS
+    10.0.0.5 (metric 0) from 10.1.0.2 (10.0.1.1)
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0005.0008

@@ -1,0 +1,32 @@
+### LEAF-5# sudo vtysh -c "show evpn mac vni 10010 duplicate"
+Number of MACs (local and remote) known for this VNI: 1
+MAC               Type   Flags Intf/Remote ES/VTEP            VLAN 
+50:01:00:08:00:00 local        swp3                           10    10/9
+### LEAF-5# sudo vtysh -c "show evpn mac vni 10010 mac 50:01:00:08:00:00"
+MAC: 50:01:00:08:00:00
+ Intf: swp3(5) VLAN: 10
+ Sync-info: neigh#: 0
+ Local Seq: 10 Remote Seq: 9
+ Duplicate, detected at Fri Oct 23 18:19:15 2026
+ Neighbors:
+    10.10.10.108 Active
+### LEAF-5# sudo vtysh -c "show evpn"
+L2 VNIs: 2
+L3 VNIs: 1
+Advertise gateway mac-ip: No
+Advertise svi mac-ip: No
+Advertise svi mac: No
+Duplicate address detection: Enable
+  Detection max-moves 5, time 180
+EVPN MH:
+  mac-holdtime: 1080s, neigh-holdtime: 1080s
+  startup-delay: 180s, start-delay-timer: --:--:--
+  uplink-cfg-cnt: 0, uplink-active-cnt: 0
+### NX-LEAF-01# show l2rib internal permanently-frozen-list
+
+Topology    Mac Address    Frozen time           
+----------- -------------- ---------------------------
+### NX-LEAF-01# show fabric forwarding ip local-host-db vrf TENANT1 | include 10.10.10.108
+
+### NX-LEAF-01# show l2route evpn mac all | include 5001.0008
+10          5001.0008.0000 BGP    SplRcv             10         10.0.0.5 (Label: 10010)
