@@ -1,4 +1,4 @@
-clab-*/
 .clab*
-__pycache__/
+clab-*/
 *.pyc
+__pycache__/

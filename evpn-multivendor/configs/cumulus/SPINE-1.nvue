@@ -1,0 +1,16 @@
+nv set system hostname SPINE-1
+nv set interface lo ip address 10.0.0.1/32
+nv set interface swp1,swp2,swp3 type swp
+nv set interface swp1,swp2,swp3 link mtu 9216
+nv set router bgp autonomous-system 65100
+nv set router bgp router-id 10.0.0.1
+nv set vrf default router bgp address-family ipv4-unicast enable on
+nv set vrf default router bgp address-family ipv4-unicast network 10.0.0.1/32
+nv set vrf default router bgp address-family ipv4-unicast multipath ebgp 8
+nv set evpn enable on
+nv set vrf default router bgp neighbor swp1 remote-as external
+nv set vrf default router bgp neighbor swp1 address-family l2vpn-evpn enable on
+nv set vrf default router bgp neighbor swp2 remote-as external
+nv set vrf default router bgp neighbor swp2 address-family l2vpn-evpn enable on
+nv set vrf default router bgp neighbor swp3 remote-as external
+nv set vrf default router bgp neighbor swp3 address-family l2vpn-evpn enable on

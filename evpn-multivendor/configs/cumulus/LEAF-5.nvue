@@ -1,0 +1,45 @@
+nv set system hostname LEAF-5
+nv set interface lo ip address 10.0.0.5/32
+nv set interface swp1,swp2 type swp
+nv set interface swp1,swp2 link mtu 9216
+nv set router bgp autonomous-system 65105
+nv set router bgp router-id 10.0.0.5
+nv set vrf default router bgp address-family ipv4-unicast enable on
+nv set vrf default router bgp address-family ipv4-unicast network 10.0.0.5/32
+nv set vrf default router bgp address-family ipv4-unicast multipath ebgp 8
+nv set evpn enable on
+nv set vrf default router bgp neighbor swp1 remote-as external
+nv set vrf default router bgp neighbor swp1 address-family l2vpn-evpn enable on
+nv set vrf default router bgp neighbor swp2 remote-as external
+nv set vrf default router bgp neighbor swp2 address-family l2vpn-evpn enable on
+nv set nve vxlan source address 10.0.0.5
+nv set nve vxlan arp-nd-suppress on
+nv set nve vxlan mtu 9216
+nv set vrf TENANT1 evpn vni 50001
+nv set vrf TENANT1 evpn vlan 3001
+nv set vrf TENANT1 router bgp enable on
+nv set vrf TENANT1 router bgp address-family ipv4-unicast redistribute connected enable on
+nv set vrf TENANT1 router bgp address-family ipv4-unicast route-export to-evpn enable on
+nv set vrf TENANT1 router bgp route-export to-evpn route-target 65000:50001
+nv set vrf TENANT1 router bgp route-import from-evpn route-target 65000:50001
+nv set evpn route-advertise svi-ip off
+nv set bridge domain br_default vlan 10 vni 10010
+nv set evpn vni 10010 route-target both 65000:10010
+nv set interface vlan10 type svi
+nv set interface vlan10 vlan 10
+nv set interface vlan10 ip vrf TENANT1
+nv set interface vlan10 ip address 10.10.10.5/24
+nv set interface vlan10 ip vrr address 10.10.10.1/24
+nv set interface vlan10 ip vrr mac-address 00:00:5e:00:01:01
+nv set interface vlan10 ip vrr state up
+nv set bridge domain br_default vlan 20 vni 10020
+nv set evpn vni 10020 route-target both 65000:10020
+nv set interface vlan20 type svi
+nv set interface vlan20 vlan 20
+nv set interface vlan20 ip vrf TENANT1
+nv set interface vlan20 ip address 10.20.20.5/24
+nv set interface vlan20 ip vrr address 10.20.20.1/24
+nv set interface vlan20 ip vrr mac-address 00:00:5e:00:01:01
+nv set interface vlan20 ip vrr state up
+nv set interface swp3 bridge domain br_default access 10
+nv set interface swp4 bridge domain br_default access 20
