@@ -263,12 +263,31 @@ python3 verify.py      # the healthy baseline: peers, gateway MAC, route targets
 
 ## Build it on EVE-NG
 
-You need EVE-NG with the Cumulus VX 5.4 and Nexus 9000v 10.4 images (not included: get them from NVIDIA and Cisco),
-and the netshoot image adapted for EVE-NG (EVE needs an absolute path as the container command):
+You need EVE-NG (built on Pro 7.2) with the Cumulus VX 5.4 and Nexus 9000v 10.4(2)F images (not included: get
+them from NVIDIA and Cisco), and the netshoot image adapted for EVE-NG (EVE needs an absolute path as the
+container command):
 
 ```bash
 docker build -t netshoot-eve:latest -f tools/Dockerfile.netshoot-eve tools/
 ```
+
+1. Import `eve-ng/NF-EVPN-MULTIVENDOR.unl` (nodes and links only, no configurations) and start all nodes. The
+   NX-OS nodes take about 10 minutes to boot.
+2. Tell the tools where EVE-NG is: `EVE_URL`, `EVE_USER` and `EVE_PASS` in `~/.config/eve/labops.env`, and
+   optionally `EVE_LAB` (default `NetworkFactory/CUMULUS-EVPN.unl`). Captures need SSH to the EVE-NG host
+   with a key in `~/.ssh/eve_lab` and a capture-capable tcpdump at `/usr/local/bin/tcpdump-lab`.
+3. Generate and apply the configurations, then address the hosts:
+
+```bash
+python3 generate.py
+python3 tools/apply_cumulus.py SPINE-1=<console port> ...     # ports from the EVE-NG web UI
+python3 tools/apply_nxos.py NX-SPINE-01=<console port> ...    # first boot (POAP, admin password) is handled
+python3 tools/apply_hosts.py
+python3 verify.py
+```
+
+NX-OS ARP suppression needs a TCAM carve that only takes effect after a reload: after the first apply, reload the
+three NX-OS leaves once and apply again.
 
 Lab credentials are lab-only values set by the first-boot scripts: `cumulus` / `NetFactory#Lab1` and
 `admin` / `NetFactory#Lab1`. Change them if your lab is reachable from anything that matters.

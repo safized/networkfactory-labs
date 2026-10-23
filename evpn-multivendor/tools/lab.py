@@ -8,7 +8,7 @@
 import subprocess, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
-from eve import Eve
+from eve import Eve, HOST
 from capture import Capture, tap
 import cumulus_first_boot as cfb
 import nx as nxos
@@ -30,14 +30,14 @@ class Lab:
             return self.open[name]
         t = self.info[name]['template']
         if t == 'cumulus':
-            c, _ = cfb.first_boot('192.168.1.112', name, self.port[name])
+            c, _ = cfb.first_boot(HOST, name, self.port[name])
             c.cmd('export TERM=dumb PAGER=cat; stty cols 250 rows 0', cfb.PROMPT)
             c.drain(0.2); c.send('sudo -v')
             if c.expect([r'password for cumulus: $', cfb.PROMPT], 20)[0] == 0:
                 c.send(cfb.LAB_PASS); c.expect([cfb.PROMPT], 20)
             prompt = cfb.PROMPT
         elif t == 'nxosv9k':
-            c, prompt = nxos.login('192.168.1.112', self.port[name]), nxos.PROMPT
+            c, prompt = nxos.login(HOST, self.port[name]), nxos.PROMPT
         else:
             c, prompt = hst.shell(name, self.port[name]), hst.PROMPT
         self.open[name] = (c, prompt)

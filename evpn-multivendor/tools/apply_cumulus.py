@@ -5,13 +5,14 @@ Usage: python3 tools/apply_cumulus.py NODE=PORT [NODE=PORT ...]
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
+from eve import HOST
 from cumulus_first_boot import first_boot, PROMPT
 
 CFG = Path(__file__).parent.parent / 'configs' / 'cumulus'
 
 for arg in sys.argv[1:]:
     name, port = arg.split('=')
-    c, _ = first_boot('192.168.1.112', name, int(port))
+    c, _ = first_boot(HOST, name, int(port))
     c.cmd('export TERM=dumb; stty cols 250', PROMPT)
     errors = []
     for line in (CFG / f'{name}.nvue').read_text().split('\n'):

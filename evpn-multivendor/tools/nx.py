@@ -3,6 +3,7 @@
 Usage: python3 nx.py PORT 'command' ['command' ...]      show commands, or config lines after 'configure terminal'
 """
 import sys
+from eve import HOST
 from console import Console
 from cumulus_first_boot import LAB_PASS
 
@@ -46,7 +47,7 @@ def login(host, port):
 
 
 if __name__ == '__main__':
-    c = login('192.168.1.112', int(sys.argv[1]))
+    c = login(HOST, int(sys.argv[1]))
     for line in sys.argv[2:]:
         print(f'### {line}')
         print(c.cmd(line, PROMPT, timeout=300))

@@ -5,8 +5,9 @@ EVE names the host side of every node interface vun0010001<node id, 3 hex><inter
 """
 import shlex, subprocess, time
 from pathlib import Path
+from eve import HOST
 
-SSH = ['ssh', '-i', str(Path.home() / '.ssh/eve_lab'), '-o', 'BatchMode=yes', 'labops@192.168.1.112']
+SSH = ['ssh', '-i', str(Path.home() / '.ssh/eve_lab'), '-o', 'BatchMode=yes', f'labops@{HOST}']
 
 
 def tap(node_id, iface):

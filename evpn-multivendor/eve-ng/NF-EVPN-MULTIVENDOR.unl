@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="NF-EVPN-MULTIVENDOR" id="9a64c695-8e0b-4426-9ade-361418cae363" version="0" scripttimeout="600" countdown="0" linkwidth="1" lock="0" grid="1" sat="-1">
+  <topology>
+    <nodes>
+      <node id="1" name="SPINE-1" type="qemu" template="cumulus" image="cumulus-vx-5.4.0" console="telnet" cpu="2" cpulimit="1" ram="4024" ethernet="8" uuid="881603d8-f42e-47f8-ac48-4a3eebb410d8" firstmac="50:00:00:01:00:00" qemu_options="-machine type=pc,accel=kvm -nographic -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" sat="-1" icon="Router-2D-Gen-White-S.svg" width="0" config="0" left="565" top="238">
+        <interface id="1" name="swp1" type="ethernet" network_id="1" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="swp2" type="ethernet" network_id="3" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="swp3" type="ethernet" network_id="5" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="2" name="SPINE-2" type="qemu" template="cumulus" image="cumulus-vx-5.4.0" console="telnet" cpu="2" cpulimit="1" ram="4024" ethernet="8" uuid="481c87cd-7026-4604-867d-d5447eaca57b" firstmac="50:00:00:02:00:00" qemu_options="-machine type=pc,accel=kvm -nographic -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" sat="-1" icon="Router-2D-Gen-White-S.svg" width="0" config="0" left="826" top="243">
+        <interface id="1" name="swp1" type="ethernet" network_id="2" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="swp2" type="ethernet" network_id="4" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="swp3" type="ethernet" network_id="6" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="3" name="LEAF-3" type="qemu" template="cumulus" image="cumulus-vx-5.4.0" console="telnet" cpu="2" cpulimit="1" ram="4024" ethernet="8" uuid="e6426759-4119-4c00-be69-6285dc2f7cf3" firstmac="50:00:00:03:00:00" qemu_options="-machine type=pc,accel=kvm -nographic -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" sat="-1" icon="Router-2D-Gen-White-S.svg" width="0" config="0" left="534" top="463">
+        <interface id="1" name="swp1" type="ethernet" network_id="1" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="swp2" type="ethernet" network_id="2" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="swp3" type="ethernet" network_id="7" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="4" name="swp4" type="ethernet" network_id="10" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="4" name="LEAF-4" type="qemu" template="cumulus" image="cumulus-vx-5.4.0" console="telnet" cpu="2" cpulimit="1" ram="4024" ethernet="8" uuid="c2ab0dd6-5d0e-40ef-9e9c-307ac3477c32" firstmac="50:00:00:04:00:00" qemu_options="-machine type=pc,accel=kvm -nographic -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" sat="-1" icon="Router-2D-Gen-White-S.svg" width="0" config="0" left="697" top="462">
+        <interface id="1" name="swp1" type="ethernet" network_id="3" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="swp2" type="ethernet" network_id="4" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="swp3" type="ethernet" network_id="8" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="5" name="LEAF-5" type="qemu" template="cumulus" image="cumulus-vx-5.4.0" console="telnet" cpu="2" cpulimit="1" ram="4024" ethernet="8" uuid="5b81774b-50ab-4940-97a8-8a51192b02cb" firstmac="50:00:00:05:00:00" qemu_options="-machine type=pc,accel=kvm -nographic -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" sat="-1" icon="Router-2D-Gen-White-S.svg" width="0" config="0" left="923" top="454">
+        <interface id="1" name="swp1" type="ethernet" network_id="5" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="swp2" type="ethernet" network_id="6" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="swp3" type="ethernet" network_id="9" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="4" name="swp4" type="ethernet" network_id="11" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="10" name="LEAF-BORDER" type="qemu" template="nxosv9k" image="nxosv9k-10-4-2-f" console="telnet" cpu="4" cpulimit="0" ram="12192" ethernet="12" uuid="0b240f0c-3991-4876-a1df-598c16116f18" firstmac="50:00:00:0a:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -enable-kvm -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="e1000" delay="0" sat="-1" icon="Switch-2D-DC-NX-Blue-S.svg" width="0" config="0" left="231" top="459">
+        <interface id="1" name="E1/1" type="ethernet" network_id="10" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="E1/2" type="ethernet" network_id="16" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="E1/3" type="ethernet" network_id="18" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="11" name="E1/11" type="ethernet" network_id="13" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="12" name="NX-SPINE-01" type="qemu" template="nxosv9k" image="nxosv9k-10-4-2-f" console="telnet" cpu="2" cpulimit="0" ram="8192" ethernet="8" uuid="1891cf67-df9d-4867-8764-cec21a14b229" firstmac="50:00:00:0c:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -enable-kvm -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="e1000" delay="0" sat="-1" icon="Switch-2D-DC-NX-Blue-S.svg" width="0" config="0" left="81" top="234">
+        <interface id="1" name="E1/1" type="ethernet" network_id="12" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="E1/2" type="ethernet" network_id="15" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="E1/3" type="ethernet" network_id="16" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="13" name="NX-SPINE-02" type="qemu" template="nxosv9k" image="nxosv9k-10-4-2-f" console="telnet" cpu="2" cpulimit="0" ram="8192" ethernet="8" uuid="f43a152a-52c7-4703-8be5-dc81160ad01a" firstmac="50:00:00:0d:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -enable-kvm -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="e1000" delay="0" sat="-1" icon="Switch-2D-DC-NX-Blue-S.svg" width="0" config="0" left="165" top="234">
+        <interface id="1" name="E1/1" type="ethernet" network_id="14" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="E1/2" type="ethernet" network_id="17" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="E1/3" type="ethernet" network_id="18" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="14" name="NX-LEAF-02" type="qemu" template="nxosv9k" image="nxosv9k-10-4-2-f" console="telnet" cpu="2" cpulimit="0" ram="8192" ethernet="8" uuid="8e6a083b-e1a7-496d-a136-d0ec04a43264" firstmac="50:00:00:0e:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -enable-kvm -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="e1000" delay="0" sat="-1" icon="Switch-2D-DC-NX-Blue-S.svg" width="0" config="0" left="126" top="458">
+        <interface id="1" name="E1/1" type="ethernet" network_id="15" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="E1/2" type="ethernet" network_id="17" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="E1/3" type="ethernet" network_id="19" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="15" name="NX-LEAF-01" type="qemu" template="nxosv9k" image="nxosv9k-10-4-2-f" console="telnet" cpu="2" cpulimit="0" ram="8192" ethernet="8" uuid="ddc86b51-faa4-4816-b298-3ccdaa793bae" firstmac="50:00:00:0f:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -enable-kvm -cpu host" qemu_version="4.1.0" qemu_arch="x86_64" qemu_nic="e1000" delay="0" sat="-1" icon="Switch-2D-DC-NX-Blue-S.svg" width="0" config="0" left="24" top="459">
+        <interface id="1" name="E1/1" type="ethernet" network_id="12" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="2" name="E1/2" type="ethernet" network_id="14" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+        <interface id="3" name="E1/3" type="ethernet" network_id="20" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="6" name="SERVER-6" type="docker" template="docker" image="netshoot-eve:latest" ethernet="1" ram="256" cpu="1" console="telnet" e0dhcp="0" dock_ipv6="0" delay="0" sat="-1" icon="Server.png" width="0" config="0" left="531" top="609">
+        <interface id="0" name="eth0" type="ethernet" network_id="7" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="7" name="SERVER-7" type="docker" template="docker" image="netshoot-eve:latest" ethernet="1" ram="256" cpu="1" console="telnet" e0dhcp="0" dock_ipv6="0" delay="0" sat="-1" icon="Server.png" width="0" config="0" left="693" top="607">
+        <interface id="0" name="eth0" type="ethernet" network_id="8" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="8" name="SERVER-8" type="docker" template="docker" image="netshoot-eve:latest" ethernet="1" ram="256" cpu="1" console="telnet" e0dhcp="0" dock_ipv6="0" delay="0" sat="-1" icon="Server.png" width="0" config="0" left="899" top="599">
+        <interface id="0" name="eth0" type="ethernet" network_id="9" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="9" name="SERVER-9" type="docker" template="docker" image="netshoot-eve:latest" ethernet="1" ram="256" cpu="1" console="telnet" e0dhcp="0" dock_ipv6="0" delay="0" sat="-1" icon="Server.png" width="0" config="0" left="972" top="596">
+        <interface id="0" name="eth0" type="ethernet" network_id="11" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="11" name="SERVER-11" type="docker" template="docker" image="netshoot-eve:latest" ethernet="1" ram="256" cpu="1" console="telnet" e0dhcp="0" dock_ipv6="0" delay="0" sat="-1" icon="Server.png" width="0" config="0" left="242" top="611">
+        <interface id="0" name="eth0" type="ethernet" network_id="13" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="16" name="CLIENT-16" type="docker" template="docker" image="netshoot-eve:latest" ethernet="1" ram="256" cpu="1" console="telnet" e0dhcp="0" dock_ipv6="0" delay="0" sat="-1" icon="Server.png" width="0" config="0" left="129" top="617">
+        <interface id="0" name="eth0" type="ethernet" network_id="19" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+      <node id="17" name="SERVER-8-NEW" type="docker" template="docker" image="netshoot-eve:latest" ethernet="1" ram="256" cpu="1" console="telnet" e0dhcp="0" dock_ipv6="0" delay="0" sat="-1" icon="Server.png" width="0" config="0" left="16" top="609">
+        <interface id="0" name="eth0" type="ethernet" network_id="20" vid="1" labelpos="0.5" stub="0" width="1" curviness="10" beziercurviness="150" round="0" midpoint="0.5" srcpos="0.15" dstpos="0.85"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-LEAF-3iface1" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="2" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-LEAF-3iface2" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="3" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-LEAF-4iface1" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="4" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-LEAF-4iface2" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="5" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-LEAF-5iface1" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="6" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-LEAF-5iface2" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="10" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-BBGiface1" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="12" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-NXOS15iface1" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="14" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-NXOS15iface2" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="15" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-NXOS14iface1" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="16" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-NXOS12iface3" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="17" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-NXOS14iface2" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="18" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-NXOS13iface3" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="7" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-SERVER-6" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="8" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-SERVER-7" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="9" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-SERVER-8" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="11" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-SERVER-9" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="13" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-SERVER-11" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="19" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-CLIENT-16" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+      <network id="20" smart="0" native_vlan="1" vlan8021ad="0" type="bridge" name="Net-SERVER-8-NEW" left="0" top="0" style="Solid" linkstyle="Straight" color="" label="" visibility="0" icon="lan.png" width="0" hideme="0" l2filter_lldp="0" l2filter_stp="0" l2filter_cisco="0" l2filter_lacp="0"/>
+    </networks>
+  </topology>
+  <objects>
+  </objects>
+</lab>

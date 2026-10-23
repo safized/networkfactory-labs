@@ -4,13 +4,13 @@ Usage: python3 host.py NAME 'command' ['command' ...]
 """
 import sys
 from console import Console
-from eve import Eve
+from eve import Eve, HOST
 
 PROMPT = r'\n[\w-]+:[^\n]*# $'
 
 
 def shell(name, port=None):
-    c = Console('192.168.1.112', port or Eve().ports()[name])
+    c = Console(HOST, port or Eve().ports()[name])
     c.send('\x03', end=''); c.drain(0.5)
     c.send('trap - DEBUG; unset PROMPT_COMMAND; export PS1="\\h:\\w# " TERM=dumb COLUMNS=250'); c.expect([PROMPT], 20)
     return c
