@@ -1,0 +1,2 @@
+### LEAF-3# bridge -d link show dev vxlan48 | grep -o "neigh_suppress [a-z]*"
+neigh_suppress on

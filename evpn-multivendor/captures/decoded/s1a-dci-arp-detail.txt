@@ -1,0 +1,84 @@
+Frame 1: Packet, 92 bytes on wire (736 bits), 92 bytes captured (736 bits)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 23, 2026 17:24:00.970331000 UTC
+    UTC Arrival Time: Oct 23, 2026 17:24:00.970331000 UTC
+    Epoch Arrival Time: 1792776240.970331000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time since reference or first frame: 0.000000000 seconds]
+    Frame Number: 1
+    Frame Length: 92 bytes (736 bits)
+    Capture Length: 92 bytes (736 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:vxlan:eth:ethertype:arp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: 50:00:00:03:00:04 (50:00:00:03:00:04), Dst: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+    Destination: 50:0a:00:00:1b:08 (50:0a:00:00:1b:08)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 50:00:00:03:00:04 (50:00:00:03:00:04)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 10.0.0.3, Dst: 10.0.1.10
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 78
+    Identification: 0xdb64 (56164)
+    000. .... = Flags: 0x0
+        0... .... = Reserved bit: Not set
+        .0.. .... = Don't fragment: Not set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 64
+    Protocol: UDP (17)
+    Header Checksum: 0x8a2e [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.0.0.3
+    Destination Address: 10.0.1.10
+    [Stream index: 0]
+User Datagram Protocol, Src Port: 60870, Dst Port: 4789
+    Source Port: 60870
+    Destination Port: 4789
+    Length: 58
+    Checksum: 0x1558 [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 0]
+    [Stream Packet Number: 1]
+    [Timestamps]
+        [Time since first frame: 0.000000000 seconds]
+        [Time since previous frame: 0.000000000 seconds]
+    UDP payload (50 bytes)
+Virtual eXtensible Local Area Network
+    Flags: 0x0800, VXLAN Network ID (VNI)
+        0... .... .... .... = GBP Extension: Not defined
+        .... 1... .... .... = VXLAN Network ID (VNI): True
+        .... .... .0.. .... = Don't Learn: False
+        .... .... .... 0... = Policy Applied: False
+        .000 .000 0.00 .000 = Reserved(R): 0x0000
+    Group Policy ID: 0
+    VXLAN Network Identifier (VNI): 10010
+    Reserved: 0
+Ethernet II, Src: 50:01:00:06:00:00 (50:01:00:06:00:00), Dst: Broadcast (ff:ff:ff:ff:ff:ff)
+    Destination: Broadcast (ff:ff:ff:ff:ff:ff)
+        .... ..1. .... .... .... .... = LG bit: Locally administered address (this is NOT the factory default)
+        .... ...1 .... .... .... .... = IG bit: Group address (multicast/broadcast)
+    Source: 50:01:00:06:00:00 (50:01:00:06:00:00)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: ARP (0x0806)
+    [Stream index: 1]
+Address Resolution Protocol (request)
+    Hardware type: Ethernet (1)
+    Protocol type: IPv4 (0x0800)
+    Hardware size: 6
+    Protocol size: 4
+    Opcode: request (1)
+    Sender MAC address: 50:01:00:06:00:00 (50:01:00:06:00:00)
+    Sender IP address: 10.10.10.106
+    Target MAC address: 00:00:00_00:00:00 (00:00:00:00:00:00)
+    Target IP address: 10.10.10.116

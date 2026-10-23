@@ -1,0 +1,22 @@
+    1   0.000000 50:0e:00:00:01:03 → Nearest-Customer-Bridge STP 60 RST. Root = 32768/10/50:0e:00:00:1b:08  Cost = 0  Port = 0x8003
+    2   2.004415 50:0e:00:00:01:03 → Nearest-Customer-Bridge STP 60 RST. Root = 32768/10/50:0e:00:00:1b:08  Cost = 0  Port = 0x8003
+    3   3.810465 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) request  id=0xb2ce, seq=1/256, ttl=64
+    4   3.810545 50:01:00:10:00:00 → Broadcast    ARP 42 Who has 10.10.10.106? Tell 10.10.10.116
+    5   3.815007 50:01:00:06:00:00 → 50:01:00:10:00:00 ARP 60 10.10.10.106 is at 50:01:00:06:00:00
+    6   3.815063 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) reply    id=0xb2ce, seq=1/256, ttl=64 (request in 3)
+    7   4.009620 50:0e:00:00:01:03 → Nearest-Customer-Bridge STP 60 RST. Root = 32768/10/50:0e:00:00:1b:08  Cost = 0  Port = 0x8003
+    8   4.309325 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) request  id=0xb2ce, seq=2/512, ttl=64
+    9   4.309383 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) reply    id=0xb2ce, seq=2/512, ttl=64 (request in 8)
+   10   4.810648 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) request  id=0xb2ce, seq=3/768, ttl=64
+   11   4.810701 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) reply    id=0xb2ce, seq=3/768, ttl=64 (request in 10)
+   12   6.014094 50:0e:00:00:01:03 → Nearest-Customer-Bridge STP 60 RST. Root = 32768/10/50:0e:00:00:1b:08  Cost = 0  Port = 0x8003
+   13   7.743139 50:01:00:10:00:00 → Broadcast    ARP 42 Who has 10.10.10.106? Tell 10.10.10.116
+   14   7.746917 50:01:00:06:00:00 → 50:01:00:10:00:00 ARP 60 10.10.10.106 is at 50:01:00:06:00:00
+   15   7.746966 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) request  id=0x217e, seq=1/256, ttl=64
+   16   7.782353 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) reply    id=0x217e, seq=1/256, ttl=64 (request in 15)
+   17   8.018760 50:0e:00:00:01:03 → Nearest-Customer-Bridge STP 60 RST. Root = 32768/10/50:0e:00:00:1b:08  Cost = 0  Port = 0x8003
+   18   8.244323 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) request  id=0x217e, seq=2/512, ttl=64
+   19   8.263548 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) reply    id=0x217e, seq=2/512, ttl=64 (request in 18)
+   20   8.745427 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) request  id=0x217e, seq=3/768, ttl=64
+   21   8.774574 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) reply    id=0x217e, seq=3/768, ttl=64 (request in 20)
+   22  10.024243 50:0e:00:00:01:03 → Nearest-Customer-Bridge STP 60 RST. Root = 32768/10/50:0e:00:00:1b:08  Cost = 0  Port = 0x8003

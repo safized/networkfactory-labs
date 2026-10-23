@@ -7,6 +7,7 @@ from console import Console
 from cumulus_first_boot import LAB_PASS
 
 PROMPT = r'\n[\w-]+(\([\w-]+\))?# $'
+IMAGE = 'nxos64-cs.10.4.2.F.bin'
 
 
 def login(host, port):
@@ -21,6 +22,7 @@ def login(host, port):
                          r'basic configuration dialog \(yes/no\): $',
                          r'login: $',
                          r'Password: ?$',
+                         r'loader > *$',
                          PROMPT], 900)
         if n == 0:
             c.send('yes')
@@ -34,6 +36,8 @@ def login(host, port):
             c.send('admin')
         elif n == 6:
             c.send(LAB_PASS)
+        elif n == 7:                                      # NX-OSv without a saved boot variable stops here
+            c.send('boot ' + IMAGE)
         else:
             break
     c.cmd('terminal length 0', PROMPT)

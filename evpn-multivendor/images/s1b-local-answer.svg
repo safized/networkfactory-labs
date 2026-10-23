@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="758" height="126" viewBox="0 0 758 126">
+<rect width="758" height="126" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h738a10 10 0 0 1 10 10v20h-758z" fill="#1b2b30"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="379.0" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">LEAF-3 answers for CLIENT-16 in 0.65 ms; the request never leaves the leaf</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">(capture on SERVER-6&#x27;s access port, LEAF-3 swp3)</text>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">2   0.914269 50:01:00:06:00:00 → Broadcast    ARP 42 Who has 10.10.10.116? Tell 10.10.10.106</text>
+<rect x="12" y="80" width="734" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">3   0.914922 50:01:00:10:00:00 → 50:01:00:06:00:00 ARP 42 10.10.10.116 is at 50:01:00:10:00:00</text>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">4   0.914974 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) request  id=0xb2cc, seq=1/256, ttl=64</text>
+</svg>

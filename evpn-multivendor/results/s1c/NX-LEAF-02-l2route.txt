@@ -1,0 +1,12 @@
+### NX-LEAF-02# show l2route evpn mac-ip all
+Flags -(Rmac):Router MAC (Stt):Static (L):Local (R):Remote 
+(Dup):Duplicate (Spl):Split (Rcv):Recv(D):Del Pending (S):Stale (C):Clear
+(Ps):Peer Sync (Ro):Re-Originated (Orp):Orphan (Asy):Asymmetric (Gw):Gateway
+(Bh):Blackhole
+(Piporp): Directly connected Orphan to PIP based vPC BGW 
+(Pipporp): Orphan connected to peer of PIP based vPC BGW 
+Topology    Mac Address    Host IP                                 Prod   Flags              Seq No     Next-Hops                              
+----------- -------------- --------------------------------------- ------ ----------------- ---------- ---------------------------------------------------------
+10          5001.0006.0000 10.10.10.106                            BGP    --                 0         10.0.0.3 (Label: 10010)
+10          5001.0008.0000 10.10.10.108                            BGP    --                 0         10.0.0.5 (Label: 10010)
+10          5001.0010.0000 10.10.10.116                            HMM    L,                 0         Local

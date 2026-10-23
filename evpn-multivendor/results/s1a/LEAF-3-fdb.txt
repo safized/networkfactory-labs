@@ -1,0 +1,5 @@
+### LEAF-3# bridge fdb show dev vxlan48 | grep -v permanent
+50:01:00:10:00:00 vlan 10 extern_learn master br_default 
+50:01:00:08:00:00 vlan 10 extern_learn master br_default 
+50:01:00:10:00:00 dst 10.0.1.12 src_vni 10010 self extern_learn 
+50:01:00:08:00:00 dst 10.0.0.5 src_vni 10010 self extern_learn

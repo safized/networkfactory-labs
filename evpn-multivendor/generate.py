@@ -11,7 +11,8 @@ OUT = Path(__file__).parent / 'configs'
 # ---- the plan --------------------------------------------------------------------------
 TENANT, L3VNI, L3VLAN = 'TENANT1', 50001, 3001   # 3968-4095 are reserved on NX-OS
 RT_ASN = 65000                         # explicit route targets: same value in both vendors
-GW_MAC = '00:00:5e:00:01:01'           # one anycast gateway MAC for every leaf, both vendors
+GW_MAC = '00:00:5e:00:01:01'
+SUPPRESS_ARP = True                    # scenario 1 runs once with this False on NX-OS (the default), then True           # one anycast gateway MAC for every leaf, both vendors
 
 # VLAN -> (VNI, subnet prefix, where it lives)
 VLANS = {
@@ -32,6 +33,19 @@ ACCESS = {    # leaf: {port: vlan}
     'LEAF-4': {'swp3': 20},
     'LEAF-5': {'swp3': 10, 'swp4': 20},
 }
+HOSTS = {     # name: (leaf, vlan, last octet); every host uses the anycast gateway .1
+    'SERVER-6': ('LEAF-3', 10, 106), 'SERVER-7': ('LEAF-4', 20, 107), 'SERVER-8': ('LEAF-5', 10, 108),
+    'SERVER-9': ('LEAF-5', 20, 109), 'SERVER-11': ('LEAF-BORDER', 30, 111), 'CLIENT-16': ('NX-LEAF-02', 10, 116),
+}
+
+
+def host(name):
+    _, vlan, n = HOSTS[name]
+    net = VLANS[vlan][1]
+    return [f'ip addr flush dev eth0', f'ip addr add {net}.{n}/24 dev eth0', 'ip link set eth0 up',
+            f'ip route replace default via {net}.1']
+
+
 # the inter-fabric link: LEAF-3 swp4 <-> LEAF-BORDER Ethernet1/1, numbered /31
 DCI = {'LEAF-3': ('swp4', '10.255.0.0/31', '10.255.0.1', 65210)}
 
@@ -123,8 +137,12 @@ def nx_links(name):
 def nxos(name):
     asn, lo, role = NXOS[name]
     mac = GW_MAC.replace(':', '')
-    c = [f'hostname {name}', 'nv overlay evpn', 'feature bgp']
+    # NX-OSv 9000 keeps no boot variable by default: without this line a 'reload' stops at the loader prompt
+    c = [f'hostname {name}', 'boot nxos bootflash:nxos64-cs.10.4.2.F.bin', 'nv overlay evpn', 'feature bgp']
     if role == 'leaf':
+        # ARP suppression needs its own TCAM region (takes effect after a reload): borrow 1024 entries from RACL (no routed ACLs in this lab)
+        c += ['hardware access-list tcam region racl 512',
+              'hardware access-list tcam region arp-ether 256 double-wide']
         c += ['feature interface-vlan', 'feature vn-segment-vlan-based', 'feature nv overlay',
               f'fabric forwarding anycast-gateway-mac {mac[0:4]}.{mac[4:8]}.{mac[8:12]}']
     c += ['route-map NH-UNCHANGED permit 10', '  set ip next-hop unchanged',
@@ -159,6 +177,8 @@ def nxos(name):
         c += ['interface nve1', '  no shutdown', '  host-reachability protocol bgp', '  source-interface loopback0']
         for v in vlans:
             c += [f'  member vni {VLANS[v][0]}', '    ingress-replication protocol bgp']
+            if SUPPRESS_ARP:
+                c += ['    suppress-arp']
         c += [f'  member vni {L3VNI} associate-vrf', 'evpn']
         for v in vlans:
             vni = VLANS[v][0]
@@ -182,6 +202,9 @@ if __name__ == '__main__':
     for name in CUMULUS:
         (OUT / 'cumulus' / f'{name}.nvue').write_text('\n'.join(cumulus(name)) + '\n')
         print('wrote', name)
+    (OUT / 'hosts').mkdir(parents=True, exist_ok=True)
+    for name in HOSTS:
+        (OUT / 'hosts' / f'{name}.sh').write_text('\n'.join(host(name)) + '\n')
     (OUT / 'nxos').mkdir(parents=True, exist_ok=True)
     for name in NXOS:
         (OUT / 'nxos' / f'{name}.cfg').write_text('\n'.join(nxos(name)) + '\n')

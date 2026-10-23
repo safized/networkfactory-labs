@@ -1,0 +1,3 @@
+# netshoot for EVE-NG: EVE needs an absolute path as the container command (netshoot's default is "zsh").
+FROM nicolaka/netshoot:latest
+CMD ["/bin/bash"]

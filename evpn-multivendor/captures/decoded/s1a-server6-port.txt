@@ -1,0 +1,13 @@
+    1   0.000000 50:00:00:03:00:03 → Nearest-Customer-Bridge STP 53 RST. Root = 32768/0/50:00:00:03:00:08  Cost = 0  Port = 0x8001
+    2   1.560927 50:01:00:06:00:00 → Broadcast    ARP 42 Who has 10.10.10.116? Tell 10.10.10.106
+    3   1.583634 50:01:00:10:00:00 → 50:01:00:06:00:00 ARP 60 10.10.10.116 is at 50:01:00:10:00:00
+    4   1.583676 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) request  id=0xb2ca, seq=1/256, ttl=64
+    5   1.599195 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) reply    id=0xb2ca, seq=1/256, ttl=64 (request in 4)
+    6   1.999993 50:00:00:03:00:03 → Nearest-Customer-Bridge STP 53 RST. Root = 32768/0/50:00:00:03:00:08  Cost = 0  Port = 0x8001
+    7   2.061963 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) request  id=0xb2ca, seq=2/512, ttl=64
+    8   2.084606 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) reply    id=0xb2ca, seq=2/512, ttl=64 (request in 7)
+    9   2.563431 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) request  id=0xb2ca, seq=3/768, ttl=64
+   10   2.588786 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) reply    id=0xb2ca, seq=3/768, ttl=64 (request in 9)
+   11   3.035891 50:00:00:03:00:03 → Nearest-Bridge LLDP 330 MA/50:00:00:03:00:00 IN/swp3 120 SysN=LEAF-3 SysD=Cumulus Linux version 5.4.0 running on QEMU Standard PC (i440FX + PIIX, 1996) 
+   12   3.064654 10.10.10.106 → 10.10.10.116 ICMP 98 Echo (ping) request  id=0xb2ca, seq=4/1024, ttl=64
+   13   3.088427 10.10.10.116 → 10.10.10.106 ICMP 98 Echo (ping) reply    id=0xb2ca, seq=4/1024, ttl=64 (request in 12)

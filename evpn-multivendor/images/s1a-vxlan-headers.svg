@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="707" height="216" viewBox="0 0 707 216">
+<rect width="707" height="216" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h687a10 10 0 0 1 10 10v20h-707z" fill="#1b2b30"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="353.5" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">One flooded copy: outer 10.0.0.3 -&gt; 10.0.1.10, UDP 4789, VNI 10010</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Internet Protocol Version 4, Src: 10.0.0.3, Dst: 10.0.1.10</text>
+<rect x="12" y="62" width="683" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">▾ User Datagram Protocol, Src Port: 60870, Dst Port: 4789</text>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      Destination Port: 4789</text>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">▾ Virtual eXtensible Local Area Network</text>
+<text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">    ▾ Flags: 0x0800, VXLAN Network ID (VNI)</text>
+<text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">          .... 1... .... .... = VXLAN Network ID (VNI): True</text>
+<rect x="12" y="152" width="683" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">      VXLAN Network Identifier (VNI): 10010</text>
+<rect x="12" y="170" width="683" height="18" rx="3" fill="#5a2323"/>
+<text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Ethernet II, Src: 50:01:00:06:00:00 (50:01:00:06:00:00), Dst: Broadcast (ff:ff:ff:ff:ff:ff)</text>
+<text x="24" y="201" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">  Address Resolution Protocol (request): Who has 10.10.10.116? Tell 10.10.10.106</text>
+</svg>

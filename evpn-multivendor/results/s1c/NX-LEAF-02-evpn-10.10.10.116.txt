@@ -1,0 +1,17 @@
+### NX-LEAF-02# show bgp l2vpn evpn 10.10.10.116
+BGP routing table information for VRF default, address family L2VPN EVPN
+Route Distinguisher: 10.0.1.12:32777    (L2VNI 10010)
+BGP routing table entry for [2]:[0]:[0]:[48]:[5001.0010.0000]:[32]:[10.10.10.116]/272, version 75
+Paths: (1 available, best #1)
+Flags: (0x000102) (high32 00000000) on xmit-list, is not in l2rib/evpn
+
+  Advertised path-id 1
+  Path type: local, path is valid, is best path, no labeled nexthop
+  AS-Path: NONE, path locally originated
+    10.0.1.12 (metric 0) from 0.0.0.0 (10.0.1.12)
+      Origin IGP, MED not set, localpref 100, weight 32768
+      Received label 10010 50001
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:500e.0000.1b08
+
+  Path-id 1 advertised to peers:
+    10.1.0.2           10.1.1.2

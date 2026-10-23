@@ -1,0 +1,57 @@
+### NX-LEAF-02# show bgp l2vpn evpn 10.10.10.106
+BGP routing table information for VRF default, address family L2VPN EVPN
+Route Distinguisher: 10.0.0.3:2
+BGP routing table entry for [2]:[0]:[0]:[48]:[5001.0006.0000]:[32]:[10.10.10.106]/272, version 107
+Paths: (2 available, best #2)
+Flags: (0x000202) (high32 00000000) on xmit-list, is not in l2rib/evpn, is not in HW
+
+  Path type: external, path is valid, not best reason: newer EBGP path, no labeled nexthop
+  AS-Path: 65200 65210 65103 , path sourced external to AS
+    10.0.0.3 (metric 0) from 10.1.0.2 (10.0.1.1)
+      Origin IGP, MED not set, localpref 100, weight 0
+      Received label 10010 50001
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0003.0008
+
+  Advertised path-id 1
+  Path type: external, path is valid, is best path, no labeled nexthop
+             Imported to 3 destination(s)
+             Imported paths list: TENANT1 L3-50001 L2-10010
+  AS-Path: 65200 65210 65103 , path sourced external to AS
+    10.0.0.3 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Origin IGP, MED not set, localpref 100, weight 0
+      Received label 10010 50001
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0003.0008
+
+  Path-id 1 not advertised to any peer
+
+Route Distinguisher: 10.0.1.12:32777    (L2VNI 10010)
+BGP routing table entry for [2]:[0]:[0]:[48]:[5001.0006.0000]:[32]:[10.10.10.106]/272, version 104
+Paths: (1 available, best #1)
+Flags: (0x000212) (high32 00000000) on xmit-list, is in l2rib/evpn, is not in HW
+
+  Advertised path-id 1
+  Path type: external, path is valid, is best path, no labeled nexthop, in rib
+             Imported from 10.0.0.3:2:[2]:[0]:[0]:[48]:[5001.0006.0000]:[32]:[10.10.10.106]/272 
+  AS-Path: 65200 65210 65103 , path sourced external to AS
+    10.0.0.3 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Origin IGP, MED not set, localpref 100, weight 0
+      Received label 10010 50001
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0003.0008
+
+  Path-id 1 not advertised to any peer
+
+Route Distinguisher: 10.0.1.12:4    (L3VNI 50001)
+BGP routing table entry for [2]:[0]:[0]:[48]:[5001.0006.0000]:[32]:[10.10.10.106]/272, version 105
+Paths: (1 available, best #1)
+Flags: (0x000202) (high32 00000000) on xmit-list, is not in l2rib/evpn, is not in HW
+
+  Advertised path-id 1
+  Path type: external, path is valid, is best path, no labeled nexthop
+             Imported from 10.0.0.3:2:[2]:[0]:[0]:[48]:[5001.0006.0000]:[32]:[10.10.10.106]/272 
+  AS-Path: 65200 65210 65103 , path sourced external to AS
+    10.0.0.3 (metric 0) from 10.1.1.2 (10.0.1.2)
+      Origin IGP, MED not set, localpref 100, weight 0
+      Received label 10010 50001
+      Extcommunity: RT:65000:10010 RT:65000:50001 ENCAP:8 Router MAC:5000.0003.0008
+
+  Path-id 1 not advertised to any peer

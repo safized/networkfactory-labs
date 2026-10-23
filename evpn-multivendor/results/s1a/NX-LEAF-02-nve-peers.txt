@@ -1,0 +1,73 @@
+### NX-LEAF-02# show nve peers detail
+Details of nve Peers:
+----------------------------------------
+Peer-Ip: 10.0.0.3
+    NVE Interface       : nve1
+    Peer State          : Up
+    Peer Uptime         : 02:04:17
+    Router-Mac          : 5000.0003.0008
+    Peer First VNI      : 10010
+    Time since Create   : 02:04:17
+    Configured VNIs     : 10010,10030,50001
+    Provision State     : peer-add-complete
+    Learnt CP VNIs      : 10010,50001
+    vni assignment mode : SYMMETRIC
+    Peer Location       : N/A
+    Group policy capable: no
+----------------------------------------
+Peer-Ip: 10.0.0.4
+    NVE Interface       : nve1
+    Peer State          : Up
+    Peer Uptime         : 02:04:17
+    Router-Mac          : 5000.0004.0008
+    Peer First VNI      : 10010
+    Time since Create   : 02:04:17
+    Configured VNIs     : 10010,10030,50001
+    Provision State     : peer-add-complete
+    Learnt CP VNIs      : 10010,50001
+    vni assignment mode : SYMMETRIC
+    Peer Location       : N/A
+    Group policy capable: no
+----------------------------------------
+Peer-Ip: 10.0.0.5
+    NVE Interface       : nve1
+    Peer State          : Up
+    Peer Uptime         : 02:04:17
+    Router-Mac          : 5000.0005.0008
+    Peer First VNI      : 10010
+    Time since Create   : 02:04:17
+    Configured VNIs     : 10010,10030,50001
+    Provision State     : peer-add-complete
+    Learnt CP VNIs      : 10010,50001
+    vni assignment mode : SYMMETRIC
+    Peer Location       : N/A
+    Group policy capable: no
+----------------------------------------
+Peer-Ip: 10.0.1.10
+    NVE Interface       : nve1
+    Peer State          : Up
+    Peer Uptime         : 02:04:17
+    Router-Mac          : 500a.0000.1b08
+    Peer First VNI      : 10010
+    Time since Create   : 02:04:17
+    Configured VNIs     : 10010,10030,50001
+    Provision State     : peer-add-complete
+    Learnt CP VNIs      : 10010,10030,50001
+    vni assignment mode : SYMMETRIC
+    Peer Location       : N/A
+    Group policy capable: no
+----------------------------------------
+Peer-Ip: 10.0.1.11
+    NVE Interface       : nve1
+    Peer State          : Up
+    Peer Uptime         : 01:58:55
+    Router-Mac          : 500f.0000.1b08
+    Peer First VNI      : 50001
+    Time since Create   : 01:58:55
+    Configured VNIs     : 10010,10030,50001
+    Provision State     : peer-add-complete
+    Learnt CP VNIs      : 10010,10030,50001
+    vni assignment mode : SYMMETRIC
+    Peer Location       : N/A
+    Group policy capable: no
+----------------------------------------

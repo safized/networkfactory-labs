@@ -1,0 +1,7 @@
+### LEAF-3# sudo vtysh -c "show evpn arp-cache vni 10010"
+Number of ARPs (local and remote) known for this VNI: 3
+Flags: I=local-inactive, P=peer-active, X=peer-proxy
+Neighbor        Type   Flags State    MAC               Remote ES/VTEP                 Seq #'s
+10.10.10.5      local        inactive 50:00:00:05:00:08                                0/0
+10.10.10.108    remote       active   50:01:00:08:00:00 10.0.0.5                       0/0
+10.10.10.106    local        active   50:01:00:06:00:00                                0/0

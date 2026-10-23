@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="729" height="198" viewBox="0 0 729 198">
+<rect width="729" height="198" rx="10" fill="#0f1c20"/>
+<path d="M0 10a10 10 0 0 1 10-10h709a10 10 0 0 1 10 10v20h-729z" fill="#1b2b30"/>
+<circle cx="18" cy="15" r="5" fill="#e0605a"/><circle cx="34" cy="15" r="5" fill="#e3b341"/><circle cx="50" cy="15" r="5" fill="#5cb85c"/>
+<text x="364.5" y="19.5" font-family="Poppins, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5f7a78" text-anchor="middle">Phase b: CLIENT-16 pinged its gateway once; LEAF-3 now knows 10.10.10.116 via EVPN</text>
+<text x="24" y="57" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#7fd1b9" xml:space="preserve">LEAF-3# sudo vtysh -c &quot;show evpn arp-cache vni 10010&quot;</text>
+<text x="24" y="75" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">Number of ARPs (local and remote) known for this VNI: 4</text>
+<text x="24" y="93" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">Flags: I=local-inactive, P=peer-active, X=peer-proxy</text>
+<text x="24" y="111" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">Neighbor        Type   Flags State    MAC               Remote ES/VTEP                 Seq #&#x27;s</text>
+<text x="24" y="129" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">10.10.10.5      local        inactive 50:00:00:05:00:08                                0/0</text>
+<text x="24" y="147" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">10.10.10.108    remote       active   50:01:00:08:00:00 10.0.0.5                       0/0</text>
+<rect x="12" y="152" width="705" height="18" rx="3" fill="#1f6a5a"/>
+<text x="24" y="165" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">10.10.10.116    remote       active   50:01:00:10:00:00 10.0.1.12                      0/0</text>
+<text x="24" y="183" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#d5e1de" xml:space="preserve">10.10.10.106    local        active   50:01:00:06:00:00                                0/0</text>
+</svg>

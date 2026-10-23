@@ -1,0 +1,14 @@
+### NX-LEAF-02# show ip arp suppression-cache detail
+
+Flags: + - Adjacencies synced via CFSoE
+       L - Local Adjacency
+       R - Remote Adjacency
+       L2 - Learnt over L2 interface
+       PS - Added via L2RIB, Peer Sync
+       RO - Dervied from L2RIB Peer Sync Entry
+
+Ip Address      Age      Mac Address    Vlan Physical-ifindex    Flags    Remote Vtep Addrs
+
+10.10.10.116    00:00:22 5001.0010.0000   10 Ethernet1/3         L
+10.10.10.108    00:01:18 5001.0008.0000   10 (null)              R        10.0.0.5    
+10.10.10.106    00:01:18 5001.0006.0000   10 (null)              R        10.0.0.3
