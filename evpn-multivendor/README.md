@@ -18,8 +18,10 @@ The interconnect is a plain /31 with one eBGP session carrying IPv4 (loopbacks) 
 border leaf pass EVPN routes on with the next hop unchanged, so every leaf builds tunnels straight to every other
 leaf, whichever vendor it is.
 
-**Tenant TENANT1:** L3VNI 50001 (VLAN 3001), symmetric IRB, anycast gateway MAC `00:00:5e:00:01:01`, explicit
-route targets `65000:<VNI>` on both vendors.
+**Tenant TENANT1:** L3VNI 50001, symmetric IRB, anycast gateway MAC `00:00:5e:00:01:01`, explicit route targets
+`65000:<VNI>` on both vendors. VLAN 3001 is the L3VNI's transit VLAN: no ports, only an interface in the VRF. It is
+local to each switch (the tag never reaches the wire, only VNI 50001 does), so only the VNI has to match across
+vendors. NX-OS reserves VLANs 3968-4095 by default, which is why it is not 4001.
 
 | VLAN | VNI | Subnet | Where | Hosts |
 |---|---|---|---|---|
